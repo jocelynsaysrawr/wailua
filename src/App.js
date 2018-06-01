@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppHeader from "./components/header";
 import AppFooter from "./components/footer";
+import NavList from "./components/nav_list";
 import "./App.css";
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <AppHeader />
         </header>
+        <NavList />
         <div className="App-footer">
           <AppFooter />
         </div>
