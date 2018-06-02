@@ -7,6 +7,7 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import "./style/styles.scss";
 
+
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
