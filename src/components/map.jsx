@@ -11,7 +11,7 @@ export default class Map extends Component {
     return (
       <div className="map">
         <Map
-          style="mapbox://styles/mapbox/outdoors-v9"
+          style={"mapbox://styles/mapbox/outdoors-v9"}
           containerStyle={{
             height: "50vh",
             width: "100vw"
