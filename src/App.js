@@ -21,6 +21,10 @@ class App extends Component {
     })
   }
 
+  displaySomeText() {
+    return <div>hi im some text</div>
+  }
+
   render() {
     return (
       <div className="App">
@@ -30,6 +34,7 @@ class App extends Component {
 
         <button onClick={this.toggleHidden.bind(this)} >
           Click to show map
+          {this.displaySomeText}
         </button>
         {!this.state.isHidden && <Map />}
         {this.state.isHidden && <NavList />}
@@ -40,5 +45,11 @@ class App extends Component {
     );
   }
 }
+
+const Child = () => (
+  <div className='modal'>
+    Hello, World!
+  </div>
+)
 
 export default App;

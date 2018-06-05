@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FeatureBtn from "./feature_btn";
 
-class AppFooter extends React.Component {
+class AppFooter extends Component {
   constructor(props) {
     super(props);
     this.state = {
