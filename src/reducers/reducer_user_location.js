@@ -1,3 +1,3 @@
 export default () => {
-  return { lat: "50", lng: "50" };
+  return [-159.36, 22.0];
 };
