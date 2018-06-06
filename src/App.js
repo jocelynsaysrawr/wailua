@@ -3,6 +3,7 @@ import AppHeader from "./components/header";
 import AppFooter from "./components/footer";
 import NavList from "./components/nav_list";
 import "./App.css";
+import AppNavigation from "./components/navigation";
 import Map from "./components/map";
 
 class App extends Component {
@@ -12,9 +13,9 @@ class App extends Component {
         <header className="App-header">
           <AppHeader />
         </header>
-
-        <Map />
+        {/* <AppNavigation /> */}
         {/* <NavList /> */}
+        <Map />
 
         <div className="App-footer">
           <AppFooter />

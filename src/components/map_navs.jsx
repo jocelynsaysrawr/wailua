@@ -11,7 +11,6 @@ class MapNavs extends Component {
   }
   render() {
     return <div>{this.renderList()}</div>;
-    // return "Ohai!";
   }
 }
 
