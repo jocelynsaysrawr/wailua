@@ -4,7 +4,6 @@ import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 export default class Map extends Component {
 
   render() {
-    console.log(process.env.REACT_APP_MAPBOX_ACCESS_TOKEN);
     const Map = ReactMapboxGl({
       accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
       logoPosition: "bottom-left"
