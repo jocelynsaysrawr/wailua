@@ -13,6 +13,8 @@ class App extends Component {
     return (
       <div className="App">
         <HamburgerMenu />
+
+
         <header className="App-header">
           <AppHeader />
         </header>

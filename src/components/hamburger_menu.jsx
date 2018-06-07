@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { slide as Menu } from 'react-burger-menu';
+import { scaleDown as Menu } from 'react-burger-menu';
 
 class HamburgerMenu extends Component {
 
@@ -10,12 +10,12 @@ class HamburgerMenu extends Component {
   render() {
 
     return (
-      <Menu>
-        <a className="menu-item" href="/">Location 1</a>
-        <a className="menu-item" href="/">Location 2</a>
-        <a className="menu-item" href="/">Location 3</a>
-        <a className="menu-item" href="/">Location 4</a>
-        <a className="menu-item" href="/">Location 5</a>
+      <Menu right>
+        <h1>check out</h1>
+        <h2>this motherfuckin</h2>
+        <h3>list!!!!!</h3>
+        <h4>ok...</h4>
+        <h5>you can go home now</h5>
       </Menu>
     )
   }
