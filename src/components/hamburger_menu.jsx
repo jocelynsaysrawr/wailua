@@ -8,13 +8,14 @@ class HamburgerMenu extends Component {
   }
 
   render() {
+
     return (
       <Menu>
-        <a href="/">Location 1</a>
-        <a href="/">Location 2</a>
-        <a href="/">Location 3</a>
-        <a href="/">Location 4</a>
-        <a href="/">Location 5</a>
+        <a className="menu-item" href="/">Location 1</a>
+        <a className="menu-item" href="/">Location 2</a>
+        <a className="menu-item" href="/">Location 3</a>
+        <a className="menu-item" href="/">Location 4</a>
+        <a className="menu-item" href="/">Location 5</a>
       </Menu>
     )
   }
