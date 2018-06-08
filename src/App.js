@@ -12,19 +12,19 @@ class App extends Component {
 
     return (
       <div className="App">
-        <HamburgerMenu />
-
 
         <header className="App-header">
           <AppHeader />
         </header>
-        <Map />
 
+        <HamburgerMenu />
+
+        <Map />
 
         <div className="App-footer">
           <AppFooter />
         </div>
-      </div >
+      </div>
     );
   }
 }

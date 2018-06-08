@@ -11,11 +11,11 @@ class HamburgerMenu extends Component {
 
     return (
       <Menu width={'100%'} right>
-        <h1>check out</h1>
-        <h2>this motherfuckin</h2>
-        <h3>list!!!!!</h3>
-        <h4>ok...</h4>
-        <h5>you can go home now</h5>
+        <ul>
+          <li>check out</li>
+          <li>this list!!</li>
+          <li>poopies</li>
+        </ul>
       </Menu>
     )
   }
