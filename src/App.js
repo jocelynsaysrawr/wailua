@@ -32,13 +32,12 @@ class App extends Component {
           <AppHeader />
         </header>
 
-        <button onClick={this.toggleHidden.bind(this)} >
-          Click to show map
-          {this.displaySomeText}
-        </button>
         {!this.state.isHidden && <Map />}
         {this.state.isHidden && <NavList />}
         <div className="App-footer">
+          <button onClick={this.toggleHidden.bind(this)} >
+            Click to show map
+          </button>
           <AppFooter />
         </div>
       </div >
