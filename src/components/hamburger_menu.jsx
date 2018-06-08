@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { scaleDown as Menu } from 'react-burger-menu';
+import { stack as Menu } from 'react-burger-menu';
 
 class HamburgerMenu extends Component {
 
@@ -10,7 +10,7 @@ class HamburgerMenu extends Component {
   render() {
 
     return (
-      <Menu right>
+      <Menu width={'100%'} right>
         <h1>check out</h1>
         <h2>this motherfuckin</h2>
         <h3>list!!!!!</h3>
