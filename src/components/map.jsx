@@ -20,6 +20,14 @@ export default class Map extends Component {
           center={[-159.5261, 22.0522]}
           zoom={[9.35]}
         >
+          <script>
+            {map.addControl(
+              new mapboxgl.GeolocateControl({
+                positionOptions: { enableHighAccuracy: true },
+                trackUserLocation: true
+              })
+            )}
+          </script>
           <Layer
             type="symbol"
             id="marker"
@@ -28,11 +36,15 @@ export default class Map extends Component {
             {/* {navs.map(() => {
               return <Feature coordinates={nav.coordinate} />;
             })} */}
-            <Feature coordinates={[-159.34, 22.0522]} />
-            <Feature coordinates={[-159.34, 22.03]} />
-            <Feature coordinates={[-159.38, 22.03]} />
-            <Feature coordinates={[-159.4, 22.05]} />
-            <Feature coordinates={[-159.37, 22.05]} />
+
+            {/* GeoFence 1 */}
+            <Feature coordinates={[-159.3378, 22.0388]} />
+            <Feature coordinates={[-159.3385, 22.0356]} />
+            <Feature coordinates={[-159.3373, 22.0321]} />
+            <Feature coordinates={[-159.3362, 22.0339]} />
+            <Feature coordinates={[-159.3338, 22.0419]} />
+            <Feature coordinates={[-159.3362, 22.044]} />
+            <Feature coordinates={[-159.338, 22.0426]} />
           </Layer>
         </Map>
       </div>
