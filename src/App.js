@@ -12,17 +12,13 @@ class App extends Component {
     this.state = {
       isHidden: true
     }
-    this.toggleHidden.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
   }
 
   toggleHidden() {
     this.setState({
       isHidden: !this.state.isHidden
     })
-  }
-
-  displaySomeText() {
-    return <div>hi im some text</div>
   }
 
   render() {
@@ -35,20 +31,14 @@ class App extends Component {
         {!this.state.isHidden && <Map />}
         {this.state.isHidden && <NavList />}
         <div className="App-footer">
-          <button onClick={this.toggleHidden.bind(this)} >
+          <button onClick={this.toggleHidden} >
             Click to show map
           </button>
-          <AppFooter />
+          <AppFooter toggleHidden={this.toggleHidden} />
         </div>
       </div >
     );
   }
 }
-
-const Child = () => (
-  <div className='modal'>
-    Hello, World!
-  </div>
-)
 
 export default App;

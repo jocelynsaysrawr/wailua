@@ -10,8 +10,10 @@ class AppFooter extends Component {
   }
 
   render() {
+    console.log(this.props.toggleHidden);
     return (
       <div>
+        <FeatureBtn onClick={this.props.toggleHidden} name={"Map"} />
         <FeatureBtn name={"Story"} />
         <FeatureBtn name={"Pictures"} />
         <FeatureBtn name={"Game"} />
@@ -21,3 +23,4 @@ class AppFooter extends Component {
 }
 
 export default AppFooter
+
