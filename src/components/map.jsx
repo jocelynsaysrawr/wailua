@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-let Map = class Map extends React.Component {
+class Map extends React.Component {
   map;
 
   static propTypes = {
@@ -13,6 +13,7 @@ let Map = class Map extends React.Component {
     // active: PropTypes.object.isRequired
   };
 
+  //for future use when updates are necessary
   componentDidUpdate() {}
 
   componentDidMount() {
@@ -20,15 +21,21 @@ let Map = class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/outdoors-v9",
-      // containerStyle: {
-      //   height: "50vh",
-      //   width: "100vw"
-      // },
       center: [-159.5261, 22.0522],
       zoom: 9.35
     });
 
     this.map.on("load", () => {
+      //adjusts size of canvas container
+      const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
+      const mapDiv = document.getElementById("map");
+
+      mapCanvas.style.height = "50vh";
+      mapCanvas.style.width = "100vw";
+      mapCanvas.style.position = "relative";
+
+      this.map.resize();
+
       //Tracks user location
       this.map.addControl(
         new mapboxgl.GeolocateControl({
@@ -69,13 +76,13 @@ let Map = class Map extends React.Component {
       });
     });
   }
+  //renders whole component as one div
   render() {
-    return (
-      <div ref={el => (this.mapContainer = el)} className="mapContainer" />
-    );
+    return <div ref={el => (this.mapContainer = el)} />;
   }
-};
+}
 
+//maps state, currently no state to access
 function mapStateToProps(state) {
   return {
     // data: state.data,
@@ -84,7 +91,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Map);
-
-// export default Map = connect(mapStateToProps)(Map);
-
-// export default Map;
