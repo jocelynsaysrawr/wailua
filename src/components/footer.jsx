@@ -6,9 +6,9 @@ export default class AppFooter extends Component {
     return (
       <div>
         <h1>Footer</h1>
-        <FeatureBtn name={"Story"} />
-        <FeatureBtn name={"Pictures"} />
-        <FeatureBtn name={"Game"} />
+        <FeatureBtn link={"/story"} name={"Story"} />
+        <FeatureBtn link={"/photos"} name={"Pictures"} />
+        <FeatureBtn link={"/game"} name={"Game"} />
       </div>
     );
   }

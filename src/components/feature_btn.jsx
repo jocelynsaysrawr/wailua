@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class FeatureBtn extends Component {
   render() {
     return (
       <div>
-        <button>{this.props.name}</button>
+        <Link to={this.props.link}>
+          <button>{this.props.name}</button>
+        </Link>
       </div>
     );
   }
