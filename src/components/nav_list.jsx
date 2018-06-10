@@ -5,15 +5,15 @@ import { bindActionCreators } from "redux";
 
 class NavList extends Component {
   renderList() {
-    return this.props.navs.map((nav, i) => {
-      const latLng = nav.coordinate;
+    return this.props.navs.features.map((nav, i) => {
+      const latLng = nav.geometry.coordinates;
       return (
         <li
           key={nav.name + i}
           onClick={() => this.props.selectNav(nav)}
           className="nav-list-item"
         >
-          {nav.name + "....." + latLng}
+          {nav.properties.description + "....." + latLng}
         </li>
       );
     });
@@ -34,4 +34,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectNav }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavList);

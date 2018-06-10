@@ -10,14 +10,16 @@ class Map extends React.Component {
   map;
 
   static propTypes = {
-    // data: PropTypes.object.isRequired,
-    // active: PropTypes.object.isRequired
+    navs: PropTypes.object.isRequired,
+    geofences: PropTypes.object.isRequired
   };
 
   //for future use when updates are necessary
   componentDidUpdate() {}
 
   componentDidMount() {
+    const navs = this.props.navs;
+
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -35,36 +37,30 @@ class Map extends React.Component {
 
       this.map.resize();
 
-      //Adds GeoJSON polygon for Lydgate
+      //Adds GeoJSON polygons for all "geofences"
+      this.map.addSource("geofences", this.props.geofences);
+
       this.map.addLayer({
-        id: "lydgate",
+        id: "polyfill",
         type: "fill",
-        source: {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            geometry: {
-              type: "Polygon",
-              coordinates: [
-                [
-                  [-159.3378, 22.0388],
-                  [-159.3385, 22.0356],
-                  [-159.3373, 22.0321],
-                  [-159.3362, 22.0339],
-                  [-159.3338, 22.0419],
-                  [-159.3362, 22.044],
-                  [-159.338, 22.0426]
-                ]
-              ]
-            }
-          }
-        },
-        layout: {},
+        source: "geofences",
         paint: {
-          "fill-color": "#088",
-          "fill-opacity": 0.4
-        }
+          "fill-color": "#888888",
+          "fill-opacity": 0.6
+        },
+        filter: ["==", "$type", "Polygon"]
       });
+
+      //Adds markers from the Navs reducer
+      navs.features.forEach(marker => {
+        let el = document.createElement("div");
+        el.className = "marker";
+
+        new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(this.map);
+      });
+
       //Tracks user location
       this.map.addControl(
         new mapboxgl.GeolocateControl({
@@ -83,8 +79,8 @@ class Map extends React.Component {
 //maps state, currently no state to access
 function mapStateToProps(state) {
   return {
-    // data: state.data,
-    // active: state.active
+    navs: state.navs,
+    geofences: state.geofences
   };
 }
 
