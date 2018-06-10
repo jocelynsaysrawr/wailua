@@ -9,7 +9,7 @@ export default () => {
           coordinates: [-159.3363627, 22.038345]
         },
         properties: {
-          description: "Lydgate"
+          title: "Lydgate Park"
         }
       }
     ]

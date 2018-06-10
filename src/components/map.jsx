@@ -51,6 +51,22 @@ class Map extends React.Component {
         filter: ["==", "$type", "Polygon"]
       });
 
+      this.map.addLayer({
+        id: "points",
+        type: "symbol",
+        source: {
+          type: "geojson",
+          data: navs
+        },
+        layout: {
+          "icon-image": "{icon}-15",
+          "text-field": "{title}",
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.85],
+          "text-anchor": "top"
+        }
+      });
+
       //Adds markers from the Navs reducer
       navs.features.forEach(marker => {
         let el = document.createElement("div");
