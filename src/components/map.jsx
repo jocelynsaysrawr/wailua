@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
+import styles from "../style/styles.scss";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -30,19 +31,9 @@ class Map extends React.Component {
       const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
       const mapDiv = document.getElementById("map");
 
-      mapCanvas.style.height = "50vh";
-      mapCanvas.style.width = "100vw";
       mapCanvas.style.position = "relative";
 
       this.map.resize();
-
-      //Tracks user location
-      this.map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: { enableHighAccuracy: true },
-          trackUserLocation: true
-        })
-      );
 
       //Adds GeoJSON polygon for Lydgate
       this.map.addLayer({
@@ -74,11 +65,18 @@ class Map extends React.Component {
           "fill-opacity": 0.4
         }
       });
+      //Tracks user location
+      this.map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: { enableHighAccuracy: true },
+          trackUserLocation: true
+        })
+      );
     });
   }
   //renders whole component as one div
   render() {
-    return <div ref={el => (this.mapContainer = el)} />;
+    return <div ref={el => (this.mapContainer = el)} style={styles} />;
   }
 }
 
