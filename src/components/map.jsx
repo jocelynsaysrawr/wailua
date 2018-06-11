@@ -11,9 +11,13 @@ class Map extends React.Component {
 
   static propTypes = {
     navs: PropTypes.object.isRequired,
-    geofences: PropTypes.object.isRequired
+    geofences: PropTypes.object.isRequired,
+    activeLocation: PropTypes.func.isRequired
   };
 
+  flyAndZoom = e => {
+    this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
+  };
   //for future use when updates are necessary
   componentDidUpdate() {}
 
@@ -39,7 +43,6 @@ class Map extends React.Component {
 
       //Adds GeoJSON polygons for all "geofences"
       this.map.addSource("geofences", this.props.geofences);
-
       this.map.addLayer({
         id: "polyfill",
         type: "fill",
@@ -51,8 +54,9 @@ class Map extends React.Component {
         filter: ["==", "$type", "Polygon"]
       });
 
+      //Adds geopoints with symbols for fly and center effects
       this.map.addLayer({
-        id: "points",
+        id: "symbols",
         type: "symbol",
         source: {
           type: "geojson",
@@ -62,19 +66,24 @@ class Map extends React.Component {
           "icon-image": "{icon}-15",
           "text-field": "{title}",
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          "text-offset": [0, 0.85],
+          "text-offset": [0, 0.6],
           "text-anchor": "top"
         }
       });
 
-      //Adds markers from the Navs reducer
+      //Adds markers from the Navs reducer, mostly aesthetic
       navs.features.forEach(marker => {
-        let el = document.createElement("div");
+        const el = document.createElement("div");
         el.className = "marker";
 
-        new mapboxgl.Marker(el)
-          .setLngLat(marker.geometry.coordinates)
-          .addTo(this.map);
+        const lngLat = marker.geometry.coordinates;
+
+        el.addEventListener(
+          "click",
+          () => (el.style.border = "2px solid white")
+        );
+
+        new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
       });
 
       //Tracks user location
@@ -85,7 +94,23 @@ class Map extends React.Component {
         })
       );
     });
+    // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+
+    this.map.on("click", "symbols", e => {
+      this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
+    });
+
+    // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+    this.map.on("mouseenter", "symbols", () => {
+      this.map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    this.map.on("mouseleave", "symbols", () => {
+      this.map.getCanvas().style.cursor = "";
+    });
   }
+
   //renders whole component as one div
   render() {
     return <div ref={el => (this.mapContainer = el)} style={styles} />;
@@ -96,7 +121,8 @@ class Map extends React.Component {
 function mapStateToProps(state) {
   return {
     navs: state.navs,
-    geofences: state.geofences
+    geofences: state.geofences,
+    activeLocation: state.activeLocation
   };
 }
 
