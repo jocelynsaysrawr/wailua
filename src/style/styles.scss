@@ -4,9 +4,20 @@ body {
   font-family: sans-serif;
 }
 
+.App-header {
+  text-align: center;
+  height: 150px;
+  padding: 20px;
+}
+
+.App-footer {
+  text-align: center;
+}
+
 .mapboxgl-missing-css {
   display: none;
 }
+
 .bm-burger-button {
   position: fixed;
   width: 36px;
