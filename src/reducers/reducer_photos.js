@@ -1,10 +1,9 @@
-import { TEST_ACTION } from '../actions/types';
+import { PHOTO_ACTION } from '../actions/types';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case TEST_ACTION:
-      console.log("TEST_ACTION", action.payload);
-      return action.payload;
+    case PHOTO_ACTION:
+      return action.payload.Item.photo_url.SS;
     default: return state;
   }
 }

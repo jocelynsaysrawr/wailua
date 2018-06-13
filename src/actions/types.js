@@ -1,1 +1,1 @@
-export const TEST_ACTION = 'test_action';
+export const PHOTO_ACTION = 'photo_action';

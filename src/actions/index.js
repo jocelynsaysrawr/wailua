@@ -1,4 +1,4 @@
-import { TEST_ACTION } from './types';
+import { PHOTO_ACTION } from './types';
 import axios from 'axios';
 
 const API_URL = 'https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/Lydgate';
@@ -10,20 +10,18 @@ export function selectNav(nav) {
   };
 }
 
-export function testAction() {
+export function photoAction() {
   return (dispatch) => {
     return axios.get(`${API_URL}`)
       .then(res => {
         dispatch(getPhotosAsync(res.data));
-        console.log("testAction", res.data);
       });
   }
 }
 
 export function getPhotosAsync(photos) {
-  console.log("getPhotosAsync", photos);
   return {
-    type: TEST_ACTION,
+    type: PHOTO_ACTION,
     payload: photos
   }
 }
