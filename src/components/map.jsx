@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
+import { selectNav } from "../actions/index";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -11,8 +13,7 @@ class Map extends React.Component {
 
   static propTypes = {
     navs: PropTypes.object.isRequired,
-    geofences: PropTypes.object.isRequired,
-    activeLocation: PropTypes.func.isRequired
+    geofences: PropTypes.object.isRequired
   };
 
   flyAndZoom = e => {
@@ -35,7 +36,6 @@ class Map extends React.Component {
     this.map.on("load", () => {
       //adjusts size of canvas container
       const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
-      const mapDiv = document.getElementById("map");
 
       mapCanvas.style.position = "relative";
 
@@ -72,15 +72,17 @@ class Map extends React.Component {
       });
 
       //Adds markers from the Navs reducer, mostly aesthetic
-      navs.features.forEach(marker => {
+      navs.features.forEach(nav => {
         const el = document.createElement("div");
         el.className = "marker";
 
-        const lngLat = marker.geometry.coordinates;
+        const lngLat = nav.geometry.coordinates;
 
         el.addEventListener(
           "click",
-          () => (el.style.border = "2px solid white")
+          () => (
+            (el.style.border = "2px solid black"), this.props.selectNav(nav)
+          )
         );
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
@@ -126,4 +128,15 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Map);
+// Anything returned from this function will end up as props
+// on the Map container
+function mapDispatchToProps(dispatch) {
+  // Whenever selectNav is called, the result should be passed
+  // to all of our reducers
+  return bindActionCreators({ selectNav: selectNav }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Map);
