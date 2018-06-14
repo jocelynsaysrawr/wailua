@@ -2,11 +2,11 @@ import { PHOTO_ACTION } from './types';
 import axios from 'axios';
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
-const API_URL = 'Lydgate';
-// const API_URL = 'Wailua-Beach';
-// const API_URL = 'Wailua-River';
-// const API_URL = 'Fern-Grotto';
-// const API_URL = 'Opaekaa';
+// const location = 'Lydgate';
+// const location = 'Wailua-Beach';
+const location = 'Wailua-River';
+// const location = 'Fern-Grotto';
+// const location = 'Opaekaa';
 
 export function selectNav(nav) {
   return {
@@ -17,7 +17,7 @@ export function selectNav(nav) {
 
 export function photoAction() {
   return (dispatch) => {
-    return axios.get(`https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${API_URL}`)
+    return axios.get(`https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${location}`)
       .then(res => {
         dispatch(getPhotosAsync(res.data));
       });

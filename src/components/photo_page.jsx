@@ -6,8 +6,8 @@ class Photos extends Component {
 
   showPics() {
     const photos = this.props.photos;
-    const showPhoto = photos.map((photo) => {
-      return <img src={photo} />;
+    const showPhoto = photos.map((photo, id) => {
+      return <div key={id} className={"pic"}><img key={id} src={photo} alt={"Kauai Pics"} /><div className={"picText"}>Location: Lorem ipsum poopsum buttsum</div></div>;
     })
     return showPhoto;
   }
