@@ -26,7 +26,7 @@ class NavList extends Component {
 function mapStateToProps(state) {
   return {
     navs: state.navs,
-    UserLocation: state.UserLocation
+    userLocation: state.userLocation
   };
 }
 
