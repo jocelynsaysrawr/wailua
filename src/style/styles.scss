@@ -91,3 +91,24 @@ img {
   padding-bottom: 10px;
   color: white;
 }
+.mapboxgl-map {
+  height: 70vh;
+  width: 100vw;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+  display: none;
+}
+
+.marker {
+  background-image: url("../assets/pineapple-icon.png");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
