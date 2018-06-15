@@ -32,6 +32,7 @@ ReactDOM.render(
           <Route path="/photos" component={Photos} />
           <Route path="/" component={App} />
         </Switch>
+
         <div className="App-footer">
           <AppFooter />
         </div>
