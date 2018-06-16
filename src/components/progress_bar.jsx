@@ -6,10 +6,11 @@ export default class ProgressBar extends Component {
   constructor() {
     super();
     this.state = {
-      percent: 0
+      percent: 0,
+      number: 0
     }
     this.increase = this.increase.bind(this);
-    this.restart = this.restart.bind(this);
+    this.increaseProgressNumber = this.increaseProgressNumber.bind(this);
   }
 
   componentDidMount() {
@@ -26,9 +27,10 @@ export default class ProgressBar extends Component {
     this.tm = setTimeout(this.increase, 40);
   }
 
-  restart() {
+  //If user accumulates points set this function off to increase level
+  increaseProgressNumber() {
     clearTimeout(this.tm);
-    this.setState({ percent: 50 }, () => {
+    this.setState({ percent: 0 }, () => {
       this.increase();
     });
   }
@@ -36,9 +38,17 @@ export default class ProgressBar extends Component {
   render() {
     return (
       <div>
-        <div style={{ margin: 1, width: 40 }}>
-          <Circle strokeWidth="4" percent={this.state.percent} gapPosition="left" className="progressCircle" />
-          {/* <button onClick={this.restart}>Restart</button> */}
+        <div className="progressNumber">
+          {++this.state.number}
+        </div>
+        <div style={{ margin: -3, width: 40 }}>
+          <Circle
+            className="progressCircle"
+            strokeWidth="4"
+            percent={this.state.percent}
+            gapPosition="left"
+          />
+          <button onClick={this.increaseProgressNumber}>Level Me Up!</button>
         </div>
       </div>
     );
