@@ -1,5 +1,6 @@
 import { PHOTO_ACTION } from "./types";
 import axios from "axios";
+import { flyAndZoom } from "../components/map";
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
 // const location = 'Lydgate';
@@ -17,7 +18,7 @@ export function selectNav(nav) {
 }
 
 export function selectMarker(marker) {
-  marker.style.border = "3px outset blue";
+  marker.style.border = "3px outset dodgerblue";
   marker.style.height = "40px";
   marker.style.width = "40px";
   return {

@@ -17,10 +17,14 @@ class Map extends React.Component {
   };
 
   flyAndZoom = e => {
-    this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
+    this.map.flyTo({ center: e.geometry.coordinates, zoom: 14 });
   };
 
   componentDidUpdate(prevProps) {
+    //centers and zooms on marker
+    const lngLat = this.props.activeLocation.geometry.coordinates;
+    this.map.flyTo({ center: lngLat, zoom: 14 });
+
     //Changes previously selected marker back to normal CSS
     const PAM = prevProps.activeMarker;
     if (PAM && PAM !== this.props.activeMarker) {
@@ -85,7 +89,12 @@ class Map extends React.Component {
 
         el.addEventListener(
           "click",
-          () => (this.props.selectNav(nav), this.props.selectMarker(el))
+          () => (
+            //sets Nav geoJSON in props
+            this.props.selectNav(nav),
+            //sets marker element pointer in props
+            this.props.selectMarker(el)
+          )
         );
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
@@ -98,11 +107,8 @@ class Map extends React.Component {
           trackUserLocation: true
         })
       );
-    });
-    // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
 
-    this.map.on("click", "symbols", e => {
-      this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
+      this.map.addControl(new mapboxgl.NavigationControl());
     });
 
     // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
