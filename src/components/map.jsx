@@ -19,8 +19,16 @@ class Map extends React.Component {
   flyAndZoom = e => {
     this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
   };
-  //for future use when updates are necessary
-  componentDidUpdate() {}
+
+  componentDidUpdate(prevProps) {
+    //Changes previously selected marker back to normal CSS
+    const PAM = prevProps.activeMarker;
+    if (PAM && PAM !== this.props.activeMarker) {
+      PAM.style.border = "1px outset gray";
+      PAM.style.height = "30px";
+      PAM.style.width = "30px";
+    }
+  }
 
   componentDidMount() {
     const navs = this.props.navs;
@@ -77,11 +85,7 @@ class Map extends React.Component {
 
         el.addEventListener(
           "click",
-          () => (
-            (el.style.border = "2px solid black"),
-            this.props.selectNav(nav),
-            this.props.selectMarker(el)
-          )
+          () => (this.props.selectNav(nav), this.props.selectMarker(el))
         );
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);

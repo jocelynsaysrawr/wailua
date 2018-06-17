@@ -9,11 +9,11 @@ class NavList extends Component {
       const latLng = nav.geometry.coordinates;
       return (
         <li
-          key={nav.name + i}
+          key={nav.properties.title + i}
           onClick={() => this.props.selectNav(nav)}
           className="nav-list-item"
         >
-          {nav.properties.description + "....." + latLng}
+          {nav.properties.title + "....." + latLng}
         </li>
       );
     });
@@ -26,7 +26,9 @@ class NavList extends Component {
 function mapStateToProps(state) {
   return {
     navs: state.navs,
-    userLocation: state.userLocation
+    userLocation: state.userLocation,
+    activeLocation: state.activeLocation,
+    activeMarker: state.activeMarker
   };
 }
 

@@ -9,6 +9,7 @@ const location = "Wailua-River";
 // const location = 'Opaekaa';
 
 export function selectNav(nav) {
+  console.log("Nav: ", nav);
   return {
     type: "NAV_SELECTED",
     payload: nav
@@ -16,6 +17,9 @@ export function selectNav(nav) {
 }
 
 export function selectMarker(marker) {
+  marker.style.border = "3px outset blue";
+  marker.style.height = "40px";
+  marker.style.width = "40px";
   return {
     type: "MARKER_SELECTED",
     payload: marker
