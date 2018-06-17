@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
-import { selectNav } from "../actions/index";
+import { selectNav, selectMarker } from "../actions/index";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -32,15 +32,12 @@ class Map extends React.Component {
       center: [-159.5261, 22.0522],
       zoom: 9.35
     });
+    //adjusts size of canvas container
+    const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
+    mapCanvas.style.position = "relative";
+    this.map.resize();
 
     this.map.on("load", () => {
-      //adjusts size of canvas container
-      const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
-
-      mapCanvas.style.position = "relative";
-
-      this.map.resize();
-
       //Adds GeoJSON polygons for all "geofences"
       this.map.addSource("geofences", this.props.geofences);
       this.map.addLayer({
@@ -71,7 +68,7 @@ class Map extends React.Component {
         }
       });
 
-      //Adds markers from the Navs reducer, mostly aesthetic
+      //Adds markers from the Navs reducer, puts location in state
       navs.features.forEach(nav => {
         const el = document.createElement("div");
         el.className = "marker";
@@ -81,7 +78,9 @@ class Map extends React.Component {
         el.addEventListener(
           "click",
           () => (
-            (el.style.border = "2px solid black"), this.props.selectNav(nav)
+            (el.style.border = "2px solid black"),
+            this.props.selectNav(nav),
+            this.props.selectMarker(el)
           )
         );
 
@@ -124,7 +123,8 @@ function mapStateToProps(state) {
   return {
     navs: state.navs,
     geofences: state.geofences,
-    activeLocation: state.activeLocation
+    activeLocation: state.activeLocation,
+    activeMarker: state.activeMarker
   };
 }
 
@@ -133,7 +133,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   // Whenever selectNav is called, the result should be passed
   // to all of our reducers
-  return bindActionCreators({ selectNav: selectNav }, dispatch);
+  return bindActionCreators(
+    { selectNav: selectNav, selectMarker: selectMarker },
+    dispatch
+  );
 }
 
 export default connect(

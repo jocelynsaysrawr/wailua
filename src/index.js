@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import reducers from "./reducers";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import thunk from "redux-thunk";
+// import {Router, browserHistory } from 'react-router';
+import reducers from "./reducers/index";
 import App from "./App";
 import AppHeader from "./components/header";
+import AppFooter from "./components/footer";
+import Photos from "./components/photo_page";
+import StoryList from "./components/story_list";
+import HamburgerMenu from "./components/hamburger_menu";
 import Login from "./components/login";
 import SignUp from "./components/sign_up";
 import registerServiceWorker from "./registerServiceWorker";
@@ -15,11 +21,15 @@ import Amplify from "aws-amplify";
 
 Amplify.configure(config);
 
-
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleware(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+//the second argument are the redux dev tools!
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router>
       <div>
         <Login />
@@ -27,7 +37,15 @@ ReactDOM.render(
         <header className="App-header">
           <AppHeader />
         </header>
-        <Route path="/" component={App} />
+        <HamburgerMenu />
+        <Switch>
+          <Route path="/story" component={StoryList} />
+          <Route path="/photos" component={Photos} />
+          <Route path="/" component={App} />
+        </Switch>
+        <div className="App-footer">
+          <AppFooter />
+        </div>
       </div>
     </Router>
   </Provider>,

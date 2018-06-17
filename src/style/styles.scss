@@ -4,15 +4,26 @@ body {
   font-family: sans-serif;
 }
 
+.App-header {
+  text-align: center;
+  height: 100px;
+}
+
+.App-footer {
+  text-align: center;
+  height: 100px;
+}
+
 .mapboxgl-missing-css {
   display: none;
 }
+
 .bm-burger-button {
   position: fixed;
   width: 36px;
   height: 30px;
   right: 36px;
-  top: 66px;
+  top: 50px;
 }
 
 /* Color/shape of burger icon bars */
@@ -61,8 +72,27 @@ body {
   background: rgba(0, 0, 0, 0.3);
 }
 
+img {
+  max-width: 20em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.pic {
+  border: 1px solid black;
+  background-color: #373a47;
+}
+
+.picText {
+  padding-left: 40px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
 .mapboxgl-map {
-  height: 50vh;
+  height: 70vh;
   width: 100vw;
 }
 
