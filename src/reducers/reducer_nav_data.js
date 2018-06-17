@@ -10,7 +10,8 @@ export default () => {
         },
         properties: {
           title: "Lydgate Park",
-          icon: "circle-stroked"
+          icon: "circle-stroked",
+          location: "Lydgate"
         }
       },
       {
@@ -21,7 +22,8 @@ export default () => {
         },
         properties: {
           title: "Opaekaa",
-          icon: "circle-stroked"
+          icon: "circle-stroked",
+          location: "Opaekaa"
         }
       },
       {
@@ -32,7 +34,8 @@ export default () => {
         },
         properties: {
           title: "Fern Grotto",
-          icon: "circle-stroked"
+          icon: "circle-stroked",
+          location: "Fern-Grotto"
         }
       },
       {
@@ -43,7 +46,8 @@ export default () => {
         },
         properties: {
           title: "Wailua River",
-          icon: "circle-stroked"
+          icon: "circle-stroked",
+          location: "Wailua-River"
         }
       },
       {
@@ -54,7 +58,8 @@ export default () => {
         },
         properties: {
           title: "Wailua Beach",
-          icon: "circle-stroked"
+          icon: "circle-stroked",
+          location: "Wailua-Beach"
         }
       }
     ]

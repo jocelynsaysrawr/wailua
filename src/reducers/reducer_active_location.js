@@ -1,6 +1,6 @@
 export default function(state = null, action) {
   switch (action.type) {
-    case "NAV_SELECTED":
+    case "LOCATION_SELECTED":
       return action.payload;
   }
 

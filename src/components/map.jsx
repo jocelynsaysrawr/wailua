@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
-import { selectNav, selectMarker } from "../actions/index";
+import { selectNav, selectLocation } from "../actions/index";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -16,22 +16,27 @@ class Map extends React.Component {
     geofences: PropTypes.object.isRequired
   };
 
-  flyAndZoom = e => {
-    this.map.flyTo({ center: e.geometry.coordinates, zoom: 14 });
-  };
-
   componentDidUpdate(prevProps) {
     //centers and zooms on marker
-    const lngLat = this.props.activeLocation.geometry.coordinates;
+    const lngLat = this.props.activeNav.geometry.coordinates;
     this.map.flyTo({ center: lngLat, zoom: 14 });
-
     //Changes previously selected marker back to normal CSS
-    const PAM = prevProps.activeMarker;
-    if (PAM && PAM !== this.props.activeMarker) {
-      PAM.style.border = "1px outset gray";
-      PAM.style.height = "30px";
-      PAM.style.width = "30px";
+    let pLoc;
+    if (prevProps.activeNav) {
+      pLoc = document.getElementById(prevProps.activeNav.properties.location);
     }
+    const aLoc = document.getElementById(
+      this.props.activeNav.properties.location
+    );
+    console.log("Props: ", this.props);
+    if (pLoc && pLoc !== aLoc) {
+      pLoc.style.border = "1px outset gray";
+      pLoc.style.height = "30px";
+      pLoc.style.width = "30px";
+    }
+    aLoc.style.border = "3px outset dodgerblue";
+    aLoc.style.height = "40px";
+    aLoc.style.width = "40px";
   }
 
   componentDidMount() {
@@ -84,8 +89,9 @@ class Map extends React.Component {
       navs.features.forEach(nav => {
         const el = document.createElement("div");
         el.className = "marker";
-
         const lngLat = nav.geometry.coordinates;
+        const location = nav.properties.location;
+        el.id = location;
 
         el.addEventListener(
           "click",
@@ -93,7 +99,7 @@ class Map extends React.Component {
             //sets Nav geoJSON in props
             this.props.selectNav(nav),
             //sets marker element pointer in props
-            this.props.selectMarker(el)
+            this.props.selectLocation(location)
           )
         );
 
@@ -134,7 +140,7 @@ function mapStateToProps(state) {
     navs: state.navs,
     geofences: state.geofences,
     activeLocation: state.activeLocation,
-    activeMarker: state.activeMarker
+    activeNav: state.activeNav
   };
 }
 
@@ -144,7 +150,7 @@ function mapDispatchToProps(dispatch) {
   // Whenever selectNav is called, the result should be passed
   // to all of our reducers
   return bindActionCreators(
-    { selectNav: selectNav, selectMarker: selectMarker },
+    { selectNav: selectNav, selectLocation: selectLocation },
     dispatch
   );
 }
