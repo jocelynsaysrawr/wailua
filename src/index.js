@@ -15,6 +15,7 @@ import Amplify from "aws-amplify";
 
 Amplify.configure(config);
 
+
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
