@@ -14,7 +14,7 @@ export default class ProgressBar extends Component {
   }
 
   componentDidMount() {
-    this.increase();
+    // this.increase();
   }
 
   increase() {
@@ -30,7 +30,7 @@ export default class ProgressBar extends Component {
   //If user accumulates points set this function off to increase level
   increaseProgressNumber() {
     clearTimeout(this.tm);
-    this.setState({ percent: 0 }, () => {
+    this.setState({ percent: 1 }, () => {
       this.increase();
     });
   }
@@ -39,7 +39,7 @@ export default class ProgressBar extends Component {
     return (
       <div>
         <div className="progressNumber">
-          {++this.state.number}
+          {this.state.percent}
         </div>
         <div style={{ margin: -3, width: 40 }}>
           <Circle

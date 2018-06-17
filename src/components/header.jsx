@@ -4,7 +4,7 @@ export default class AppHeader extends Component {
   render() {
     return (
       <div>
-        <h1>Header</h1>
+        <h1>Wailua</h1>
         <div className="progressCircle">
           <ProgressBar />
         </div>
