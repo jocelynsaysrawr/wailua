@@ -5,6 +5,7 @@ import PhotoReducer from "./reducer_photos";
 import GeofencesReducer from "./reducer_geofences";
 import ActiveLocationReducer from "./reducer_active_location";
 import ActiveMarkerReducer from "./reducer_active_marker";
+import AuthenticationReducer from "./reducer_authentication";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   geofences: GeofencesReducer,
   userLocation: UserLocationReducer,
   activeLocation: ActiveLocationReducer,
-  activeMarker: ActiveMarkerReducer
+  activeMarker: ActiveMarkerReducer,
+  authenticated: AuthenticationReducer
 });
 
 export default rootReducer;

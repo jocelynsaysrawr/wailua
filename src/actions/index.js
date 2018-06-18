@@ -1,4 +1,4 @@
-import { PHOTO_ACTION } from "./types";
+import { PHOTO_ACTION, CHANGE_AUTH } from "./types";
 import axios from "axios";
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
@@ -38,5 +38,12 @@ export function getPhotosAsync(photos) {
   return {
     type: PHOTO_ACTION,
     payload: photos
+  };
+}
+
+export function authenticate(isLoggedIn) {
+  return {
+    type: CHANGE_AUTH,
+    payload: isLoggedIn
   };
 }

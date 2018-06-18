@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
+import { connect } from "react-redux";
+import { authenticate } from "../actions/index";
 
 class Login extends Component {
   constructor(props) {
@@ -29,6 +31,9 @@ class Login extends Component {
 
     try {
       await Auth.signIn(this.state.email, this.state.password);
+      console.log("before: ", this.props.authenticated);
+      this.props.authenticate(true);
+      console.log("after: ", this.props.authenticated);
       alert("Logged in");
     } catch (e) {
       alert(e.message);
@@ -92,4 +97,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    authenticated: state.authenticated
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { authenticate }
+)(Login);
