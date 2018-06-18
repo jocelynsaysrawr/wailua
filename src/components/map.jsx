@@ -29,19 +29,20 @@ class Map extends React.Component {
       this.props.activeNav.properties.location
     );
     console.log("Props: ", this.props);
-    if (pLoc && pLoc !== aLoc) {
-      pLoc.style.border = "1px outset gray";
-      pLoc.style.height = "30px";
-      pLoc.style.width = "30px";
+    if (aLoc) {
+      if (pLoc && pLoc !== aLoc) {
+        pLoc.style.border = "1px outset gray";
+        pLoc.style.height = "30px";
+        pLoc.style.width = "30px";
+      }
+      aLoc.style.border = "3px outset dodgerblue";
+      aLoc.style.height = "40px";
+      aLoc.style.width = "40px";
     }
-    aLoc.style.border = "3px outset dodgerblue";
-    aLoc.style.height = "40px";
-    aLoc.style.width = "40px";
   }
 
   componentDidMount() {
     const navs = this.props.navs;
-
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
