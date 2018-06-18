@@ -42,6 +42,10 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
+    //defaults focus to active location
+    this.props.selectNav(this.props.activeNav);
+    this.props.selectLocation(this.props.activeLocation);
+
     const navs = this.props.navs;
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
