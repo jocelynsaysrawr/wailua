@@ -21,23 +21,25 @@ class Map extends React.Component {
     const lngLat = this.props.activeNav.geometry.coordinates;
     this.map.flyTo({ center: lngLat, zoom: 14 });
     //Changes previously selected marker back to normal CSS
-    let pLoc;
+    let prevLoc;
     if (prevProps.activeNav) {
-      pLoc = document.getElementById(prevProps.activeNav.properties.location);
+      prevLoc = document.getElementById(
+        prevProps.activeNav.properties.location
+      );
     }
-    const aLoc = document.getElementById(
+    const actLoc = document.getElementById(
       this.props.activeNav.properties.location
     );
     console.log("Props: ", this.props);
-    if (aLoc) {
-      if (pLoc && pLoc !== aLoc) {
-        pLoc.style.border = "1px outset gray";
-        pLoc.style.height = "30px";
-        pLoc.style.width = "30px";
+    if (actLoc) {
+      if (prevLoc && prevLoc !== actLoc) {
+        prevLoc.style.border = "2px solid white";
+        prevLoc.style.height = "30px";
+        prevLoc.style.width = "30px";
       }
-      aLoc.style.border = "3px outset dodgerblue";
-      aLoc.style.height = "40px";
-      aLoc.style.width = "40px";
+      actLoc.style.border = "4px solid dodgerblue";
+      actLoc.style.height = "40px";
+      actLoc.style.width = "40px";
     }
   }
 
@@ -97,6 +99,7 @@ class Map extends React.Component {
         const lngLat = nav.geometry.coordinates;
         const location = nav.properties.location;
         el.id = location;
+        el.style.backgroundImage = nav.properties.marker;
 
         el.addEventListener(
           "click",

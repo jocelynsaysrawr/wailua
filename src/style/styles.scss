@@ -105,11 +105,30 @@ img {
 }
 
 .marker {
-  background-image: url("../assets/pineapple-icon.png");
   background-size: cover;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px outset gray;
+  border: 2px solid white;
+}
+
+#Lydgate {
+  background-image: url("../assets/lydgate.png");
+}
+
+#Opaekaa {
+  background-image: url("../assets/opaekaa.png");
+}
+
+#Fern-Grotto {
+  background-image: url("../assets/ferngrotto.png");
+}
+
+#Wailua-River {
+  background-image: url("../assets/wailuariver.png");
+}
+
+#Wailua-Beach {
+  background-image: url("../assets/wailuabeach.png");
 }
