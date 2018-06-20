@@ -4,8 +4,8 @@ import axios from 'axios';
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
 // const location = 'Lydgate';
-// const location = 'Wailua-Beach';
-const location = 'Wailua-River';
+const location = 'Wailua-Beach';
+// const location = 'Wailua-River';
 // const location = 'Fern-Grotto';
 // const location = 'Opaekaa';
 
