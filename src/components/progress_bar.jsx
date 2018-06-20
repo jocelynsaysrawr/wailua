@@ -14,7 +14,7 @@ export default class ProgressBar extends Component {
   }
 
   componentDidMount() {
-    // this.increase();
+    this.increase();
   }
 
   increase() {
@@ -33,13 +33,20 @@ export default class ProgressBar extends Component {
     this.setState({ percent: 1 }, () => {
       this.increase();
     });
+
+    setTimeout(() => {
+      console.log("hello motherfucker")
+      this.setState({
+        number: this.state.number + 1
+      })
+    }, 4300)
   }
 
   render() {
     return (
       <div>
         <div className="progressNumber">
-          {this.state.percent}
+          {this.state.number}
         </div>
         <div style={{ margin: -3, width: 40 }}>
           <Circle
