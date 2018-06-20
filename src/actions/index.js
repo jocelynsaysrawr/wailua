@@ -1,4 +1,4 @@
-import { PHOTO_ACTION, CHANGE_AUTH } from "./types";
+import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME } from "./types";
 import axios from "axios";
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
@@ -45,5 +45,12 @@ export function authenticate(isLoggedIn) {
   return {
     type: CHANGE_AUTH,
     payload: isLoggedIn
+  };
+}
+
+export function loadGame(isAuthenticating) {
+  return {
+    type: LOAD_GAME,
+    payload: isAuthenticating
   };
 }

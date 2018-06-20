@@ -6,6 +6,7 @@ import GeofencesReducer from "./reducer_geofences";
 import ActiveLocationReducer from "./reducer_active_location";
 import ActiveMarkerReducer from "./reducer_active_marker";
 import AuthenticationReducer from "./reducer_authentication";
+import LoadGame from "./reducer_load_game";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   userLocation: UserLocationReducer,
   activeLocation: ActiveLocationReducer,
   activeMarker: ActiveMarkerReducer,
-  authenticated: AuthenticationReducer
+  authenticated: AuthenticationReducer,
+  isAuthenticating: LoadGame
 });
 
 export default rootReducer;
