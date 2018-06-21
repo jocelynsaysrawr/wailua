@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadGame, authenticate } from "../actions/index";
 import { Auth } from "aws-amplify";
+import requireAuth from "../components/require_auth";
 
 class Game extends Component {
   async componentDidMount() {
     try {
       if (await Auth.currentSession()) {
-        console.log("Auth: ", Auth.currentSession());
-        console.log("logged in: ", this.props.authenticated);
         this.props.authenticate(true);
-        console.log("logged in after: ", this.props.authenticated);
       }
     } catch (e) {
       if (e !== "No current user") {
@@ -19,8 +17,6 @@ class Game extends Component {
     }
     this.props.loadGame(false);
   }
-
-  
 
   render() {
     return (
@@ -44,4 +40,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { loadGame, authenticate }
-)(Game);
+)(requireAuth(Game));

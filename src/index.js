@@ -25,6 +25,7 @@ Amplify.configure(config);
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(
   reducers,
+
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 //the second argument are the redux dev tools!
@@ -42,7 +43,7 @@ ReactDOM.render(
           <Route path="/game" component={Game} />
           <Route path="/story" component={StoryList} />
           <Route path="/photos" component={Photos} />
-          <Route path="/" component={App} />
+          <Route path="/" exact component={App} />
         </Switch>
         <div className="App-footer">
           <AppFooter />

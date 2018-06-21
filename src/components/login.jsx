@@ -31,10 +31,11 @@ class Login extends Component {
 
     try {
       await Auth.signIn(this.state.email, this.state.password);
+      console.log("Auth Login: ", Auth.signIn);
       console.log("before: ", this.props.authenticated);
       this.props.authenticate(true);
       console.log("after: ", this.props.authenticated);
-      alert("Logged in");
+      this.props.history.push("/game");
     } catch (e) {
       alert(e.message);
     }
