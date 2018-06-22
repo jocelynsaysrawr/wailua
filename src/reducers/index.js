@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
   geofences: GeofencesReducer,
   userLocation: UserLocationReducer,
   activeLocation: ActiveLocationReducer,
+  userLocation: UserLocationReducer,
   activeNav: ActiveNavReducer
 });
 

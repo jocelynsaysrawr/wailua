@@ -1,3 +1,8 @@
-export default () => {
-  return [-159.36, 22.0];
-};
+export default function(state = "null", action) {
+  switch (action.type) {
+    case "USER_FOUND":
+      return action.payload;
+  }
+
+  return state;
+}

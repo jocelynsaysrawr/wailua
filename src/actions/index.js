@@ -1,6 +1,5 @@
 import { PHOTO_ACTION } from "./types";
 import axios from "axios";
-import { flyAndZoom } from "../components/map";
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
 // const location = 'Lydgate';
@@ -23,6 +22,13 @@ export function selectLocation(location) {
   return {
     type: "LOCATION_SELECTED",
     payload: location
+  };
+}
+
+export function findUser(coords) {
+  return {
+    type: "USER_FOUND",
+    payload: coords
   };
 }
 
