@@ -12,13 +12,6 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 class Map extends React.Component {
   map;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      mapDiv: <div ref={el => (this.mapContainer = el)} style={styles} />
-    };
-  }
-
   static propTypes = {
     navs: PropTypes.object.isRequired,
     geofences: PropTypes.object.isRequired
@@ -69,9 +62,6 @@ class Map extends React.Component {
       center: [-159.5261, 22.0522],
       zoom: 9.35
     });
-
-    console.log("mapcon", this.mapContainer);
-
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
@@ -160,7 +150,7 @@ class Map extends React.Component {
 
   //renders whole component as one div
   render() {
-    return this.state.mapDiv;
+    return <div ref={el => (this.mapContainer = el)} style={styles} />;
   }
 }
 
