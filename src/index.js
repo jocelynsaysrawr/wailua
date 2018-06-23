@@ -14,7 +14,7 @@ import StoryList from "./components/story_list";
 import HamburgerMenu from "./components/hamburger_menu";
 import Login from "./components/login";
 import Game from "./components/game";
-// import SignUp from "./components/sign_up";
+import SignUp from "./components/sign_up";
 import registerServiceWorker from "./registerServiceWorker";
 import "./style/styles.scss";
 import config from "./amplify-config";
@@ -39,6 +39,7 @@ ReactDOM.render(
         </header>
         <HamburgerMenu />
         <Switch>
+          <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/game" component={Game} />
           <Route path="/story" component={StoryList} />
