@@ -60,6 +60,6 @@ export function signout() {
   Auth.signOut();
   return {
     type: CHANGE_AUTH,
-    payload: ""
+    payload: false
   };
 }

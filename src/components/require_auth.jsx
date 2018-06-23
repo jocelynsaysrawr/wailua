@@ -14,9 +14,7 @@ export default function(ComposedComponent) {
     }
 
     async shouldNavigateAway() {
-      console.log("authNav: ", this.props.authenticated);
       if ((await !Auth.currentSession()) || !this.props.authenticated) {
-        console.log("history: ", this.props.history);
         this.props.history.push("/login");
       }
     }

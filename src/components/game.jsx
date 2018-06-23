@@ -19,7 +19,6 @@ class Game extends Component {
   }
 
   render() {
-    console.log(Auth.currentSession());
     return (
       !this.props.isAuthenticating && (
         <div>
