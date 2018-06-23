@@ -181,7 +181,7 @@ class SignUp extends Component {
               <hr />
               <div className="text-center">
                 <label>
-                  <a href="#login">Already a member?</a>
+                  <a href="/login">Already a member?</a>
                 </label>
               </div>
             </form>
