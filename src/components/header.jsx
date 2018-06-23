@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-
+import ProgressBar from "./progress_bar";
+import "../style/header.scss";
 export default class AppHeader extends Component {
   render() {
     return (
-      <div>
-        <h1>Header</h1>
+      <div className="header">
+        <h1>Wailua</h1>
+        <div className="progressCircle">
+          <ProgressBar />
+        </div>
       </div>
     );
   }
