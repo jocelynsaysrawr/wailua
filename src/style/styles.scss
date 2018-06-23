@@ -6,7 +6,7 @@ body {
 
 .App-header {
   text-align: center;
-  height: 75px;
+  height: 100px;
 }
 
 .App-footer {
@@ -111,4 +111,8 @@ img {
 .progressNumber {
   padding-top: 20px;
   display: inline-block;
+}
+
+div {
+  border: 1px solid green
 }
