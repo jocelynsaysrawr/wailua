@@ -1,34 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectNav } from "../actions/index";
+import { selectNav, selectLocation } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class NavList extends Component {
-  findDistance(nav) {
-    const userLat = this.props.UserLocation.lat * 1;
-    const userLong = this.props.UserLocation.lng * 1;
-
-    const navLat = nav.lat * 1;
-    const navLng = nav.lng * 1;
-
-    const distance = Math.sqrt(
-      (userLat - navLat) * (userLat - navLat) +
-        (userLong - navLng) * (userLong - navLng)
-    );
-
-    return distance.toFixed(2);
-  }
-
   renderList() {
-    return this.props.navs.map(nav => {
-      const dist = this.findDistance(nav);
+    return this.props.navs.features.map((nav, i) => {
+      const latLng = nav.geometry.coordinates;
+      const location = nav.properties.location;
       return (
         <li
-          key={nav.name}
-          onClick={() => this.props.selectNav(nav)}
+          key={nav.properties.title + i}
+          onClick={() => {
+            this.props.selectNav(nav), selectLocation(location);
+          }}
           className="nav-list-item"
         >
-          {nav.name + "....." + dist + "mi"}
+          {nav.properties.title + "....." + latLng}
         </li>
       );
     });
@@ -41,12 +29,17 @@ class NavList extends Component {
 function mapStateToProps(state) {
   return {
     navs: state.navs,
-    UserLocation: state.UserLocation
+    userLocation: state.userLocation,
+    activeNav: state.activeNav,
+    activeLocation: state.activeLocation
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectNav }, dispatch);
+  return bindActionCreators({ selectNav, selectLocation }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavList);

@@ -1,3 +1,8 @@
-export default () => {
-  return { lat: "50", lng: "50" };
-};
+export default function(state = "null", action) {
+  switch (action.type) {
+    case "USER_FOUND":
+      return action.payload;
+  }
+
+  return state;
+}
