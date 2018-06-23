@@ -14,8 +14,7 @@ import StoryList from "./components/story_list";
 import HamburgerMenu from "./components/hamburger_menu";
 import registerServiceWorker from "./registerServiceWorker";
 import "./style/styles.scss";
-import LoadingPage from "./components/loading_page";
-import LoadingScreen from 'react-loading-screen';
+// import LoadingScreen from 'react-loading-screen';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

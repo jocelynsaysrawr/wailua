@@ -6,7 +6,6 @@ class StoryList extends Component {
 
   showStory() {
     const story = this.props.story;
-    console.log("showStory", story);
     return <div>{story}</div>
   }
 

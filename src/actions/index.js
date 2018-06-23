@@ -36,7 +36,6 @@ export function storyAction() {
   return (dispatch) => {
     return axios.get(`https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/stories/Kauai/${location}`)
       .then(res => {
-        console.log("storyAction", res.data);
         dispatch(getStoryAsync(res.data));
       });
   }
