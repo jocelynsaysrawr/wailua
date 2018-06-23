@@ -1,5 +1,6 @@
 import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME } from "./types";
 import axios from "axios";
+import { Auth } from "aws-amplify";
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
 // const location = 'Lydgate';
@@ -52,5 +53,13 @@ export function loadGame(isAuthenticating) {
   return {
     type: LOAD_GAME,
     payload: isAuthenticating
+  };
+}
+
+export function signout() {
+  Auth.signOut();
+  return {
+    type: CHANGE_AUTH,
+    payload: ""
   };
 }

@@ -19,10 +19,12 @@ class Game extends Component {
   }
 
   render() {
+    console.log(Auth.currentSession());
     return (
       !this.props.isAuthenticating && (
         <div>
           <h1>Game</h1>
+          <p>authenticated: {`${this.props.authenticated}`}</p>
           {this.props.authenticated ? <p>Logged In</p> : <p>Logged Out</p>}
         </div>
       )

@@ -6,7 +6,9 @@ export default class FeatureBtn extends Component {
     return (
       <div>
         <Link to={this.props.link}>
-          <button className="feature-btn">{this.props.name}</button>
+          <button {...this.props} className="feature-btn">
+            {this.props.name}
+          </button>
         </Link>
       </div>
     );
