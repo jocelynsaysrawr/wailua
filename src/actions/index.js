@@ -1,13 +1,6 @@
-import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME } from "./types";
+import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME, STORY_ACTION } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
-
-//Hi Jesse! This will be the place to change the photo url links with the mapbox points
-// const location = 'Lydgate';
-// const location = 'Wailua-Beach';
-// const location = "Wailua-River";
-// const location = 'Fern-Grotto';
-// const location = 'Opaekaa';
 
 let locationName = "Wailua-River";
 
@@ -71,5 +64,24 @@ export function signout() {
   return {
     type: CHANGE_AUTH,
     payload: false
+  };
+}
+
+export function storyAction() {
+  return dispatch => {
+    return axios
+      .get(
+        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/stories/Kauai/${locationName}`
+      )
+      .then(res => {
+        dispatch(getStoryAsync(res.data));
+      });
+  };
+}
+
+export function getStoryAsync(story) {
+  return {
+    type: STORY_ACTION,
+    payload: story
   };
 }
