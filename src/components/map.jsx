@@ -69,6 +69,9 @@ class Map extends React.Component {
       center: [-159.5261, 22.0522],
       zoom: 9.35
     });
+
+    console.log("mapcon", this.mapContainer);
+
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
