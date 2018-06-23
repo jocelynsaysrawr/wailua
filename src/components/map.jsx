@@ -12,12 +12,19 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 class Map extends React.Component {
   map;
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      mapDiv: <div ref={el => (this.mapContainer = el)} style={styles} />
+    };
+  }
+
   static propTypes = {
     navs: PropTypes.object.isRequired,
     geofences: PropTypes.object.isRequired
   };
 
-  componentDidUpdate(prevProps) {
+  componentWillUpdate(prevProps) {
     //centers and zooms on marker
     const lngLat = this.props.activeNav.geometry.coordinates;
     //Changes previously selected marker back to normal CSS
@@ -66,6 +73,18 @@ class Map extends React.Component {
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
     this.map.resize();
+
+    //Tracks user location
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: true,
+      showUserLocation: true
+    });
+    console.log("gl: ", geolocate);
+    geolocate.on("geolocate", e => {
+      this.props.findUser([e.coords.longitude, e.coords.latitude]);
+      console.log("UL: ", this.props.userLocation);
+    });
 
     this.map.on("load", () => {
       //Adds GeoJSON polygons for all "geofences"
@@ -120,18 +139,6 @@ class Map extends React.Component {
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
       });
 
-      //Tracks user location
-      const geolocate = new mapboxgl.GeolocateControl({
-        positionOptions: { enableHighAccuracy: true },
-        trackUserLocation: true,
-        showUserLocation: true
-      });
-
-      geolocate.on("geolocate", e => {
-        this.props.findUser([e.coords.longitude, e.coords.latitude]);
-        console.log("UL: ", this.props.userLocation);
-      });
-
       this.map.addControl(geolocate);
 
       this.map.addControl(new mapboxgl.NavigationControl());
@@ -150,7 +157,7 @@ class Map extends React.Component {
 
   //renders whole component as one div
   render() {
-    return <div ref={el => (this.mapContainer = el)} style={styles} />;
+    return this.state.mapDiv;
   }
 }
 
