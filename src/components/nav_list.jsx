@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectNav } from "../actions/index";
+import { selectNav, selectLocation } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class NavList extends Component {
   renderList() {
     return this.props.navs.features.map((nav, i) => {
       const latLng = nav.geometry.coordinates;
+      const location = nav.properties.location;
       return (
         <li
-          key={nav.name + i}
-          onClick={() => this.props.selectNav(nav)}
+          key={nav.properties.title + i}
+          onClick={() => {
+            this.props.selectNav(nav), selectLocation(location);
+          }}
           className="nav-list-item"
         >
-          {nav.properties.description + "....." + latLng}
+          {nav.properties.title + "....." + latLng}
         </li>
       );
     });
@@ -26,12 +29,14 @@ class NavList extends Component {
 function mapStateToProps(state) {
   return {
     navs: state.navs,
-    userLocation: state.userLocation
+    userLocation: state.userLocation,
+    activeNav: state.activeNav,
+    activeLocation: state.activeLocation
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectNav }, dispatch);
+  return bindActionCreators({ selectNav, selectLocation }, dispatch);
 }
 
 export default connect(

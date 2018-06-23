@@ -5,9 +5,11 @@ import { Auth } from "aws-amplify";
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
 // const location = 'Lydgate';
 // const location = 'Wailua-Beach';
-const location = "Wailua-River";
+// const location = "Wailua-River";
 // const location = 'Fern-Grotto';
 // const location = 'Opaekaa';
+
+let locationName = "Wailua-River";
 
 export function selectNav(nav) {
   return {
@@ -16,10 +18,18 @@ export function selectNav(nav) {
   };
 }
 
-export function selectMarker(marker) {
+export function selectLocation(location) {
+  locationName = location;
   return {
-    type: "MARKER_SELECTED",
-    payload: marker
+    type: "LOCATION_SELECTED",
+    payload: location
+  };
+}
+
+export function findUser(coords) {
+  return {
+    type: "USER_FOUND",
+    payload: coords
   };
 }
 
@@ -27,7 +37,7 @@ export function photoAction() {
   return dispatch => {
     return axios
       .get(
-        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${location}`
+        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${locationName}`
       )
       .then(res => {
         dispatch(getPhotosAsync(res.data));

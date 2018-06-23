@@ -4,7 +4,8 @@ import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
-import { selectNav, selectMarker } from "../actions/index";
+import { selectNav, selectLocation, findUser } from "../actions/index";
+import * as turf from "@turf/turf";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -16,14 +17,43 @@ class Map extends React.Component {
     geofences: PropTypes.object.isRequired
   };
 
-  flyAndZoom = e => {
-    this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
-  };
-  //for future use when updates are necessary
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps) {
+    //centers and zooms on marker
+    const lngLat = this.props.activeNav.geometry.coordinates;
+    //Changes previously selected marker back to normal CSS
+    let prevLoc;
+    if (prevProps.activeNav) {
+      prevLoc = document.getElementById(
+        prevProps.activeNav.properties.location
+      );
+    }
+    const actLoc = document.getElementById(
+      this.props.activeNav.properties.location
+    );
+    // console.log("Props: ", this.props);
+    this.map.flyTo({ center: lngLat, zoom: 14 });
+    if (actLoc) {
+      if (prevLoc && prevLoc !== actLoc) {
+        prevLoc.style.border = "2px solid white";
+        prevLoc.style.height = "30px";
+        prevLoc.style.width = "30px";
+      }
+      actLoc.style.border = "4px solid dodgerblue";
+      actLoc.style.height = "40px";
+      actLoc.style.width = "40px";
+    }
+  }
 
   componentDidMount() {
+    //defaults focus to active location
+    this.props.selectNav(this.props.activeNav);
+    this.props.selectLocation(this.props.activeLocation);
+
     const navs = this.props.navs;
+
+    const from = this.props.navs.features[0].geometry.coordinates;
+    const to = turf.point([-159.348612, 22.048136]);
+    console.log("turf: ", turf.distance(from, to, { units: "miles" }));
 
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
@@ -36,6 +66,18 @@ class Map extends React.Component {
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
     this.map.resize();
+
+    //Tracks user location
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: true,
+      showUserLocation: true
+    });
+    console.log("gl: ", geolocate);
+    geolocate.on("geolocate", e => {
+      this.props.findUser([e.coords.longitude, e.coords.latitude]);
+      console.log("UL: ", this.props.userLocation);
+    });
 
     this.map.on("load", () => {
       //Adds GeoJSON polygons for all "geofences"
@@ -72,33 +114,27 @@ class Map extends React.Component {
       navs.features.forEach(nav => {
         const el = document.createElement("div");
         el.className = "marker";
-
         const lngLat = nav.geometry.coordinates;
+        const location = nav.properties.location;
+        el.id = location;
+        el.style.backgroundImage = nav.properties.marker;
 
         el.addEventListener(
           "click",
           () => (
-            (el.style.border = "2px solid black"),
+            //sets Nav geoJSON in props
             this.props.selectNav(nav),
-            this.props.selectMarker(el)
+            //sets marker element pointer in props
+            this.props.selectLocation(location)
           )
         );
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
       });
 
-      //Tracks user location
-      this.map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: { enableHighAccuracy: true },
-          trackUserLocation: true
-        })
-      );
-    });
-    // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+      this.map.addControl(geolocate);
 
-    this.map.on("click", "symbols", e => {
-      this.map.flyTo({ center: e.features[0].geometry.coordinates, zoom: 14 });
+      this.map.addControl(new mapboxgl.NavigationControl());
     });
 
     // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
@@ -124,7 +160,8 @@ function mapStateToProps(state) {
     navs: state.navs,
     geofences: state.geofences,
     activeLocation: state.activeLocation,
-    activeMarker: state.activeMarker
+    activeNav: state.activeNav,
+    userLocation: state.userLocation
   };
 }
 
@@ -134,7 +171,11 @@ function mapDispatchToProps(dispatch) {
   // Whenever selectNav is called, the result should be passed
   // to all of our reducers
   return bindActionCreators(
-    { selectNav: selectNav, selectMarker: selectMarker },
+    {
+      selectNav: selectNav,
+      selectLocation: selectLocation,
+      findUser: findUser
+    },
     dispatch
   );
 }

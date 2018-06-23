@@ -1,24 +1,19 @@
-import React, { Component } from 'react'
-import { stack as Menu } from 'react-burger-menu';
+import React, { Component } from "react";
+import { stack as Menu } from "react-burger-menu";
+import NavList from "./nav_list";
 
 class HamburgerMenu extends Component {
-
   showSettings(event) {
     event.preventDefault();
   }
 
   render() {
-
     return (
-      <Menu width={'100%'} right>
-        <ul>
-          <li>check out</li>
-          <li>this list!!</li>
-          <li>poopies</li>
-        </ul>
+      <Menu width={"100%"} right>
+        <NavList />
       </Menu>
-    )
+    );
   }
 }
 
-export default HamburgerMenu
+export default HamburgerMenu;
