@@ -17,7 +17,7 @@ class Map extends React.Component {
     geofences: PropTypes.object.isRequired
   };
 
-  componentWillUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     //centers and zooms on marker
     const lngLat = this.props.activeNav.geometry.coordinates;
     //Changes previously selected marker back to normal CSS
