@@ -21,6 +21,7 @@ import config from "./amplify-config";
 import Amplify from "aws-amplify";
 
 Amplify.configure(config);
+// import LoadingScreen from 'react-loading-screen';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(
@@ -46,6 +47,7 @@ ReactDOM.render(
           <Route path="/photos" component={Photos} />
           <Route path="/" exact component={App} />
         </Switch>
+
         <div className="App-footer">
           <AppFooter />
         </div>
