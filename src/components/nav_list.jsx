@@ -17,18 +17,26 @@ class NavList extends Component {
   }
 
   renderList() {
-    return this.props.navs.features.map((nav, i) => {
-      const latLng = nav.geometry.coordinates;
-      const location = nav.properties.location;
+    const distanceArray = this.props.navs.features
+      .map((nav, i) => {
+        return [nav, this.getDistance(nav)];
+      })
+      .sort((a, b) => {
+        return a[1] > b[1] ? 1 : -1;
+      });
+
+    return distanceArray.map((dArr, i) => {
+      const latLng = dArr[0].geometry.coordinates;
+      const location = dArr[0].properties.location;
       return (
         <li
-          key={nav.properties.title + i}
+          key={dArr[0].properties.title + i}
           onClick={() => {
-            this.props.selectNav(nav), selectLocation(location);
+            this.props.selectNav(dArr[0]), selectLocation(location);
           }}
           className="nav-list-item"
         >
-          {nav.properties.title + "....." + this.getDistance(nav)}
+          {dArr[0].properties.title + "....." + dArr[1]}
         </li>
       );
     });
