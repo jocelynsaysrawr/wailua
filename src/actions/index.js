@@ -5,7 +5,8 @@ import {
   STORY_ACTION,
   NAV_SELECTED,
   LOCATION_SELECTED,
-  USER_FOUND
+  USER_FOUND,
+  CENTERZOOM_SELECTED
 } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
@@ -24,6 +25,14 @@ export function selectLocation(location) {
   return {
     type: LOCATION_SELECTED,
     payload: location
+  };
+}
+
+export function setCenterZoom(center, zoom) {
+  const payload = { center, zoom };
+  return {
+    type: CENTERZOOM_SELECTED,
+    payload: payload
   };
 }
 
