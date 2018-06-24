@@ -10,7 +10,6 @@ module.exports = {
   booleanPointInPolygon: require("@turf/boolean-point-in-polygon")
 };
 
-
 /*
 npm install ajv
 npm install mapbox-gl

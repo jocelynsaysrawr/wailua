@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
 import { selectNav, selectLocation, findUser } from "../actions/index";
-import * as turf from "@turf/turf";
+import {
+  distance,
+  nearestPoint,
+  booleanPointInPolygon,
+  point
+} from "@turf/turf";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
@@ -52,8 +57,8 @@ class Map extends React.Component {
     this.props.selectLocation(navs.features[1].properties.location);
 
     const from = this.props.navs.features[0].geometry.coordinates;
-    const to = turf.point([-159.348612, 22.048136]);
-    console.log("turf: ", turf.distance(from, to, { units: "miles" }));
+    const to = point([-159.348612, 22.048136]);
+    console.log("turf: ", distance(from, to, { units: "miles" }));
 
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({

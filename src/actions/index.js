@@ -1,4 +1,12 @@
-import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME, STORY_ACTION } from "./types";
+import {
+  PHOTO_ACTION,
+  CHANGE_AUTH,
+  LOAD_GAME,
+  STORY_ACTION,
+  NAV_SELECTED,
+  LOCATION_SELECTED,
+  USER_FOUND
+} from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
 
@@ -6,7 +14,7 @@ let locationName = "Wailua-River";
 
 export function selectNav(nav) {
   return {
-    type: "NAV_SELECTED",
+    type: NAV_SELECTED,
     payload: nav
   };
 }
@@ -14,14 +22,14 @@ export function selectNav(nav) {
 export function selectLocation(location) {
   locationName = location;
   return {
-    type: "LOCATION_SELECTED",
+    type: LOCATION_SELECTED,
     payload: location
   };
 }
 
 export function findUser(coords) {
   return {
-    type: "USER_FOUND",
+    type: USER_FOUND,
     payload: coords
   };
 }
