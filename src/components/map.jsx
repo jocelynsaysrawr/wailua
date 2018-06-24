@@ -30,14 +30,12 @@ class Map extends React.Component {
     const actLoc = document.getElementById(
       this.props.activeNav.properties.location
     );
-    // console.log("Props: ", this.props);
+
     this.map.flyTo({ center: lngLat, zoom: 14 });
-    if (actLoc) {
-      if (prevLoc && prevLoc !== actLoc) {
-        prevLoc.style.border = "2px solid white";
-        prevLoc.style.height = "30px";
-        prevLoc.style.width = "30px";
-      }
+    if (actLoc && prevLoc && prevLoc !== actLoc) {
+      prevLoc.style.border = "2px solid white";
+      prevLoc.style.height = "30px";
+      prevLoc.style.width = "30px";
       actLoc.style.border = "4px solid dodgerblue";
       actLoc.style.height = "40px";
       actLoc.style.width = "40px";
@@ -46,10 +44,12 @@ class Map extends React.Component {
 
   componentDidMount() {
     //defaults focus to active location
-    this.props.selectNav(this.props.activeNav);
-    this.props.selectLocation(this.props.activeLocation);
+    // this.props.selectNav(this.props.activeNav);
+    // this.props.selectLocation(this.props.activeLocation);
 
     const navs = this.props.navs;
+    this.props.selectNav(navs.features[1]);
+    this.props.selectLocation(navs.features[1].properties.location);
 
     const from = this.props.navs.features[0].geometry.coordinates;
     const to = turf.point([-159.348612, 22.048136]);
@@ -145,6 +145,22 @@ class Map extends React.Component {
     // Change it back to a pointer when it leaves.
     this.map.on("mouseleave", "symbols", () => {
       this.map.getCanvas().style.cursor = "";
+    });
+
+    this.map.on("data", () => {
+      let actLoc = document.getElementById(this.props.activeLocation);
+      if (actLoc) {
+        actLoc.style.border = "4px solid dodgerblue";
+        actLoc.style.height = "40px";
+        actLoc.style.width = "40px";
+      }
+      let geoButton = document.getElementsByClassName(
+        "mapboxgl-ctrl-geolocate"
+      )[0];
+      if (geoButton && geoButton.getAttribute("aria-pressed") === "false") {
+        console.log("geoButton");
+        geoButton.click();
+      }
     });
   }
 
