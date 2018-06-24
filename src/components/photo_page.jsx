@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { photoAction } from '../actions/index';
+import { photoAction, loadingAction } from '../actions/index';
 import { connect } from 'react-redux';
 import LoadingScreen from 'react-loading-screen';
 
@@ -45,7 +45,7 @@ class Photos extends Component {
   }
 
   render() {
-    console.log(this.state.currentQuote);
+    console.log(this.props.loading);
     const { loading } = this.state;
     const number = Math.floor(Math.random() * 8);
     return (
@@ -66,8 +66,9 @@ class Photos extends Component {
 
 function mapStateToProps(state) {
   return {
-    photos: state.photos
+    photos: state.photos,
+    loading: state.loading
   }
 }
 
-export default connect(mapStateToProps, { photoAction })(Photos);
+export default connect(mapStateToProps, { photoAction, loadingAction })(Photos);

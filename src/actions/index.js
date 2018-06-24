@@ -1,5 +1,4 @@
-import { PHOTO_ACTION } from './types';
-import { STORY_ACTION } from './types';
+import { PHOTO_ACTION, STORY_ACTION, LOADING_ACTION } from './types';
 import axios from 'axios';
 
 //Hi Jesse! This will be the place to change the photo url links with the mapbox points
@@ -45,5 +44,12 @@ export function getStoryAsync(story) {
   return {
     type: STORY_ACTION,
     payload: story
+  }
+}
+
+export function loadingAction(loading) {
+  return {
+    type: LOADING_ACTION,
+    payload: loading
   }
 }
