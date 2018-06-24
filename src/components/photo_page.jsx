@@ -6,16 +6,6 @@ import LoadingScreen from 'react-loading-screen';
 class Photos extends Component {
   state = {
     loading: true,
-    arrayQuote: [
-      "sharkpoopadoop",
-      "did u finda da ainaa??",
-      "you win da million dollahs!!!!",
-      "mahalo means trash",
-      "aloha for errrrrone",
-      "graduation is nigh",
-      "science you",
-      "add it to the blockchain!!!!!"
-    ],
     currentQuote: null
   }
 
@@ -27,27 +17,25 @@ class Photos extends Component {
     return showPhoto;
   }
 
-  randomNumber() {
-    const number = Math.floor(Math.random() * 8);
-    return number;
+  randomQuote() {
+    const quote = this.props.loading[Math.floor(Math.random() * this.props.loading.length)]
+    return quote;
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({ loading: false })
-    }, 1500);
-
-    this.setState({
-      currentQuote: this.state.arrayQuote[Math.floor(Math.random() * 8)]
-    })
+    }, 1700);
 
     this.props.photoAction();
+
+    this.setState({
+      currentQuote: this.randomQuote()
+    })
   }
 
   render() {
-    console.log(this.props.loading);
     const { loading } = this.state;
-    const number = Math.floor(Math.random() * 8);
     return (
       <div>
         <LoadingScreen
