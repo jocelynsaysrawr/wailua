@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadGame, authenticate } from "../actions/index";
 import { Auth } from "aws-amplify";
 import requireAuth from "../components/require_auth";
+import Camera from "../components/camera";
 
 class Game extends Component {
   async componentDidMount() {
@@ -18,12 +19,17 @@ class Game extends Component {
     this.props.loadGame(false);
   }
 
+  // <div>
+  //         <input type="file" accept="image/*" id="file-input" />
+  //         <video id="player" controls autoplay />
+  //       </div>
+
   render() {
     return (
       !this.props.isAuthenticating && (
         <div>
           <h1>Game</h1>
-          <p>authenticated: {`${this.props.authenticated}`}</p>
+          <Camera />
           {this.props.authenticated ? <p>Logged In</p> : <p>Logged Out</p>}
         </div>
       )
