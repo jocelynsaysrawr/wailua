@@ -55,6 +55,7 @@
     "react-loading-screen": "0.0.17",
     "react-map-gl": "^3.2.7",
     "react-mapbox-gl": "^3.8.0",
+    "react-rain-animation": "^1.0.4",
     "react-redux": "^5.0.7",
     "react-redux-mapbox-gl": "^1.0.7",
     "react-router-dom": "^4.2.2",

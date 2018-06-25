@@ -213,7 +213,6 @@ class Map extends React.Component {
   }
 }
 
-//maps state, currently no state to access
 function mapStateToProps(state) {
   return {
     navs: state.navs,
@@ -225,11 +224,7 @@ function mapStateToProps(state) {
   };
 }
 
-// Anything returned from this function will end up as props
-// on the Map container
 function mapDispatchToProps(dispatch) {
-  // Whenever selectNav is called, the result should be passed
-  // to all of our reducers
   return bindActionCreators(
     {
       selectNav: selectNav,

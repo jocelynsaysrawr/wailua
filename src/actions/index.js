@@ -6,7 +6,8 @@ import {
   NAV_SELECTED,
   LOCATION_SELECTED,
   USER_FOUND,
-  CENTERZOOM_SELECTED
+  CENTERZOOM_SELECTED,
+  LOADING_ACTION
 } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
@@ -100,5 +101,12 @@ export function getStoryAsync(story) {
   return {
     type: STORY_ACTION,
     payload: story
+  };
+}
+
+export function loadingAction(loading) {
+  return {
+    type: LOADING_ACTION,
+    payload: loading
   };
 }
