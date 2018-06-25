@@ -2,19 +2,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import ArrowLeft from "../assets/arrow-left.png";
+import ArrowRight from "../assets/arrow-right.png";
 import { selectNav, selectLocation } from "../actions/index";
 import "../style/map_quicknav.scss";
 
-
-class MapLeftArrowButton extends React.Component {
+class MapRightArrowButton extends React.Component {
   static propTypes = {
     navs: PropTypes.object.isRequired,
     activeLocation: PropTypes.string.isRequired,
     activeNav: PropTypes.object.isRequired
   };
 
-  cycleNavsLeft() {
+  cycleNavsRight() {
     const sortedNavArray = this.props.navs.features.sort((a, b) => {
       return a.geometry.coordinates[0] > b.geometry.coordinates[0] ? 1 : -1;
     });
@@ -30,15 +29,13 @@ class MapLeftArrowButton extends React.Component {
       }
     });
     console.log("anI: ", activeNavIndex);
-    if (activeNavIndex === 0) {
-      this.props.selectNav(sortedNavArray[sortedNavArray.length - 1]);
-      this.props.selectLocation(
-        sortedNavArray[sortedNavArray.length - 1].properties.location
-      );
+    if (activeNavIndex === sortedNavArray.length - 1) {
+      this.props.selectNav(sortedNavArray[0]);
+      this.props.selectLocation(sortedNavArray[0].properties.location);
     } else {
-      this.props.selectNav(sortedNavArray[activeNavIndex - 1]);
+      this.props.selectNav(sortedNavArray[activeNavIndex + 1]);
       this.props.selectLocation(
-        sortedNavArray[activeNavIndex - 1].properties.location
+        sortedNavArray[activeNavIndex + 1].properties.location
       );
     }
   }
@@ -46,13 +43,13 @@ class MapLeftArrowButton extends React.Component {
   render() {
     return (
       <button
-        id="map-left-arrow"
+        id="map-right-arrow"
         className="map-arrow-btn"
         onClick={() => {
-          this.cycleNavsLeft();
+          this.cycleNavsRight();
         }}
       >
-        <img className="map-arrow-img" src={ArrowLeft} />
+        <img className="map-arrow-img" src={ArrowRight} />
       </button>
     );
   }
@@ -79,4 +76,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MapLeftArrowButton);
+)(MapRightArrowButton);
