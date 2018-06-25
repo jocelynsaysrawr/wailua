@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
+import ArrowLeft from "../assets/arrow-left.png";
 import {
   selectNav,
   selectLocation,
@@ -9,12 +11,20 @@ import {
   setCenterZoom
 } from "../actions/index";
 
-const sortedNavArray = this.props.navs.features.sort((a, b) => {
-  return a.geometry.coordinates[0] > b.geometry.coordinates[0] ? 1 : -1;
-});
-
 const bStyle = {
-  backgroundImage: "url(../assets.arrow-left.png)"
+  // backgroundImage: "url(../assets.arrow-left.png)",
+  height: "6em",
+  width: "6em",
+  display: "block",
+  zIndex: 9001,
+  // float: "left",
+  position: "relative",
+  bottom: "12vh"
+};
+
+const imgStyle = {
+  height: "100%",
+  width: "100%"
 };
 
 class MapLeftArrowButton extends React.Component {
@@ -24,9 +34,13 @@ class MapLeftArrowButton extends React.Component {
     activeNav: PropTypes.object.isRequired
   };
 
-  cycleNavsLeft(sNavArray) {
+  cycleNavsLeft() {
+    const sortedNavArray = this.props.navs.features.sort((a, b) => {
+      return a.geometry.coordinates[0] > b.geometry.coordinates[0] ? 1 : -1;
+    });
+
     let activeNavIndex;
-    sNavArray.forEach((nav, i) => {
+    sortedNavArray.forEach((nav, i) => {
       const myNavCoord = nav.geometry.coordinates;
       if (
         myNavCoord[0] === this.props.activeNav.geometry.coordinates[0] &&
@@ -37,30 +51,30 @@ class MapLeftArrowButton extends React.Component {
     });
     console.log("anI: ", activeNavIndex);
     if (activeNavIndex === 0) {
-      this.props.selectNav(sNavArray[sNavArray.length - 1]);
+      this.props.selectNav(sortedNavArray[sortedNavArray.length - 1]);
       this.props.selectLocation(
-        sNavArray[sNavArray.length - 1].properties.location
+        sortedNavArray[sortedNavArray.length - 1].properties.location
       );
     } else {
-      this.props.selectNav(sNavArray[activeNavIndex - 1]);
+      this.props.selectNav(sortedNavArray[activeNavIndex - 1]);
       this.props.selectLocation(
-        sNavArray[activeNavIndex - 1].properties.location
+        sortedNavArray[activeNavIndex - 1].properties.location
       );
     }
   }
 
   render() {
     return (
-      <div>
-        <button
-          style={bStyle}
-          id="map-left-arrow"
-          className="map-arrow-btn"
-          onClick={() => {
-            this.cycleNavsLeft(sortedNavArray);
-          }}
-        />
-      </div>
+      <button
+        style={bStyle}
+        id="map-left-arrow"
+        className="map-arrow-btn"
+        onClick={() => {
+          this.cycleNavsLeft();
+        }}
+      >
+        <img style={imgStyle} src={ArrowLeft} />
+      </button>
     );
   }
 }
