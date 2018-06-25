@@ -1,7 +1,53 @@
+import React, { Component } from "react";
+
 const sortedNavArray = this.props.navs.features.sort((a, b) => {
     return a.geometry.coordinates[0] > b.geometry.coordinates[0] ? 1 : -1;
   });
-  console.log("sortArr: ", sortedNavArray);
+
+export default class MapLeftArrowButton extends Component {
+
+    static propTypes = {
+        navs: PropTypes.object.isRequired,
+        geofences: PropTypes.object.isRequired,
+        activeLocation: PropTypes.string.isRequired,
+        activeNav: PropTypes.object.isRequired,
+        userLocation: PropTypes.array.isRequired,
+        centerZoom: PropTypes.object.isRequired
+      };
+
+      componentWillMount(){
+
+      };
+      
+  render() {
+    
+    return (
+      <div>
+          <button {...this.props} className="map-arrow-btn">
+            {this.props.name}
+          </button>
+      </div>
+    );
+  }
+};
+
+function mapStateToProps(state) {
+    return {
+      navs: state.navs,
+      geofences: state.geofences,
+      activeLocation: state.activeLocation,
+      activeNav: state.activeNav,
+      userLocation: state.userLocation,
+      centerZoom: state.centerZoom
+    };
+  }
+  
+  export default connect(
+    mapStateToProps
+  )(MapLeftArrowButton);
+
+
+
 
 cycleNavs(direction, sNavArray) {
     let activeNavIndex;
