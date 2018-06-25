@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { photoAction, loadingAction } from '../actions/index';
 import { connect } from 'react-redux';
 import LoadingScreen from 'react-loading-screen';
+import "../style/photo_page.scss";
 
 class Photos extends Component {
   state = {
@@ -11,8 +12,8 @@ class Photos extends Component {
 
   showPics() {
     const photos = this.props.photos;
-    const showPhoto = photos.map((photo, id) => {
-      return <div key={id} className={"pic"}><img key={id} src={photo} alt={"Kauai Pics"} /><div className={"picText"}>Location: Lorem ipsum poopsum buttsum</div></div>;
+    const showPhoto = photos.map((url, id) => {
+      return <div key={id} className={"pic"}><img key={id} src={url} alt={"Kauai Pics"} /><div className={"picText"}>Location: [Lorem ipsum poopsum buttsum] <br /><div>Description: [Lorem ipsum poopsum]</div></div></div>;
     })
     return showPhoto;
   }
@@ -25,7 +26,7 @@ class Photos extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ loading: false })
-    }, 1700);
+    }, 2000);
 
     this.props.photoAction();
 

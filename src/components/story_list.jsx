@@ -23,7 +23,7 @@ class StoryList extends Component {
   componentWillMount() {
     setTimeout(() => {
       this.setState({ loading: false })
-    }, 900);
+    }, 2000);
 
     this.props.storyAction();
 
