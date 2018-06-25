@@ -1,4 +1,10 @@
-import { PHOTO_ACTION, CHANGE_AUTH, LOAD_GAME, STORY_ACTION } from "./types";
+import {
+  PHOTO_ACTION,
+  CHANGE_AUTH,
+  LOAD_GAME,
+  STORY_ACTION,
+  SET_IMAGE
+} from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
 
@@ -83,5 +89,12 @@ export function getStoryAsync(story) {
   return {
     type: STORY_ACTION,
     payload: story
+  };
+}
+
+export function setImage(image) {
+  return {
+    type: SET_IMAGE,
+    payload: image
   };
 }

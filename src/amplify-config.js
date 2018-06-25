@@ -16,5 +16,8 @@ export default {
         region: config.apiGateway.REGION
       }
     ]
+  },
+  Storage: {
+    bucket: ""
   }
 };

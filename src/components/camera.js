@@ -1,45 +1,60 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-export default class Camera extends Component {
-  componentDidMount() {
-    const player = this.refs.player;
-    const canvas = this.refs.canvas;
-    const context = canvas.getContext("2d");
-    const constraints = {
-      video: true,
-      facingMode: "environment"
-    };
-
-    console.log(
-      "navigator: ",
-      navigator.mediaDevices.enumerateDevices().then(data => {
-        console.log(data[2]);
-      })
-    );
-
-    navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then(stream => {
-        console.log("steam", stream);
-        player.srcObject = stream;
-      })
-      .then(
-        navigator.mediaDevices.enumerateDevices().then(data => {
-          console.log("label: ", data[2].label);
+class Camera extends Component {
+  componentWillMount() {
+    const { video, audio } = this.props;
+    if (navigator.mediaDevices) {
+      navigator.mediaDevices
+        .getUserMedia({
+          video,
+          audio
         })
-      );
-
-    context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        .then(mediaStream => {
+          this.setState({ mediaStream });
+          this.video.srcObject = mediaStream;
+          this.video.play();
+        })
+        .catch(error => error);
+    }
   }
-  takePhoto() {}
+
+  capture() {
+    const mediaStreamTrack = this.state.mediaStream.getVideoTracks()[0];
+    const imageCapture = new window.ImageCapture(mediaStreamTrack);
+
+    return imageCapture.takePhoto();
+  }
 
   render() {
+    console.log("props: ", this.props);
     return (
-      <div>
-        <video ref="player" autoPlay />
-        <button>Capture</button>
-        <canvas ref="canvas" width={320} height={240} />
+      <div style={this.props.style}>
+        {this.props.children}
+        <video
+          ref={video => {
+            this.video = video;
+          }}
+        />
       </div>
     );
   }
 }
+
+Camera.propTypes = {
+  audio: PropTypes.bool,
+  video: PropTypes.bool,
+  children: PropTypes.element,
+  style: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
+
+Camera.defaultProps = {
+  audio: false,
+  video: {
+    facingMode: "environment"
+  },
+  style: {},
+  children: null
+};
+
+export default Camera;
