@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 .App-header {
@@ -92,17 +91,6 @@ img {
   color: white;
 }
 
-#myProgress {
-  width: 100%;
-  background-color: grey;
-}
-
-#myBar {
-  width: 10%;
-  height: 15px;
-  background-color: #55AED1;
-}
-
 .progressCircle {
   margin-top: -30px;
   display: inline-block;
@@ -111,8 +99,4 @@ img {
 .progressNumber {
   padding-top: 20px;
   display: inline-block;
-}
-
-div {
-  // border: 1px solid green
 }

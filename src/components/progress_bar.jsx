@@ -55,7 +55,7 @@ export default class ProgressBar extends Component {
             percent={this.state.percent}
             gapPosition="left"
           />
-          <button onClick={this.increaseProgressNumber}>Level Me Up!</button>
+          {/* <button onClick={this.increaseProgressNumber}>Level Me Up!</button> */}
         </div>
       </div>
     );

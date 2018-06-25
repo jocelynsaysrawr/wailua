@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { storyAction, loadingAction } from '../actions/index';
 import { connect } from 'react-redux';
 import LoadingScreen from 'react-loading-screen';
+import "../style/story_list.scss";
 
 class StoryList extends Component {
   state = {
@@ -22,7 +23,7 @@ class StoryList extends Component {
   componentWillMount() {
     setTimeout(() => {
       this.setState({ loading: false })
-    }, 1700);
+    }, 900);
 
     this.props.storyAction();
 
@@ -42,7 +43,10 @@ class StoryList extends Component {
           textColor='#ffffff'
           logoSrc='https://cdn0.iconfinder.com/data/icons/smiley-10/100/Poop-512.png'
           text={this.state.currentQuote}>
-          {this.showStory()}
+          <div className="story">
+            {this.showStory()}
+
+          </div>
         </LoadingScreen>
       </div>
     );
