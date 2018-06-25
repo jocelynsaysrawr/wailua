@@ -26,13 +26,13 @@ class NavList extends Component {
       });
 
     return distanceArray.map((dArr, i) => {
-      const latLng = dArr[0].geometry.coordinates;
       const location = dArr[0].properties.location;
       return (
         <li
           key={dArr[0].properties.title + i}
           onClick={() => {
             this.props.selectNav(dArr[0]), selectLocation(location);
+            document.getElementsByClassName("bm-burger-button")[0].click();
           }}
           className="nav-list-item"
         >

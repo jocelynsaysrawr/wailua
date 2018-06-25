@@ -38,7 +38,11 @@ class Map extends React.Component {
 
   static propTypes = {
     navs: PropTypes.object.isRequired,
-    geofences: PropTypes.object.isRequired
+    geofences: PropTypes.object.isRequired,
+    activeLocation: PropTypes.string.isRequired,
+    activeNav: PropTypes.object.isRequired,
+    userLocation: PropTypes.array.isRequired,
+    centerZoom: PropTypes.object.isRequired
   };
 
   //Sets nearest point as active point on first load
@@ -49,7 +53,6 @@ class Map extends React.Component {
         n.geometry.coordinates[0] === nPoint.geometry.coordinates[0] &&
         n.geometry.coordinates[1] === nPoint.geometry.coordinates[1]
       ) {
-        console.log("n2", n);
         this.props.selectNav(n);
         this.props.selectLocation(n.properties.location);
         gotNearest = true;
@@ -88,10 +91,6 @@ class Map extends React.Component {
   componentDidMount() {
     const navs = this.props.navs;
 
-    const from = this.props.navs.features[0].geometry.coordinates;
-    const to = point([-159.348612, 22.048136]);
-    console.log("turf: ", distance(from, to, { units: "miles" }));
-
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -99,6 +98,7 @@ class Map extends React.Component {
       center: this.props.centerZoom.center,
       zoom: this.props.centerZoom.zoom
     });
+
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
@@ -110,7 +110,6 @@ class Map extends React.Component {
       trackUserLocation: true,
       showUserLocation: true
     });
-    console.log("gl: ", geolocate);
     geolocate.on("geolocate", e => {
       this.props.findUser([e.coords.longitude, e.coords.latitude]);
       console.log("UL: ", this.props.userLocation);
@@ -185,34 +184,23 @@ class Map extends React.Component {
     });
 
     this.map.on("data", () => {
+      //Sets camera Center and Zoom to ReduxState on a 5sec ping timer
       if (!userPing) {
         userPing = true;
         setTimeout(() => {
           this.props.setCenterZoom(this.map.getCenter(), this.map.getZoom());
-          console.log("CZ: ", this.props.centerZoom);
           userPing = false;
         }, 5000);
       }
 
-      let actLoc = document.getElementById(this.props.activeLocation);
-      if (actLoc) {
-        actLoc.style.border = "4px solid dodgerblue";
-        actLoc.style.height = "40px";
-        actLoc.style.width = "40px";
-      }
-      let geoButton = document.getElementsByClassName(
+      //Locates user and sets starting center to userLocation
+      const geoButton = document.getElementsByClassName(
         "mapboxgl-ctrl-geolocate"
       )[0];
       if (geoButton && geoButton.getAttribute("aria-pressed") === "false") {
-        console.log("geoButton");
         geolocate.trigger();
-        if (
-          gotNearest === false &&
-          this.props.userLocation !== [-157.8088501, 18]
-        ) {
+        if (gotNearest === false) {
           // defaults starting activeLocation to nearest nav
-          console.log("getNearest");
-          console.log("userLoc: ", this.props.userLocation);
           this.getNearestPoint();
         }
       }
