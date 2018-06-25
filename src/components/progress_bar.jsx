@@ -1,6 +1,7 @@
 import 'rc-progress/assets/index.css';
 import React, { Component } from "react";
 import { Circle } from 'rc-progress';
+import "../style/progress_bar.scss"
 
 export default class ProgressBar extends Component {
   constructor() {

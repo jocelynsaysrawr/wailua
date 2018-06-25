@@ -43,7 +43,7 @@ class Photos extends Component {
           bgColor='#373A46'
           spinnerColor='#9ee5f8'
           textColor='#ffffff'
-          logoSrc='https://cdn0.iconfinder.com/data/icons/smiley-10/100/Poop-512.png'
+          logoSrc='http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png'
           text={this.state.currentQuote}>
           {this.showPics()}
         </LoadingScreen>
