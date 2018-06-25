@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  height: 100vh;
 }
 
 .feature-btn {
@@ -43,8 +43,8 @@ body {
 /* Position and sizing of clickable cross button */
 
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
 }
 
 /* Color/shape of close button cross */
@@ -100,8 +100,9 @@ img {
   color: white;
 }
 .mapboxgl-map {
-  height: 70vh;
+  height: 60vh;
   width: 100vw;
+  z-index: 1;
 }
 
 .mapboxgl-ctrl-logo {
@@ -139,17 +140,6 @@ img {
 
 #Wailua-Beach {
   background-image: url("../assets/wailuabeach.png");
-}
-
-#myProgress {
-  width: 100%;
-  background-color: grey;
-}
-
-#myBar {
-  width: 10%;
-  height: 15px;
-  background-color: #55aed1;
 }
 
 .progressCircle {

@@ -1,0 +1,19 @@
+/*.button {
+  display: inline-block;
+  margin-left: 2px;
+}*/
+
+.btn {
+  background-color: white;
+  border-radius: 4%;
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  width: 8em;
+}
+
+.btn:focus {
+  background-color: #007AFF;
+}

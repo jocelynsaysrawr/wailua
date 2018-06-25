@@ -5,9 +5,11 @@ export default class AppHeader extends Component {
   render() {
     return (
       <div className="header">
-        <h1>Wailua</h1>
         <div className="progressCircle">
           <ProgressBar />
+        </div>
+        <div className="headerText">
+          <h1>Aina Finda</h1>
         </div>
       </div>
     );

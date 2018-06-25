@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "../style/feature_btn.scss";
 
 export default class FeatureBtn extends Component {
   render() {
     return (
-      <div>
+      <div className="button">
         <Link to={this.props.link}>
-          <button {...this.props} className="feature-btn">
-            {this.props.name}
-          </button>
+          <button className="btn">{this.props.name}</button>
         </Link>
       </div>
     );

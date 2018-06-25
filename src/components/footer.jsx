@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FeatureBtn from "./feature_btn";
 import { connect } from "react-redux";
 import { signout } from "../actions/index";
+import "../style/footer.scss";
 
 class AppFooter extends Component {
   renderButton() {
@@ -13,12 +14,19 @@ class AppFooter extends Component {
   }
   render() {
     return (
-      <div>
-        <FeatureBtn link={"/"} name={"Map"} />
-        <FeatureBtn link={"/story"} name={"Story"} />
-        <FeatureBtn link={"/photos"} name={"Pictures"} />
-        <FeatureBtn link={"/game"} name={"Game"} />
-        {this.renderButton()}
+      <div className="footer">
+        <div className="b">
+          <FeatureBtn link={"/"} name={"Map"} />
+        </div>
+        <div className="b">
+          <FeatureBtn link={"/story"} name={"Story"} />
+        </div>
+        <div className="b">
+          <FeatureBtn link={"/photos"} name={"Pictures"} />
+        </div>
+        <div className="b">
+          <FeatureBtn link={"/game"} name={"Game"} />
+        </div>
       </div>
     );
   }

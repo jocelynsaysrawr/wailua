@@ -4,18 +4,62 @@ import mapboxgl from "mapbox-gl";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import styles from "../style/styles.scss";
-import { selectNav, selectLocation, findUser } from "../actions/index";
-import * as turf from "@turf/turf";
+import {
+  selectNav,
+  selectLocation,
+  findUser,
+  setCenterZoom
+} from "../actions/index";
+import {
+  distance,
+  nearestPoint,
+  booleanPointInPolygon,
+  point,
+  featureCollection
+} from "@turf/turf";
+import { setTimeout } from "timers";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
+let gotNearest = false;
+let userPing = false;
+let canFlyto = false;
+
+const points = featureCollection([
+  point([-159.3363627, 22.038345]),
+  point([-159.359589, 22.047907]),
+  point([-159.359208, 22.039398]),
+  point([-159.348612, 22.048136]),
+  point([-159.335051, 22.048033])
+]);
 
 class Map extends React.Component {
   map;
 
   static propTypes = {
     navs: PropTypes.object.isRequired,
-    geofences: PropTypes.object.isRequired
+    geofences: PropTypes.object.isRequired,
+    activeLocation: PropTypes.string.isRequired,
+    activeNav: PropTypes.object.isRequired,
+    userLocation: PropTypes.array.isRequired,
+    centerZoom: PropTypes.object.isRequired
   };
+
+  //Sets nearest point as active point on first load
+  getNearestPoint() {
+    const nPoint = nearestPoint(this.props.userLocation, points);
+    this.props.navs.features.forEach(n => {
+      if (
+        n.geometry.coordinates[0] === nPoint.geometry.coordinates[0] &&
+        n.geometry.coordinates[1] === nPoint.geometry.coordinates[1]
+      ) {
+        this.props.selectNav(n);
+        this.props.selectLocation(n.properties.location);
+        gotNearest = true;
+        setTimeout(() => (canFlyto = true), 5000);
+      }
+    });
+  }
 
   componentDidUpdate(prevProps) {
     //centers and zooms on marker
@@ -30,38 +74,31 @@ class Map extends React.Component {
     const actLoc = document.getElementById(
       this.props.activeNav.properties.location
     );
-    // console.log("Props: ", this.props);
-    this.map.flyTo({ center: lngLat, zoom: 14 });
-    if (actLoc) {
-      if (prevLoc && prevLoc !== actLoc) {
-        prevLoc.style.border = "2px solid white";
-        prevLoc.style.height = "30px";
-        prevLoc.style.width = "30px";
-      }
+
+    if (actLoc && prevLoc && prevLoc !== actLoc) {
+      prevLoc.style.border = "2px solid white";
+      prevLoc.style.height = "30px";
+      prevLoc.style.width = "30px";
       actLoc.style.border = "4px solid dodgerblue";
       actLoc.style.height = "40px";
       actLoc.style.width = "40px";
+      if (canFlyto) {
+        this.map.flyTo({ center: lngLat, zoom: 14 });
+      }
     }
   }
 
   componentDidMount() {
-    //defaults focus to active location
-    this.props.selectNav(this.props.activeNav);
-    this.props.selectLocation(this.props.activeLocation);
-
     const navs = this.props.navs;
-
-    const from = this.props.navs.features[0].geometry.coordinates;
-    const to = turf.point([-159.348612, 22.048136]);
-    console.log("turf: ", turf.distance(from, to, { units: "miles" }));
 
     //Mounts map and sets initial specs
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/outdoors-v9",
-      center: [-159.5261, 22.0522],
-      zoom: 9.35
+      center: this.props.centerZoom.center,
+      zoom: this.props.centerZoom.zoom
     });
+
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
@@ -73,7 +110,6 @@ class Map extends React.Component {
       trackUserLocation: true,
       showUserLocation: true
     });
-    console.log("gl: ", geolocate);
     geolocate.on("geolocate", e => {
       this.props.findUser([e.coords.longitude, e.coords.latitude]);
       console.log("UL: ", this.props.userLocation);
@@ -146,6 +182,29 @@ class Map extends React.Component {
     this.map.on("mouseleave", "symbols", () => {
       this.map.getCanvas().style.cursor = "";
     });
+
+    this.map.on("data", () => {
+      //Sets camera Center and Zoom to ReduxState on a 5sec ping timer
+      if (!userPing) {
+        userPing = true;
+        setTimeout(() => {
+          this.props.setCenterZoom(this.map.getCenter(), this.map.getZoom());
+          userPing = false;
+        }, 5000);
+      }
+
+      //Locates user and sets starting center to userLocation
+      const geoButton = document.getElementsByClassName(
+        "mapboxgl-ctrl-geolocate"
+      )[0];
+      if (geoButton && geoButton.getAttribute("aria-pressed") === "false") {
+        geolocate.trigger();
+        if (gotNearest === false) {
+          // defaults starting activeLocation to nearest nav
+          this.getNearestPoint();
+        }
+      }
+    });
   }
 
   //renders whole component as one div
@@ -154,27 +213,24 @@ class Map extends React.Component {
   }
 }
 
-//maps state, currently no state to access
 function mapStateToProps(state) {
   return {
     navs: state.navs,
     geofences: state.geofences,
     activeLocation: state.activeLocation,
     activeNav: state.activeNav,
-    userLocation: state.userLocation
+    userLocation: state.userLocation,
+    centerZoom: state.centerZoom
   };
 }
 
-// Anything returned from this function will end up as props
-// on the Map container
 function mapDispatchToProps(dispatch) {
-  // Whenever selectNav is called, the result should be passed
-  // to all of our reducers
   return bindActionCreators(
     {
       selectNav: selectNav,
       selectLocation: selectLocation,
-      findUser: findUser
+      findUser: findUser,
+      setCenterZoom: setCenterZoom
     },
     dispatch
   );

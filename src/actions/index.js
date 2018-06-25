@@ -3,7 +3,12 @@ import {
   CHANGE_AUTH,
   LOAD_GAME,
   STORY_ACTION,
-  SET_IMAGE
+  SET_IMAGE,
+  NAV_SELECTED,
+  LOCATION_SELECTED,
+  USER_FOUND,
+  CENTERZOOM_SELECTED,
+  LOADING_ACTION
 } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
@@ -12,7 +17,7 @@ let locationName = "Wailua-River";
 
 export function selectNav(nav) {
   return {
-    type: "NAV_SELECTED",
+    type: NAV_SELECTED,
     payload: nav
   };
 }
@@ -20,14 +25,22 @@ export function selectNav(nav) {
 export function selectLocation(location) {
   locationName = location;
   return {
-    type: "LOCATION_SELECTED",
+    type: LOCATION_SELECTED,
     payload: location
+  };
+}
+
+export function setCenterZoom(center, zoom) {
+  const payload = { center, zoom };
+  return {
+    type: CENTERZOOM_SELECTED,
+    payload: payload
   };
 }
 
 export function findUser(coords) {
   return {
-    type: "USER_FOUND",
+    type: USER_FOUND,
     payload: coords
   };
 }
@@ -96,5 +109,12 @@ export function setImage(image) {
   return {
     type: SET_IMAGE,
     payload: image
+  };
+}
+
+export function loadingAction(loading) {
+  return {
+    type: LOADING_ACTION,
+    payload: loading
   };
 }

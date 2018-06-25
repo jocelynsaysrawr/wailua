@@ -9,6 +9,8 @@ import AuthenticationReducer from "./reducer_authentication";
 import LoadGame from "./reducer_load_game";
 import StoryReducer from "./reducer_story";
 import SetImage from "./reducer_set_image";
+import CenterZoomReducer from "./reducer_center_zoom";
+import LoadingReducer from "./reducer_loading";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -20,7 +22,9 @@ const rootReducer = combineReducers({
   isAuthenticating: LoadGame,
   activeNav: ActiveNavReducer,
   story: StoryReducer,
-  image: SetImage
+  image: SetImage,
+  centerZoom: CenterZoomReducer,
+  loading: LoadingReducer
 });
 
 export default rootReducer;
