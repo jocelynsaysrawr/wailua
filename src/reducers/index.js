@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   userLocation: UserLocationReducer,
   activeLocation: ActiveLocationReducer,
   authenticated: AuthenticationReducer,
-  isAuthenticating: LoadGame,
+  hasImage: LoadGame,
   activeNav: ActiveNavReducer,
   story: StoryReducer,
   image: SetImage,

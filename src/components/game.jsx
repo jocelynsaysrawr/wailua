@@ -19,10 +19,10 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.takePicture = this.takePicture.bind(this);
+    this.newPhoto = this.newPhoto.bind(this);
 
     this.state = {
-      labels: null,
-      Labels: null
+      labels: null
     };
   }
 
@@ -65,12 +65,35 @@ class Game extends Component {
       };
 
       this.img.src = URL.createObjectURL(blob);
-      this.props.setImage(this.img.src);
+      this.props.setImage(true);
       console.log("current image: ", this.props.image);
       this.img.onload = () => {
         URL.revokeObjectURL(this.src);
       };
     });
+  }
+
+  renderScreen() {
+    if (!this.props.image) {
+      return (
+        <div>
+          <div className="camera">
+            <Camera
+              ref={cam => {
+                this.camera = cam;
+              }}
+            />
+          </div>
+          <button onClick={this.takePicture}>Click</button>
+        </div>
+      );
+    }
+  }
+
+  newPhoto() {
+    this.props.setImage(false);
+    this.img.src = "";
+    this.setState({ labels: null });
   }
 
   async componentDidMount() {
@@ -83,27 +106,21 @@ class Game extends Component {
         alert(e);
       }
     }
-    this.props.loadGame(false);
   }
 
   render() {
+    console.log("render: ", this.props.image);
     return (
-      !this.props.isAuthenticating && (
-        <div>
-          <div className="camera">
-            <Camera
-              ref={cam => {
-                this.camera = cam;
-              }}
-            />
-          </div>
+      <div>
+        {this.renderScreen()}
 
-          <button onClick={this.takePicture}>Click</button>
-          {this.state.labels ? (
-            <p>{this.state.labels.map(obj => obj.Name)}</p>
-          ) : (
-            <p />
-          )}
+        {this.state.labels ? (
+          <p>{this.state.labels.map(obj => obj.Name)}</p>
+        ) : (
+          <p />
+        )}
+
+        <div>
           <div className="photo">
             <img
               alt=""
@@ -112,8 +129,9 @@ class Game extends Component {
               }}
             />
           </div>
+          <button onClick={this.newPhoto}>New Photo</button>
         </div>
-      )
+      </div>
     );
   }
 }
@@ -121,7 +139,7 @@ class Game extends Component {
 const mapStateToProps = state => {
   return {
     authenticated: state.authenticated,
-    isAuthenticating: state.isAuthenticating,
+    hasImage: state.hasImage,
     image: state.image
   };
 };

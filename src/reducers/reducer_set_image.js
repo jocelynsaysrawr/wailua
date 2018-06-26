@@ -1,6 +1,6 @@
 import { SET_IMAGE } from "../actions/types";
 
-const INITIAL_STATE = null;
+const INITIAL_STATE = false;
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {

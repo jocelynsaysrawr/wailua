@@ -1,8 +1,19 @@
 .camera {
   video {
     width: 100%;
-    height: 25vh;
+    height: 60vh;
     padding: 0;
     margin: 0;
   }
+}
+
+button {
+  border: 1px solid white;
+}
+
+img {
+  width: 100vw;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
