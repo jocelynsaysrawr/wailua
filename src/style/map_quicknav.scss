@@ -1,6 +1,12 @@
 $view-height: 15vh;
 
 #map-quicknav {
+  /*
+    display: float;
+  */
+}
+
+#quicknav-wrapper {
   z-index: 9001;
   bottom: 13vh;
   position: relative;
@@ -23,11 +29,14 @@ $view-height: 15vh;
   height: $view-height;
   width: 42vw;
   z-index: inherit;
+  display: float;
   text-align: center;
-  font-size: 2rem;
+  /*
+  font-size: 1.3rem;
+  */
+  font-size: 4vw;
   font-style: bold;
-  font-family: Courier;
-  line-height: 20%;
+  font-family: "Slackey", cursive;
 }
 
 #map-right-arrow {

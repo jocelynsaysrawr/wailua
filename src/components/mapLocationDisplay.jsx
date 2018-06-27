@@ -20,7 +20,7 @@ class MapLocationDisplay extends React.Component {
           //   this.cycleNavsRight();
         }}
       >
-        <h1>{this.props.activeLocation}</h1>
+        <h1>{this.props.activeLocation.toUpperCase()}</h1>
       </button>
     );
   }
