@@ -211,6 +211,7 @@ class Map extends React.Component {
         }
       }
 
+      //Checks to see if user is in a geofence.
       setTimeout(() => {
         if (!isInGeo) {
           this.props.geofences.data.features.forEach(geo => {

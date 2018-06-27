@@ -8,13 +8,15 @@ $view-height: 15vh;
 
 #quicknav-wrapper {
   z-index: 9001;
+  /*
   bottom: 13vh;
+  */
+  top: -13vh;
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3vw;
   grid-auto-rows: minmax(auto, auto);
-  padding-bottom: 0;
 }
 
 #map-left-arrow {
@@ -31,9 +33,6 @@ $view-height: 15vh;
   z-index: inherit;
   display: float;
   text-align: center;
-  /*
-  font-size: 1.3rem;
-  */
   font-size: 4vw;
   font-style: bold;
   font-family: "Slackey", cursive;
@@ -46,8 +45,10 @@ $view-height: 15vh;
 }
 
 .map-arrow-btn {
-  height: $view-height;
+  height: width;
   width: 26vw;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .map-arrow-img {
