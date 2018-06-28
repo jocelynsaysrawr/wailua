@@ -4,7 +4,8 @@ import {
   loadGame,
   authenticate,
   setImage,
-  getTranslation
+  getTranslation,
+  signout
 } from "../actions/index";
 import { Auth } from "aws-amplify";
 import requireAuth from "../components/require_auth";
@@ -102,6 +103,12 @@ class Game extends Component {
     });
   }
 
+  renderButton() {
+    if (this.props.authenticated) {
+      return <button onClick={this.props.signout}>Sign Out</button>;
+    }
+  }
+
   renderScreen() {
     if (!this.props.image) {
       return (
@@ -175,6 +182,7 @@ class Game extends Component {
               }}
             />
           </div>
+          {this.renderButton()}
 
           <button onClick={this.newPhoto}>New Photo</button>
         </div>
@@ -194,5 +202,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { loadGame, authenticate, setImage, getTranslation }
+  { loadGame, authenticate, setImage, getTranslation, signout }
 )(requireAuth(Game));

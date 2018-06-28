@@ -16,6 +16,7 @@ import Login from "./components/login";
 import Game from "./components/game";
 import SignUp from "./components/sign_up";
 import registerServiceWorker from "./registerServiceWorker";
+import "normalize.css";
 import "./style/styles.scss";
 import config from "./amplify-config";
 import Amplify from "aws-amplify";

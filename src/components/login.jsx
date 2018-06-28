@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
 import { authenticate } from "../actions/index";
+import "../style/login.scss";
 
 class Login extends Component {
   constructor(props) {
@@ -40,56 +41,45 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-container-wrapper clearfix">
-        <ul className="switcher clearfix">
-          <li className="first logo active">
-            <a>Login</a>
-          </li>
-        </ul>
-        <div className="tab-content">
-          <div className="tab-pane active" id="login">
-            <form
-              onSubmit={this.handleSubmit}
-              className="form-horizontal login-form"
-            >
-              <label>
-                <div className="form-group relative">
-                  <input
-                    onChange={this.handleChange}
-                    name="email"
-                    value={this.state.email}
-                    type="email"
-                    placeholder="E-mail Address"
-                    required=""
-                    className="form-control input-lg login-username"
-                  />{" "}
-                  <i className="fa fa-lock" />
-                </div>
-                <div className="form-group relative">
-                  <input
-                    onChange={this.handleChange}
-                    name="password"
-                    value={this.state.password}
-                    type="password"
-                    placeholder="Password"
-                    required=""
-                    className="form-control input-lg login-password"
-                  />{" "}
-                  <i className="fa fa-lock" />
-                </div>
-                <div className="form-group">
-                  <button
-                    disabled={!this.validateForm()}
-                    className="btn btn-success btn-lg btn-block"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
-              </label>
-            </form>
-          </div>
-        </div>
+      <div className="wrapper animated bounce">
+        <h1>Login</h1>
+        <hr />
+
+        <form onSubmit={this.handleSubmit}>
+          <label id="icon" htmlFor="email">
+            <i className="fa fa-user"> </i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="email"
+            value={this.state.email}
+            type="email"
+            placeholder="E-mail Address"
+            required=""
+            id="username"
+          />
+
+          <label id="icon" htmlFor="password">
+            <i className="fa fa-key"> </i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="password"
+            value={this.state.password}
+            type="password"
+            placeholder="Password"
+            required=""
+            id="password"
+          />
+
+          <button
+            disabled={!this.validateForm()}
+            className="btn btn-success btn-lg btn-block"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
       </div>
     );
   }
