@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import styles from "../style/styles.scss";
-import ArrowRight from "../assets/arrow-right.png";
 import "../style/map_quicknav.scss";
-import { flyToActiveNav } from "./map";
+// import { flyToActiveNav } from "./map";
 
 class MapLocationDisplay extends React.Component {
   static propTypes = {

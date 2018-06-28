@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MapLeftArrowButton from "./mapLeftArrowButton";
 import MapRightArrowButton from "./mapRightArrowButton";
 import MapLocationDisplay from "./mapLocationDisplay";

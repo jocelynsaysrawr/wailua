@@ -31,7 +31,8 @@ class NavList extends Component {
         <li
           key={dArr[0].properties.title + i}
           onClick={() => {
-            this.props.selectNav(dArr[0]), selectLocation(location);
+            this.props.selectNav(dArr[0]);
+            selectLocation(location);
             document.getElementsByClassName("bm-burger-button")[0].click();
           }}
           className="nav-list-item"

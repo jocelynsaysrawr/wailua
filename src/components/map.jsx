@@ -11,7 +11,6 @@ import {
   setCenterZoom
 } from "../actions/index";
 import {
-  distance,
   nearestPoint,
   booleanPointInPolygon,
   point,
@@ -161,15 +160,12 @@ class Map extends React.Component {
         el.id = location;
         el.style.backgroundImage = nav.properties.marker;
 
-        el.addEventListener(
-          "click",
-          () => (
-            //sets Nav geoJSON in props
-            this.props.selectNav(nav),
-            //sets marker element pointer in props
-            this.props.selectLocation(location)
-          )
-        );
+        el.addEventListener("click", () => {
+          //sets Nav geoJSON in props
+          this.props.selectNav(nav);
+          //sets marker element pointer in props
+          this.props.selectLocation(location);
+        });
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
       });

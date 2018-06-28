@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -49,7 +49,7 @@ class MapRightArrowButton extends React.Component {
           this.cycleNavsRight();
         }}
       >
-        <img className="map-arrow-img" src={ArrowRight} />
+        <img className="map-arrow-img" src={ArrowRight} alt="right-arrow"/>
       </button>
     );
   }
