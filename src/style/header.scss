@@ -5,18 +5,39 @@
   // position: fixed;
   display: grid;
   grid-template-columns: 0.1fr 0.85fr;
-  padding-top: 12px;
+  //padding-top: 12px;
   padding-right: 10px;
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: "Julius Sans One", sans-serif;
   letter-spacing: 8px;
   font-size: 14px;
+
+  height: 60px;
 }
 
 .progressNumber {
-  padding-top: 10em;
+  // padding-top: 10em;
+  height: 25px;
+  z-index: 100;
+  top: 50px;
+  left: 50px;
+  position: absolute;
+}
+
+.progressBar {
+  height: 60px;
 }
 
 .progressCircle {
-  padding-top: 1.5em;
+  // padding-top: 1.5em;
   padding-right: 0.4em;
+  height: 60px;
+  // position: absolute;
+  top: 0;
+  left: 0;
+
+  // display: inline-block;
+}
+
+.headerText {
+  height: 20%;
 }

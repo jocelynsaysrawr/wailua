@@ -8,7 +8,8 @@ import {
   LOCATION_SELECTED,
   USER_FOUND,
   CENTERZOOM_SELECTED,
-  LOADING_ACTION
+  LOADING_ACTION,
+  GET_TRANSLATION
 } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
@@ -116,5 +117,16 @@ export function loadingAction(loading) {
   return {
     type: LOADING_ACTION,
     payload: loading
+  };
+}
+
+export function getTranslation(word) {
+  const request = axios.get(
+    `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/hawaiian-dictionary/${word}`
+  );
+
+  return {
+    type: GET_TRANSLATION,
+    payload: request
   };
 }

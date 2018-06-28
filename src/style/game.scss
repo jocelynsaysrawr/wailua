@@ -1,7 +1,11 @@
+div {
+  // border: 1px solid white;
+}
+
 .camera {
   video {
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     padding: 0;
     margin: 0;
   }
@@ -11,7 +15,7 @@ button {
   border: 1px solid white;
 }
 
-img {
+.photo {
   width: 100vw;
   height: auto;
   padding: 0;

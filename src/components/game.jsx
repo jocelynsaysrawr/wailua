@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadGame, authenticate, setImage } from "../actions/index";
+import {
+  loadGame,
+  authenticate,
+  setImage,
+  getTranslation
+} from "../actions/index";
 import { Auth } from "aws-amplify";
 import requireAuth from "../components/require_auth";
 import Camera from "../components/camera";
@@ -20,9 +25,10 @@ class Game extends Component {
     super(props);
     this.takePicture = this.takePicture.bind(this);
     this.newPhoto = this.newPhoto.bind(this);
+    this.translate = this.newPhoto.bind(this);
 
     this.state = {
-      labels: null
+      labels: []
     };
   }
 
@@ -59,14 +65,37 @@ class Game extends Component {
             console.log(err, err.stack);
           } else {
             console.log(data.Labels);
-            self.setState({ labels: data.Labels });
+            return data.Labels.map(obj => {
+              self.props.getTranslation(obj.Name.toLowerCase()).then(data => {
+                if (data.payload.data.Item) {
+                  console.log(
+                    `${data.payload.data.Item.english.S}: ${
+                      data.payload.data.Item.hawaiian.S
+                    }`
+                  );
+                  const state = self.state.labels;
+                  self.setState({
+                    labels: [
+                      ...state,
+                      {
+                        english: data.payload.data.Item.english.S,
+                        hawaiian: data.payload.data.Item.hawaiian.S
+                      }
+                    ]
+                  });
+                  console.log("state: ", self.state);
+                }
+              });
+
+              //return this.props.getTranslation(obj.Name.toLowerCase());
+            });
           }
         });
       };
 
       this.img.src = URL.createObjectURL(blob);
       this.props.setImage(true);
-      console.log("current image: ", this.props.image);
+      console.log("current image: ", this.img);
       this.img.onload = () => {
         URL.revokeObjectURL(this.src);
       };
@@ -93,7 +122,7 @@ class Game extends Component {
   newPhoto() {
     this.props.setImage(false);
     this.img.src = "";
-    this.setState({ labels: null });
+    this.setState({ labels: [] });
   }
 
   async componentDidMount() {
@@ -108,14 +137,31 @@ class Game extends Component {
     }
   }
 
+  translate() {
+    if (this.state.labels) {
+      this.state.labels.map(obj => {
+        console.log(
+          "translate: ",
+          this.props.getTranslation(obj.Name.toLowerCase())
+        );
+        return this.props.getTranslation(obj.Name.toLowerCase());
+      });
+    }
+  }
+
   render() {
-    console.log("render: ", this.props.image);
     return (
       <div>
         {this.renderScreen()}
 
         {this.state.labels ? (
-          <p>{this.state.labels.map(obj => obj.Name)}</p>
+          <ul>
+            {this.state.labels.map(obj => (
+              <li key={obj.english}>
+                {obj.english}: {obj.hawaiian}
+              </li>
+            ))}
+          </ul>
         ) : (
           <p />
         )}
@@ -129,6 +175,7 @@ class Game extends Component {
               }}
             />
           </div>
+
           <button onClick={this.newPhoto}>New Photo</button>
         </div>
       </div>
@@ -140,11 +187,12 @@ const mapStateToProps = state => {
   return {
     authenticated: state.authenticated,
     hasImage: state.hasImage,
-    image: state.image
+    image: state.image,
+    translation: state.translation
   };
 };
 
 export default connect(
   mapStateToProps,
-  { loadGame, authenticate, setImage }
+  { loadGame, authenticate, setImage, getTranslation }
 )(requireAuth(Game));

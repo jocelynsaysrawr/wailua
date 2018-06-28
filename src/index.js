@@ -19,11 +19,14 @@ import registerServiceWorker from "./registerServiceWorker";
 import "./style/styles.scss";
 import config from "./amplify-config";
 import Amplify from "aws-amplify";
+import ReduxPromise from "redux-promise";
 
 Amplify.configure(config);
 // import LoadingScreen from 'react-loading-screen';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, ReduxPromise)(
+  createStore
+);
 const store = createStoreWithMiddleware(
   reducers,
 

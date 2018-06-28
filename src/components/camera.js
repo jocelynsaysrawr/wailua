@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class Camera extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const { video, audio } = this.props;
     if (navigator.mediaDevices) {
       navigator.mediaDevices
@@ -13,6 +13,13 @@ class Camera extends Component {
         .then(mediaStream => {
           this.setState({ mediaStream });
           this.video.srcObject = mediaStream;
+          // this.video.setAttribute("playsInline", true);
+          // this.video.setAttribute("controls", true);
+          // this.video.setAttribute("autoPlay", true);
+          // setTimeout(() => {
+          //   this.video.removeAttribute("controls");
+          // });
+          // console.log("video ", this.video);
           this.video.play();
         })
         .catch(error => error);
@@ -20,16 +27,27 @@ class Camera extends Component {
   }
 
   capture() {
+    console.log("mediaStream: ", this.state.mediaStream);
     const mediaStreamTrack = this.state.mediaStream.getVideoTracks()[0];
     const imageCapture = new window.ImageCapture(mediaStreamTrack);
 
     return imageCapture.takePhoto();
   }
 
+  componentWillUnmount() {
+    if (this.state && this.state.mediaStream) {
+      let stream = this.state.mediaStream;
+      let tracks = stream.getTracks();
+
+      tracks.forEach(track => track.stop());
+      this.video.srcObject = null;
+    }
+  }
+
   render() {
     console.log("props: ", this.props);
     return (
-      <div style={this.props.style}>
+      <div>
         {this.props.children}
         <video
           ref={video => {
@@ -43,9 +61,8 @@ class Camera extends Component {
 
 Camera.propTypes = {
   audio: PropTypes.bool,
-  video: PropTypes.bool,
-  children: PropTypes.element,
-  style: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  video: PropTypes.object,
+  children: PropTypes.element
 };
 
 Camera.defaultProps = {
@@ -53,7 +70,6 @@ Camera.defaultProps = {
   video: {
     facingMode: "environment"
   },
-  style: {},
   children: null
 };
 

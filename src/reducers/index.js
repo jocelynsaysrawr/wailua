@@ -11,6 +11,7 @@ import StoryReducer from "./reducer_story";
 import SetImage from "./reducer_set_image";
 import CenterZoomReducer from "./reducer_center_zoom";
 import LoadingReducer from "./reducer_loading";
+import Translation from "./reducer_translate";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   story: StoryReducer,
   image: SetImage,
   centerZoom: CenterZoomReducer,
-  loading: LoadingReducer
+  loading: LoadingReducer,
+  translation: Translation
 });
 
 export default rootReducer;

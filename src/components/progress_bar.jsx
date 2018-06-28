@@ -1,7 +1,7 @@
-import 'rc-progress/assets/index.css';
+import "rc-progress/assets/index.css";
 import React, { Component } from "react";
-import { Circle } from 'rc-progress';
-import "../style/progress_bar.scss"
+import { Circle } from "rc-progress";
+import "../style/progress_bar.scss";
 
 export default class ProgressBar extends Component {
   constructor() {
@@ -9,7 +9,7 @@ export default class ProgressBar extends Component {
     this.state = {
       percent: 0,
       number: 0
-    }
+    };
     this.increase = this.increase.bind(this);
     this.increaseProgressNumber = this.increaseProgressNumber.bind(this);
   }
@@ -36,26 +36,25 @@ export default class ProgressBar extends Component {
     });
 
     setTimeout(() => {
-      console.log("hello motherfucker")
+      console.log("hello motherfucker");
       this.setState({
         number: this.state.number + 1
-      })
-    }, 4300)
+      });
+    }, 4300);
   }
 
   render() {
     return (
-      <div>
-        <div className="progressNumber">
-          {this.state.number}
-        </div>
-        <div style={{ margin: -3, width: 40 }}>
+      <div className="progressBar">
+        <div className="progressCircle">
           <Circle
             className="progressCircle"
             strokeWidth="4"
             percent={this.state.percent}
             gapPosition="left"
           />
+          <div className="progressNumber">{this.state.number}</div>
+
           {/* <button onClick={this.increaseProgressNumber}>Level Me Up!</button> */}
         </div>
       </div>

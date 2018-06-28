@@ -80,6 +80,7 @@ body {
   background: rgba(0, 0, 0, 0.3);
 }
 
+/*
 img {
   max-width: 20em;
   display: block;
@@ -87,6 +88,8 @@ img {
   margin-right: auto;
   padding: 20px;
 }
+
+*/
 
 .pic {
   border: 1px solid black;
@@ -140,14 +143,4 @@ img {
 
 #Wailua-Beach {
   background-image: url("../assets/wailuabeach.png");
-}
-
-.progressCircle {
-  margin-top: -30px;
-  display: inline-block;
-}
-
-.progressNumber {
-  padding-top: 20px;
-  display: inline-block;
 }
