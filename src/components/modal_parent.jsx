@@ -29,7 +29,9 @@ class ModalParent extends React.Component {
     return (
       <div className="ModalParent">
         <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-          You have entered {this.props.activeGeo.properties.title}.
+          <h2>You have entered </h2>
+          <b />
+          <h1>{this.props.activeGeo.properties.title}</h1>
         </Modal>
       </div>
     );
