@@ -61,9 +61,9 @@ img {
   color: white;
 }
 .mapboxgl-map {
-  height: 60vh;
+  height: 65vh;
   width: 100vw;
-  z-index: 1;
+  top: 100px;
 }
 
 .mapboxgl-ctrl-logo {

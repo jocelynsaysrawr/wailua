@@ -2,6 +2,7 @@ $view-height: 15vh;
 
 #quicknav-wrapper {
   z-index: 3;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3vw;
@@ -28,6 +29,9 @@ $view-height: 15vh;
       font-size: 4vw;
       font-style: bold;
       font-family: "Slackey", cursive;
+      background-image: none;
+      background-color: none;
+      opacity: 0;
     }
   }
 }
