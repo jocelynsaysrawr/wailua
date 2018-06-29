@@ -8,6 +8,17 @@ $view-height: 15vh;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   bottom: 25px;
+
+  h1 {
+    font-size: 7vw;
+    font-style: 700;
+    font-family: "Ubuntu", sans-serif;
+
+    text-align: center;
+    white-space: nowrap;
+    margin: auto;
+    padding: auto;
+  }
 }
 
 #map-left-arrow {
@@ -22,17 +33,12 @@ $view-height: 15vh;
     .map-location-btn {
       grid-column-start: 2;
       grid-column-end: 3;
-      //height: $view-height;
-      //width: 42vw;
-      //z-index: inherit;
-      //display: float;
-      text-align: center;
-      font-size: 4vw;
-      font-style: bold;
-      font-family: "Slackey", cursive;
+      height: $view-height;
+      z-index: inherit;
       background-image: none;
       background-color: none;
       opacity: 0;
+      width: 50vw;
     }
   }
 }
@@ -47,7 +53,7 @@ $view-height: 15vh;
 
 .map-arrow-btn {
   height: $view-height;
-  width: 26vw;
+  width: 22vw;
 }
 
 .map-arrow-img {

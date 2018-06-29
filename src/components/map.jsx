@@ -124,6 +124,7 @@ class Map extends React.Component {
     });
 
     this.map.on("load", () => {
+      this.map.resize();
       //Adds GeoJSON polygons for all "geofences"
       this.map.addSource("geofences", this.props.geofences);
       this.map.addLayer({
