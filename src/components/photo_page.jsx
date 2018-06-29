@@ -17,8 +17,8 @@ class Photos extends Component {
         <div key={id} className={"pic"}>
           <img key={id} src={url} alt={"Kauai Pics"} />
           <div className={"picText"}>
-            Location: [Lorem ipsum poopsum buttsum] <br />
-            <div>Description: [Lorem ipsum poopsum]</div>
+            <p className="photo-p">Location: Wailua, Kauai </p>
+            <p className="photo-p">Description: Taken on Kauai - 1915</p>
           </div>
         </div>
       );
@@ -48,7 +48,7 @@ class Photos extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div className="photo-container">
         <LoadingScreen
           loading={loading}
           bgColor="#373A46"
@@ -56,9 +56,8 @@ class Photos extends Component {
           textColor="#ffffff"
           logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
           text={this.state.currentQuote}
-        >
-          {this.showPics()}
-        </LoadingScreen>
+        />
+        {this.showPics()}
       </div>
     );
   }

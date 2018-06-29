@@ -4,8 +4,7 @@ $view-height: 15vh;
   z-index: 3;
   position: relative;
   display: grid;
-  grid-gap: 3vw;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   bottom: 25px;
 
@@ -22,29 +21,25 @@ $view-height: 15vh;
 }
 
 #map-left-arrow {
-  grid-column: 1 / 2;
+  grid-column: 1 / 4;
   grid-row: 1;
   z-index: inherit;
   padding-left: 5px;
 }
 
 #map-location-display {
-  button {
-    .map-location-btn {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      height: $view-height;
-      z-index: inherit;
-      background-image: none;
-      background-color: none;
-      opacity: 0;
-      width: 50vw;
-    }
-  }
+  grid-column: 4 / 10;
+  grid-row: 1;
+  align-self: center;
+  height: $view-height;
+  z-index: inherit;
+  background-image: none;
+  background-color: none;
+  width: auto;
 }
 
 #map-right-arrow {
-  grid-column-end: 4;
+  grid-column: 11 / 13;
   grid-row: 1;
   z-index: inherit;
   text-align: right;
@@ -53,7 +48,7 @@ $view-height: 15vh;
 
 .map-arrow-btn {
   height: $view-height;
-  width: 22vw;
+  width: 18vw;
 }
 
 .map-arrow-img {
