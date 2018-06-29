@@ -20,6 +20,13 @@
     white-space: nowrap;
   }
 }
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
 
 .header {
   grid-column-start: 2;

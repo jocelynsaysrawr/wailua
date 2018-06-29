@@ -16,9 +16,6 @@ class AppFooter extends Component {
     return (
       <div className="footer">
         <div className="b">
-          <FeatureBtn link={"/"} name={"Map"} />
-        </div>
-        <div className="b">
           <FeatureBtn link={"/story"} name={"Story"} />
         </div>
         <div className="b">
