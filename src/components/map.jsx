@@ -69,6 +69,8 @@ class Map extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    //fits map to container
+    this.map.resize();
     //centers and zooms on marker
     const lngLat = this.props.activeNav.geometry.coordinates;
     //Changes previously selected marker back to normal CSS
@@ -109,7 +111,6 @@ class Map extends React.Component {
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
-    this.map.resize();
 
     //Tracks user location
     const geolocate = new mapboxgl.GeolocateControl({
