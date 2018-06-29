@@ -3,16 +3,17 @@
   margin-left: 2px;
 }*/
 
-.btn {
-  background-color: white;
-  border-radius: 4%;
-  border: none;
-  color: black;
+.btn-nav {
+  //border: 1px solid red;
+  text-decoration: none;
+  color: white;
   text-align: center;
-  font-size: 11px;
-  width: 8em;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  align-self: center;
 }
 
-.btn:focus {
-  background-color: #007aff;
+.btn-nav:focus {
+  font-weight: bold;
 }

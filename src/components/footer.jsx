@@ -15,14 +15,15 @@ class AppFooter extends Component {
   render() {
     return (
       <div className="footer">
-        <div className="b">
-          <FeatureBtn link={"/story"} name={"Story"} />
+        <div id="nav-a" className="b">
+          <FeatureBtn link={"/photos"} name={"Look"} />
         </div>
-        <div className="b">
-          <FeatureBtn link={"/photos"} name={"Pictures"} />
+        <div id="nav-b" className="b">
+          <FeatureBtn link={"/story"} name={"Read"} />
         </div>
-        <div className="b">
-          <FeatureBtn link={"/game"} name={"Game"} />
+
+        <div id="nav-c" className="b">
+          <FeatureBtn link={"/game"} name={"Play"} />
         </div>
       </div>
     );
