@@ -20,13 +20,6 @@ input {
   color: #4c4c4c;
 }
 body {
-  background-color: #292931;
-  background: url(https://images.unsplash.com/photo-1528719717685-10294d256cac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9ad4b2317bfae36f233612cfece6c40d&auto=format&fit=crop&w=1498&q=80)
-    no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 form {
   margin: 10px 35px;
@@ -95,6 +88,14 @@ button[type="submit"]:hover {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+
+  background-color: #292931;
+  background: url(https://images.unsplash.com/photo-1528719717685-10294d256cac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9ad4b2317bfae36f233612cfece6c40d&auto=format&fit=crop&w=1498&q=80)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .wrapper h1 {
   font-family: "Slackey", cursive;

@@ -38,7 +38,7 @@ const store = createStoreWithMiddleware(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div>
+      <div className="main-container">
         <AppHeader />
 
         <Switch>

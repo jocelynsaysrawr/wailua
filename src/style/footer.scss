@@ -10,10 +10,10 @@
 }
 
 .App-footer {
+  position: fixed;
   background-color: #222;
-  height: auto;
+  height: 100px;
   color: white;
-  position: relative;
   bottom: 0;
   width: 100%;
 }
