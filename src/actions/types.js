@@ -7,3 +7,5 @@ export const LOCATION_SELECTED = "location_selected";
 export const USER_FOUND = "user_found";
 export const CENTERZOOM_SELECTED = "centerzoom_selected";
 export const LOADING_ACTION = "loading_action";
+export const MODAL_STATE = "modal_state";
+export const GEO_SELECTED = "geo_selected";

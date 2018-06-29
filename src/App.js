@@ -5,6 +5,7 @@ import MapQuickNav from "./components/mapQuickNav";
 import { loadingAction } from "./actions/index";
 import { connect } from "react-redux";
 import LoadingScreen from "react-loading-screen";
+import ModalParent from "./components/modal_parent";
 
 class App extends Component {
   state = {
@@ -42,6 +43,7 @@ class App extends Component {
         >
           <Map />
           <MapQuickNav />
+          <ModalParent />
         </LoadingScreen>
       </div>
     );

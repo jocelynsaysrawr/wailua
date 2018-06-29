@@ -10,6 +10,8 @@ import LoadGame from "./reducer_load_game";
 import StoryReducer from "./reducer_story";
 import CenterZoomReducer from "./reducer_center_zoom";
 import LoadingReducer from "./reducer_loading";
+import ModalReducer from "./reducer_fire_modal";
+import ActiveGeoReducer from "./reducer_active_geo";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -22,7 +24,9 @@ const rootReducer = combineReducers({
   isAuthenticating: LoadGame,
   story: StoryReducer,
   centerZoom: CenterZoomReducer,
-  loading: LoadingReducer
+  loading: LoadingReducer,
+  modalOn: ModalReducer,
+  activeGeo: ActiveGeoReducer
 });
 
 export default rootReducer;
