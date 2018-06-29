@@ -6,17 +6,16 @@
   word-spacing: 3px;
   letter-spacing: 1px;
   line-height: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
-  padding-top: 55px;
+  margin-top: 100px;
   padding-right: 40px;
   padding-left: 40px;
-  padding-bottom: 100%;
-  background-color: #1F1F1F;
-  background: url("http://www.pictorem.com/collection/900_12305816HighRes.jpg") no-repeat center center fixed;
+  // padding-bottom: 100%;
+  background-color: #1f1f1f;
+  background: url("http://www.pictorem.com/collection/900_12305816HighRes.jpg")
+    no-repeat center center fixed;
   background-size: contain;
   opacity: 0.88;
-  overflow-y: hidden;
-  overflow-x: hidden;
   text-indent: 50px;
 }

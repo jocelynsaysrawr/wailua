@@ -11,7 +11,7 @@ import AppHeader from "./components/header";
 import AppFooter from "./components/footer";
 import Photos from "./components/photo_page";
 import StoryList from "./components/story_list";
-import HamburgerMenu from "./components/hamburger_menu";
+
 import Login from "./components/login";
 import Game from "./components/game";
 import SignUp from "./components/sign_up";
@@ -39,10 +39,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <header className="App-header">
-          <AppHeader />
-        </header>
-        <HamburgerMenu />
+        <AppHeader />
+
         <Switch>
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />

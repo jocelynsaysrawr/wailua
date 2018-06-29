@@ -118,7 +118,7 @@ class Game extends Component {
               }}
             />
           </div>
-          <button onClick={this.takePicture}>Click</button>
+          <button onClick={this.takePicture}>Take Photo</button>
         </div>
       );
     }
@@ -160,7 +160,7 @@ class Game extends Component {
         {this.renderScreen()}
 
         {this.state.labels ? (
-          <ul>
+          <ul className="translate">
             {this.state.labels.map(obj => (
               <li key={obj.english}>
                 {obj.english}: {obj.hawaiian}

@@ -1,43 +1,114 @@
-.header {
-  // overflow: hidden;
-  // overflow-y: hidden;
-  // overflow-x: hidden;
-  // position: fixed;
+.App-header {
+  background-color: #222;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  color: white;
   display: grid;
-  grid-template-columns: 0.1fr 0.85fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   //padding-top: 12px;
-  padding-right: 10px;
   font-family: "Julius Sans One", sans-serif;
   letter-spacing: 8px;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    white-space: nowrap;
+  }
+}
+
+.header {
+  grid-column-start: 2;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  font-size: 100%;
+}
+
+.hamburger {
+  grid-column: 11 / 13;
+  grid-row: 3 / 4;
+}
+
+.bm-burger-button {
+  position: fixed;
+  margin-top: -3px;
+  width: 30px;
+  height: 28px;
+  // right: 36px;
+  // top: 50px;
+}
+
+/* Color/shape of burger icon bars */
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+
+.bm-cross-button {
+  height: 20px;
+  width: 20px;
+}
+
+/* Color/shape of close button cross */
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+
+.bm-menu {
+  background: #000;
+  margin-top: 52px;
+  padding-top: 20px;
+  height: 100%;
+}
+
+/* Wrapper for item list */
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+
+.bm-item {
+  display: inline-block;
+}
+
+.bm-overlay {
+  background-color: transparent;
+}
+
+.nav-list-item {
+  font-family: "Raleway", sans-serif;
+  line-height: 4;
+  border-bottom: 1px solid #b8b7ad;
+
+  p {
+    margin-top: -25px;
+  }
+}
+
+.hamburger-location {
+  text-align: left;
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.hamburger-dist {
+  text-align: right;
+  margin-right: 20px;
+  font-weight: 500i;
   font-size: 14px;
-
-  height: 60px;
-}
-
-.progressNumber {
-  // padding-top: 10em;
-  height: 25px;
-  z-index: 100;
-  top: 50px;
-  left: 50px;
-  position: absolute;
-}
-
-.progressBar {
-  height: 60px;
-}
-
-.progressCircle {
-  // padding-top: 1.5em;
-  padding-right: 0.4em;
-  height: 60px;
-  // position: absolute;
-  top: 0;
-  left: 0;
-
-  // display: inline-block;
-}
-
-.headerText {
-  height: 20%;
 }

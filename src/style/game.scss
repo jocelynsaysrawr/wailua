@@ -1,11 +1,7 @@
-div {
-  // border: 1px solid white;
-}
-
 .camera {
   video {
     width: 100%;
-    height: 80vh;
+    height: auto;
     padding: 0;
     margin: 0;
   }
@@ -13,6 +9,8 @@ div {
 
 button {
   border: 1px solid white;
+  color: white;
+  background-color: black;
 }
 
 .photo {
@@ -20,4 +18,9 @@ button {
   height: auto;
   padding: 0;
   margin: 0;
+}
+
+.translate {
+  background-color: black;
+  color: white;
 }

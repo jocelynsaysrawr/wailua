@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import ProgressBar from "./progress_bar";
+import HamburgerMenu from "./hamburger_menu";
 import "../style/header.scss";
+
 export default class AppHeader extends Component {
   render() {
     return (
-      <div className="header">
-        <div className="progressCircle">
-          <ProgressBar />
-        </div>
-        <div className="headerText">
+      <div className="App-header">
+        <div className="header">
           <h1>Aina Finda</h1>
+        </div>
+        <div className="hamburger">
+          <HamburgerMenu />
         </div>
       </div>
     );

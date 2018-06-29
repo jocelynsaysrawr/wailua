@@ -8,3 +8,12 @@
   grid-template-columns: 0.4fr 0.55fr;
   grid-gap: 0.7em;
 }
+
+.App-footer {
+  background-color: #222;
+  height: auto;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

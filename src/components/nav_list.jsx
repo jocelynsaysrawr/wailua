@@ -37,7 +37,8 @@ class NavList extends Component {
           }}
           className="nav-list-item"
         >
-          {dArr[0].properties.title + "....." + dArr[1]}
+          <p className="hamburger-location">{dArr[0].properties.title}</p>
+          <p className="hamburger-dist">{dArr[1]}</p>
         </li>
       );
     });
