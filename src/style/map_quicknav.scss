@@ -1,19 +1,20 @@
 $view-height: 15vh;
 
-#quicknav-wrapper {
+.quicknav-wrapper {
   z-index: 3;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 3vw;
-  grid-template-rows: 1fr;
-  bottom: 35px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  bottom: 25px;
 }
 
 #map-left-arrow {
   grid-column: 1 / 2;
   grid-row: 1;
   z-index: inherit;
+  padding-left: 5px;
 }
 
 #map-location-display {
@@ -21,11 +22,10 @@ $view-height: 15vh;
     .map-location-btn {
       grid-column-start: 2;
       grid-column-end: 3;
-      grid-row: 1;
-      height: $view-height;
-      width: 42vw;
-      z-index: inherit;
-      display: float;
+      //height: $view-height;
+      //width: 42vw;
+      //z-index: inherit;
+      //display: float;
       text-align: center;
       font-size: 4vw;
       font-style: bold;
@@ -38,9 +38,11 @@ $view-height: 15vh;
 }
 
 #map-right-arrow {
-  grid-column: 3 / 3;
+  grid-column-end: 4;
   grid-row: 1;
   z-index: inherit;
+  text-align: right;
+  padding-right: 7px;
 }
 
 .map-arrow-btn {

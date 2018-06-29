@@ -7,12 +7,10 @@ import "../style/map_quicknav.scss";
 export default class MapQuickNav extends React.Component {
   render() {
     return (
-      <div id="map-quicknav">
-        <div id="quicknav-wrapper">
-          <MapLeftArrowButton />
-          <MapLocationDisplay />
-          <MapRightArrowButton />
-        </div>
+      <div className="quicknav-wrapper">
+        <MapLeftArrowButton />
+        <MapLocationDisplay />
+        <MapRightArrowButton />
       </div>
     );
   }
