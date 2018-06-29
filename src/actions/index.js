@@ -9,7 +9,9 @@ import {
   USER_FOUND,
   CENTERZOOM_SELECTED,
   LOADING_ACTION,
-  GET_TRANSLATION
+  GET_TRANSLATION,
+  MODAL_STATE,
+  GEO_SELECTED
 } from "./types";
 import axios from "axios";
 import { Auth } from "aws-amplify";
@@ -128,5 +130,19 @@ export function getTranslation(word) {
   return {
     type: GET_TRANSLATION,
     payload: request
+  };
+}
+
+export function fireModal(bool) {
+  return {
+    type: MODAL_STATE,
+    payload: bool
+  };
+}
+
+export function selectGeo(geo) {
+  return {
+    type: GEO_SELECTED,
+    payload: geo
   };
 }

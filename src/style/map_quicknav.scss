@@ -1,11 +1,7 @@
 $view-height: 15vh;
 
 #quicknav-wrapper {
-  z-index: 9001;
-  /*
-  bottom: 13vh;
-  */
-  top: -13vh;
+  z-index: 3;
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -33,6 +29,9 @@ $view-height: 15vh;
       font-size: 4vw;
       font-style: bold;
       font-family: "Slackey", cursive;
+      background-image: none;
+      background-color: none;
+      opacity: 0;
     }
   }
 }
@@ -49,7 +48,7 @@ $view-height: 15vh;
 }
 
 .map-arrow-img {
-  width: 26vw;
+  width: 15vw;
   height: auto;
   max-width: 100px;
   max-height: 100px;

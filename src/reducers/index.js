@@ -12,6 +12,8 @@ import SetImage from "./reducer_set_image";
 import CenterZoomReducer from "./reducer_center_zoom";
 import LoadingReducer from "./reducer_loading";
 import Translation from "./reducer_translate";
+import ModalReducer from "./reducer_fire_modal";
+import ActiveGeoReducer from "./reducer_active_geo";
 
 const rootReducer = combineReducers({
   navs: NavsReducer,
@@ -26,7 +28,9 @@ const rootReducer = combineReducers({
   image: SetImage,
   centerZoom: CenterZoomReducer,
   loading: LoadingReducer,
-  translation: Translation
+  translation: Translation,
+  modalOn: ModalReducer,
+  activeGeo: ActiveGeoReducer
 });
 
 export default rootReducer;

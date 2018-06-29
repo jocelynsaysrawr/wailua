@@ -8,7 +8,9 @@ import {
   selectNav,
   selectLocation,
   findUser,
-  setCenterZoom
+  setCenterZoom,
+  fireModal,
+  selectGeo
 } from "../actions/index";
 import {
   nearestPoint,
@@ -67,6 +69,8 @@ class Map extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    //fits map to container
+    this.map.resize();
     //centers and zooms on marker
     const lngLat = this.props.activeNav.geometry.coordinates;
     //Changes previously selected marker back to normal CSS
@@ -107,7 +111,6 @@ class Map extends React.Component {
     //adjusts size of canvas container
     const mapCanvas = document.getElementsByClassName("mapboxgl-canvas")[0];
     mapCanvas.style.position = "relative";
-    this.map.resize();
 
     //Tracks user location
     const geolocate = new mapboxgl.GeolocateControl({
@@ -218,6 +221,8 @@ class Map extends React.Component {
               )
             ) {
               console.log("You have entered ", geo.properties.title, "!");
+              this.props.selectGeo(geo);
+              this.props.fireModal(true);
               isInGeo = true;
             }
           });
@@ -253,7 +258,9 @@ function mapStateToProps(state) {
     activeLocation: state.activeLocation,
     activeNav: state.activeNav,
     userLocation: state.userLocation,
-    centerZoom: state.centerZoom
+    centerZoom: state.centerZoom,
+    modalOn: state.modalOn,
+    activeGeo: state.activeGeo
   };
 }
 
@@ -263,7 +270,9 @@ function mapDispatchToProps(dispatch) {
       selectNav: selectNav,
       selectLocation: selectLocation,
       findUser: findUser,
-      setCenterZoom: setCenterZoom
+      setCenterZoom: setCenterZoom,
+      fireModal: fireModal,
+      selectGeo: selectGeo
     },
     dispatch
   );

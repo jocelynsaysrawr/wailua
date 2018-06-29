@@ -9,3 +9,5 @@ export const USER_FOUND = "user_found";
 export const CENTERZOOM_SELECTED = "centerzoom_selected";
 export const LOADING_ACTION = "loading_action";
 export const GET_TRANSLATION = "get_translation";
+export const MODAL_STATE = "modal_state";
+export const GEO_SELECTED = "geo_selected";
