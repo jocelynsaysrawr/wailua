@@ -47,7 +47,7 @@ class Camera extends Component {
   render() {
     console.log("props: ", this.props);
     return (
-      <div>
+      <div className="photo">
         {this.props.children}
         <video
           ref={video => {

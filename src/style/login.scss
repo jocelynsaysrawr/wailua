@@ -57,7 +57,7 @@ button[type="submit"] {
 }
 button[type="submit"]:hover {
   background-color: #607d8b;
-  color: #f8f8f8;
+  color: #cec6c0;
   cursor: pointer;
 }
 #icon {
@@ -96,8 +96,9 @@ button[type="submit"]:hover {
   background-size: cover;
 }
 .wrapper h1 {
-  font-family: "Slackey", cursive;
-  color: #f4f4f4;
+  font-style: 700;
+  font-family: "Ubuntu", sans-serif;
+  color: #cec6c0;
   letter-spacing: 4px;
   text-align: center;
   padding-top: 5px;

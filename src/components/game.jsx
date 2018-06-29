@@ -101,24 +101,19 @@ class Game extends Component {
     });
   }
 
-  renderButton() {
-    if (this.props.authenticated) {
-      return <button onClick={this.props.signout}>Sign Out</button>;
-    }
-  }
-
   renderScreen() {
     if (!this.props.image) {
       return (
-        <div>
-          <div className="camera">
-            <Camera
-              ref={cam => {
-                this.camera = cam;
-              }}
-            />
-          </div>
-          <button onClick={this.takePicture}>Take Photo</button>
+        <div className="camera">
+          <Camera
+            ref={cam => {
+              this.camera = cam;
+            }}
+          />
+
+          <button className="btn-camera" onClick={this.takePicture}>
+            <i className="fa fa-camera">{""}</i>
+          </button>
         </div>
       );
     }
@@ -156,33 +151,41 @@ class Game extends Component {
 
   render() {
     return (
-      <div>
+      <div className="game-container">
         {this.renderScreen()}
-
-        {this.state.labels ? (
-          <ul className="translate">
-            {this.state.labels.map(obj => (
-              <li key={obj.english}>
-                {obj.english}: {obj.hawaiian}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p />
-        )}
-
-        <div>
-          <div className="photo">
-            <img
-              alt=""
-              ref={img => {
-                this.img = img;
-              }}
-            />
-          </div>
-          {this.renderButton()}
-
-          <button onClick={this.newPhoto}>New Photo</button>
+        <div className="camera">
+          <img
+            className="photo"
+            alt=""
+            ref={img => {
+              this.img = img;
+            }}
+          />
+          {this.state.labels ? (
+            <ul className="translate">
+              {this.state.labels.map(obj => (
+                <li key={obj.english}>
+                  {obj.english}: {obj.hawaiian}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p />
+          )}
+          {this.props.image ? (
+            <button className="btn-camera-new" onClick={this.newPhoto}>
+              <i className="fa fa-camera">{""}</i>
+            </button>
+          ) : (
+            <p />
+          )}
+          {this.props.image ? (
+            <button className="btn-signout" onClick={this.props.signout}>
+              Sign Out
+            </button>
+          ) : (
+            <p />
+          )}
         </div>
       </div>
     );
