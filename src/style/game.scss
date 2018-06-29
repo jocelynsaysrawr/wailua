@@ -2,6 +2,7 @@
   margin-top: 100px;
   margin-bottom: 100px;
   height: 100vh;
+  overflow: hidden;
 }
 
 .camera {
@@ -60,4 +61,10 @@
   background-color: black;
   color: #cec6c0;
   margin-top: 30px;
+}
+
+.message {
+  color: #cec6c0;
+  grid-column: 2 / 8;
+  grid-row: 7 / 10;
 }

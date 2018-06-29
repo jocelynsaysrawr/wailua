@@ -29,7 +29,9 @@ class Game extends Component {
     this.translate = this.newPhoto.bind(this);
 
     this.state = {
-      labels: []
+      labels: [],
+      welcome:
+        "Click on the camera to take a photo and learn some Hawaiian words!"
     };
   }
 
@@ -114,6 +116,18 @@ class Game extends Component {
           <button className="btn-camera" onClick={this.takePicture}>
             <i className="fa fa-camera">{""}</i>
           </button>
+          {!this.props.image ? (
+            <p className="message">{this.state.welcome}</p>
+          ) : (
+            <p />
+          )}
+          {!this.props.image ? (
+            <button className="btn-signout" onClick={this.props.signout}>
+              Sign Out
+            </button>
+          ) : (
+            <p />
+          )}
         </div>
       );
     }
@@ -172,6 +186,7 @@ class Game extends Component {
           ) : (
             <p />
           )}
+          {this.state.message ? <h3>{this.state.message}</h3> : <p />}
           {this.props.image ? (
             <button className="btn-camera-new" onClick={this.newPhoto}>
               <i className="fa fa-camera">{""}</i>
@@ -179,6 +194,7 @@ class Game extends Component {
           ) : (
             <p />
           )}
+
           {this.props.image ? (
             <button className="btn-signout" onClick={this.props.signout}>
               Sign Out
