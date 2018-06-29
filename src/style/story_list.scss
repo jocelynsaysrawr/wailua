@@ -1,17 +1,21 @@
+.story-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  height: 100vh;
+}
+
 .story {
-  margin: 0;
   height: 100%;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 18px;
   word-spacing: 3px;
   letter-spacing: 1px;
   line-height: 20px;
   font-family: "Roboto", sans-serif;
   color: white;
-  margin-top: 100px;
-  padding-right: 40px;
-  padding-left: 40px;
-  // padding-bottom: 100%;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #1f1f1f;
   background: url("http://www.pictorem.com/collection/900_12305816HighRes.jpg")
     no-repeat center center fixed;

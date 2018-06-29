@@ -12,7 +12,7 @@ class StoryList extends Component {
 
   showStory() {
     const story = this.props.story;
-    return <div>{story}</div>;
+    return <div className="story">{story}</div>;
   }
 
   randomQuote() {
@@ -25,7 +25,7 @@ class StoryList extends Component {
   componentWillMount() {
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 2000);
+    }, 1000);
 
     this.props.storyAction();
 
@@ -37,7 +37,7 @@ class StoryList extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div className="story-container">
         <LoadingScreen
           loading={loading}
           bgColor="#373A46"
@@ -45,9 +45,8 @@ class StoryList extends Component {
           textColor="#ffffff"
           logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
           text={this.state.currentQuote}
-        >
-          <div className="story">{this.showStory()}</div>
-        </LoadingScreen>
+        />
+        {this.showStory()}
       </div>
     );
   }
