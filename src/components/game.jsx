@@ -87,8 +87,6 @@ class Game extends Component {
                   console.log("state: ", self.state);
                 }
               });
-
-              //return this.props.getTranslation(obj.Name.toLowerCase());
             });
           }
         });

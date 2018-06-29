@@ -11,11 +11,11 @@ import {
   setCenterZoom
 } from "../actions/index";
 import {
-  distance,
   nearestPoint,
   booleanPointInPolygon,
   point,
-  featureCollection
+  featureCollection,
+  polygon
 } from "@turf/turf";
 import { setTimeout } from "timers";
 
@@ -24,6 +24,7 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 let gotNearest = false;
 let userPing = false;
 let canFlyto = false;
+let isInGeo = false;
 
 const points = featureCollection([
   point([-159.3363627, 22.038345]),
@@ -59,6 +60,10 @@ class Map extends React.Component {
         setTimeout(() => (canFlyto = true), 5000);
       }
     });
+  }
+
+  flyToActiveNav() {
+    this.map.flyTo(this.props.activeNav.geometry.coordinates);
   }
 
   componentDidUpdate(prevProps) {
@@ -155,15 +160,12 @@ class Map extends React.Component {
         el.id = location;
         el.style.backgroundImage = nav.properties.marker;
 
-        el.addEventListener(
-          "click",
-          () => (
-            //sets Nav geoJSON in props
-            this.props.selectNav(nav),
-            //sets marker element pointer in props
-            this.props.selectLocation(location)
-          )
-        );
+        el.addEventListener("click", () => {
+          //sets Nav geoJSON in props
+          this.props.selectNav(nav);
+          //sets marker element pointer in props
+          this.props.selectLocation(location);
+        });
 
         new mapboxgl.Marker(el).setLngLat(lngLat).addTo(this.map);
       });
@@ -204,6 +206,37 @@ class Map extends React.Component {
           this.getNearestPoint();
         }
       }
+
+      //Checks to see if user is in a geofence.
+      setTimeout(() => {
+        if (!isInGeo) {
+          this.props.geofences.data.features.forEach(geo => {
+            if (
+              booleanPointInPolygon(
+                point(this.props.userLocation),
+                polygon(geo.geometry.coordinates)
+              )
+            ) {
+              console.log("You have entered ", geo.properties.title, "!");
+              isInGeo = true;
+            }
+          });
+        } else if (isInGeo) {
+          isInGeo = false;
+          if (!isInGeo) {
+            this.props.geofences.data.features.forEach(geo => {
+              if (
+                booleanPointInPolygon(
+                  point(this.props.userLocation),
+                  polygon(geo.geometry.coordinates)
+                )
+              ) {
+                isInGeo = true;
+              }
+            });
+          }
+        }
+      }, 3000);
     });
   }
 

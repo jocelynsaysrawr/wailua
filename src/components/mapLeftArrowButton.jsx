@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ArrowLeft from "../assets/arrow-left.png";
 import { selectNav, selectLocation } from "../actions/index";
 import "../style/map_quicknav.scss";
-
 
 class MapLeftArrowButton extends React.Component {
   static propTypes = {
@@ -52,7 +51,7 @@ class MapLeftArrowButton extends React.Component {
           this.cycleNavsLeft();
         }}
       >
-        <img className="map-arrow-img" src={ArrowLeft} />
+        <img className="map-arrow-img" src={ArrowLeft} alt="left-arrow"/>
       </button>
     );
   }

@@ -17,7 +17,7 @@ export default function(state = defaultState, action) {
   switch (action.type) {
     case NAV_SELECTED:
       return action.payload;
+    default:
+      return state;
   }
-
-  return state;
 }

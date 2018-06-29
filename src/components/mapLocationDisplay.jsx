@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import styles from "../style/styles.scss";
-import ArrowRight from "../assets/arrow-right.png";
 import "../style/map_quicknav.scss";
+// import { flyToActiveNav } from "./map";
 
 class MapLocationDisplay extends React.Component {
   static propTypes = {
@@ -17,10 +16,10 @@ class MapLocationDisplay extends React.Component {
         id="map-location-display"
         className="map-location-btn"
         onClick={() => {
-          //   this.cycleNavsRight();
+          //   flyToActiveNav();
         }}
       >
-        <h1>{this.props.activeLocation}</h1>
+        <h1>{this.props.activeLocation.toUpperCase()}</h1>
       </button>
     );
   }

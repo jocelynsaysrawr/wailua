@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MapLeftArrowButton from "./mapLeftArrowButton";
 import MapRightArrowButton from "./mapRightArrowButton";
 import MapLocationDisplay from "./mapLocationDisplay";
@@ -8,9 +8,11 @@ export default class MapQuickNav extends React.Component {
   render() {
     return (
       <div id="map-quicknav">
-        <MapLeftArrowButton />
-        <MapLocationDisplay />
-        <MapRightArrowButton />
+        <div id="quicknav-wrapper">
+          <MapLeftArrowButton />
+          <MapLocationDisplay />
+          <MapRightArrowButton />
+        </div>
       </div>
     );
   }
