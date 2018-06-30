@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
 import { authenticate } from "../actions/index";
+import "../style/sign_up.scss";
 
 class SignUp extends Component {
   constructor(props) {
@@ -77,31 +78,27 @@ class SignUp extends Component {
 
   renderConfirmationForm() {
     return (
-      <div>
-        <h3>Confirmation Code</h3>
+      <div className="wrapper-confirmation animated bounce">
+        <h2>Confirmation Code</h2>
         <form onSubmit={this.handleConfirmationSubmit}>
-          <div className="form-group relative">
-            <label>
-              <input
-                onChange={this.handleChange}
-                name="confirmationCode"
-                value={this.state.confirmationCode}
-                type="tel"
-                placeholder="Confirmation Code"
-                className="form-control input-lg signup-confirmation"
-              />{" "}
-              <i className="fa fa-lock" />
-              <div className="form-group">
-                <button
-                  disabled={!this.validateForm()}
-                  className="btn btn-success btn-lg btn-block"
-                  type="submit"
-                >
-                  Confirm
-                </button>
-              </div>
-            </label>
-          </div>
+          <label id="icon" htmlFor="email">
+            <i className="fa fa-user"> </i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="confirmationCode"
+            value={this.state.confirmationCode}
+            type="tel"
+            placeholder="Confirmation Code"
+            className="form-control input-lg signup-confirmation"
+          />
+          <button
+            disabled={!this.validateForm()}
+            className="btn btn-success btn-lg btn-block"
+            type="submit"
+          >
+            Confirm
+          </button>
         </form>
       </div>
     );
@@ -109,84 +106,74 @@ class SignUp extends Component {
 
   renderForm() {
     return (
-      <div className="signup-container-wrapper clearfix">
-        <ul className="switcher clearfix">
-          <li className="first logo active">
-            <a>Sign Up</a>
-          </li>
-        </ul>
-        <div className="tab-content">
-          <div className="tab-pane active" id="signup">
-            <form
-              onSubmit={this.handleSubmit}
-              className="form-horizontal signup-form"
-            >
-              <div className="form-group relative">
-                <input
-                  onChange={this.handleChange}
-                  name="name"
-                  value={this.state.name}
-                  type="text"
-                  placeholder="First Name"
-                  required=""
-                  className="form-control input-lg login-username"
-                />{" "}
-                <i className="fa fa-lock" />
-              </div>
-              <div className="form-group relative">
-                <input
-                  onChange={this.handleChange}
-                  name="email"
-                  value={this.state.email}
-                  type="email"
-                  placeholder="E-mail Address"
-                  required=""
-                  className="form-control input-lg login-username"
-                />{" "}
-                <i className="fa fa-lock" />
-              </div>
-              <div className="form-group relative">
-                <input
-                  onChange={this.handleChange}
-                  name="password"
-                  value={this.state.password}
-                  type="password"
-                  placeholder="Password"
-                  required=""
-                  className="form-control input-lg login-password"
-                />{" "}
-                <i className="fa fa-lock" />
-              </div>
-              <div className="form-group relative">
-                <input
-                  onChange={this.handleChange}
-                  name="confirmPassword"
-                  value={this.state.confirmPassword}
-                  type="password"
-                  placeholder="Confirm Password"
-                  required=""
-                  className="form-control input-lg login-password"
-                />{" "}
-                <i className="fa fa-lock" />
-              </div>
-              <div className="form-group">
-                <button
-                  disabled={!this.validateForm()}
-                  className="btn btn-success btn-lg btn-block"
-                  type="submit"
-                >
-                  Sign Up
-                </button>
-              </div>
-              <hr />
-              <div className="text-center">
-                <label>
-                  <a href="/login">Already a member?</a>
-                </label>
-              </div>
-            </form>
+      <div className="wrapper animated bounce">
+        <h1>Sign Up</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label id="icon" htmlFor="name">
+            <i className="fa fa-user">{""}</i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="name"
+            value={this.state.name}
+            type="text"
+            placeholder="First Name"
+            required=""
+            className="form-control input-lg login-username"
+          />
+
+          <label id="icon" htmlFor="email">
+            <i className="fa fa-envelope">{""}</i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="email"
+            value={this.state.email}
+            type="email"
+            placeholder="E-mail Address"
+            required=""
+            className="form-control input-lg login-username"
+          />
+          <label id="icon" htmlFor="password">
+            <i className="fa fa-key"> </i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="password"
+            value={this.state.password}
+            type="password"
+            placeholder="Password"
+            required=""
+            className="form-control input-lg login-password"
+          />
+          <label id="icon" htmlFor="password">
+            <i className="fa fa-exclamation"> </i>
+          </label>
+          <input
+            onChange={this.handleChange}
+            name="confirmPassword"
+            value={this.state.confirmPassword}
+            type="password"
+            placeholder="Confirm Password"
+            required=""
+            className="form-control input-lg login-password"
+          />
+
+          <button
+            disabled={!this.validateForm()}
+            className="btn btn-success btn-lg btn-block"
+            type="submit"
+          >
+            Sign Up
+          </button>
+
+          <hr />
+          <div className="crtacc signup">
+            <a className="signup" href="/login">
+              Already a member?
+            </a>
           </div>
-        </div>
+        </form>
       </div>
     );
   }

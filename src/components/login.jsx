@@ -41,7 +41,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="wrapper animated bounce">
+      <div className="wrapper-login animated bounce">
         <h1>Login</h1>
         <hr />
 
@@ -79,6 +79,12 @@ class Login extends Component {
           >
             Login
           </button>
+          <hr />
+          <div className="crtacc-login signup">
+            <a className="signup" href="/signup">
+              Create Account
+            </a>
+          </div>
         </form>
       </div>
     );
