@@ -28,7 +28,6 @@ class MapRightArrowButton extends React.Component {
         activeNavIndex = i;
       }
     });
-    console.log("anI: ", activeNavIndex);
     if (activeNavIndex === sortedNavArray.length - 1) {
       this.props.selectNav(sortedNavArray[0]);
       this.props.selectLocation(sortedNavArray[0].properties.location);

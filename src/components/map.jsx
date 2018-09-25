@@ -120,7 +120,6 @@ class Map extends React.Component {
     });
     geolocate.on("geolocate", e => {
       this.props.findUser([e.coords.longitude, e.coords.latitude]);
-      console.log("UL: ", this.props.userLocation);
     });
 
     this.map.on("load", () => {
@@ -222,7 +221,7 @@ class Map extends React.Component {
               )
             ) {
               console.log("You have entered ", geo.properties.title, "!");
-              this.props.selectGeo(geo);
+              //this.props.selectGeo(geo);
               this.props.fireModal(true);
               isInGeo = true;
             }

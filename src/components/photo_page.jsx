@@ -12,13 +12,14 @@ class Photos extends Component {
 
   showPics() {
     const photos = this.props.photos;
-    const showPhoto = photos.map((url, id) => {
+    const showPhoto = photos.map(({photo_id, photo_url, location, description, obtained_from}) => {
       return (
-        <div key={id} className={"pic"}>
-          <img key={id} src={url} alt={"Kauai Pics"} />
+        <div key={photo_id.S} className={"pic"}>
+          <img key={photo_id.S} src={photo_url.S} alt={"Kauai Pics"} />
           <div className={"picText"}>
-            <p className="photo-p">Location: Wailua, Kauai </p>
-            <p className="photo-p">Description: Taken on Kauai - 1915</p>
+            <p className="photo-p">Location: {location.S}</p>
+            <p className="photo-p">Description: {description.S}</p>
+            <p className="photo-p">Obtained From: {obtained_from.S}</p>
           </div>
         </div>
       );

@@ -28,20 +28,23 @@ class Modal extends React.Component {
     // The modal "window"
     const modalStyle = {
       backgroundColor: "#fff",
+      position: "fixed",
+      top: "30vw",
+      bottom: "30vw",
+      overflow: "scroll",
       borderRadius: 5,
       maxWidth: "70vw",
       minHeight: "30vh",
       margin: "0 auto",
       padding: 30,
-      marginTop: "6vh",
+      //marginTop: "6vh",
       fontFamily: "courier",
-      border: "solid black 1ps",
       backgroundImage:
         "url('https://media.gettyimages.com/photos/sand-background-with-footprints-picture-id176993946?b=1&k=6&m=176993946&s=612x612&w=0&h=iuWXiM9lj3FImEmSBnMJaGO1oTEIFGrfpv86O3--y1o=')"
     };
 
     const shootsStyle = {
-      marginTop: "30%",
+      marginTop: "20px",
       alignSelf: "center",
       border: "solid 1px black",
       boxShadow: "1px 1px",

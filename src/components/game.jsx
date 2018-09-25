@@ -67,7 +67,14 @@ class Game extends Component {
           if (err) {
             console.log(err, err.stack);
           } else {
-            console.log(data.Labels);
+            console.log("data: ", data.Labels);
+            // return data.Labels.map(obj => {
+            //   const state = self.state.labels;
+            //   self.setState({
+            //     labels: [...state, obj.Name]
+            //   });
+            //   console.log("new state: ", state);
+            // });
             return data.Labels.map(obj => {
               self.props.getTranslation(obj.Name.toLowerCase()).then(data => {
                 if (data.payload.data.Item) {
@@ -182,6 +189,7 @@ class Game extends Component {
                   {obj.english}: {obj.hawaiian}
                 </li>
               ))}
+              {/*{this.state.labels.map(word => <li key={word}>{word}</li>)}*/}
             </ul>
           ) : (
             <p />

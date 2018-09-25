@@ -181,7 +181,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="Signup">
-        {this.state.newUser === null
+        {this.state.newUser === null 
           ? this.renderForm()
           : this.renderConfirmationForm()}
       </div>
