@@ -7,7 +7,6 @@ import thunk from "redux-thunk";
 // import {Router, browserHistory } from 'react-router';
 import reducers from "./reducers/index";
 import App from "./App";
-import Home from "./components/home";
 import AppHeader from "./components/header";
 import AppFooter from "./components/footer";
 import Photos from "./components/photo_page";
