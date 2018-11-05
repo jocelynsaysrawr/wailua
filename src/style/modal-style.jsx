@@ -62,6 +62,8 @@ export const StyledModal = styled.div`
   @media (max-width: 600px) {
       right: 10%;
       left: 10%;
+      top: 150px;
+      bottom: 170px;
   }
 
   @media (min-width: 900px) {

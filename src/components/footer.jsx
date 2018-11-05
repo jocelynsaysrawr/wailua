@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FeatureBtn from "./feature_btn";
+import MapQuickNav from "./mapQuickNav";
 import { connect } from "react-redux";
 import { signout } from "../actions/index";
 import "../style/footer.scss";
@@ -15,6 +16,7 @@ class AppFooter extends Component {
   render() {
     return (
       <div className="footer">
+        <MapQuickNav />
         <div id="nav-a" className="b">
           <FeatureBtn link={"/photos"} name={"Look"} />
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import ArrowRight from "../assets/arrow-right.png";
+import ArrowRight from "../assets/ChevronRight-512.png";
 import { selectNav, selectLocation } from "../actions/index";
 import "../style/map_quicknav.scss";
 

@@ -6,54 +6,70 @@ $view-height: 15vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  bottom: 25px;
+
+
+  grid-column: 1 / 13;
+  grid-row: 2 / 3;
 
   h1 {
-    font-size: 7vw;
+    font-size: 28px;
     font-style: 700;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Open Sans", sans-serif;
 
     text-align: center;
     white-space: nowrap;
     margin: auto;
     padding: auto;
+
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
   }
 }
 
 #map-left-arrow {
-  grid-column: 1 / 4;
+  grid-column: 1 / 2;
   grid-row: 1;
   z-index: inherit;
-  padding-left: 5px;
+  padding-left: 50px;
+
+  @media (max-width: 600px) {
+    padding-left: 8px;
+  }
 }
 
 #map-location-display {
   grid-column: 4 / 10;
   grid-row: 1;
   align-self: center;
-  height: $view-height;
   z-index: inherit;
   background-image: none;
   background-color: none;
   width: auto;
+
+  @media (max-width: 600px) {
+    grid-column: 3 / 11;
+  }
 }
 
 #map-right-arrow {
-  grid-column: 11 / 13;
+  grid-column: 12 / 13;
   grid-row: 1;
   z-index: inherit;
   text-align: right;
-  padding-right: 7px;
+  padding-right: 50px;
+
+  @media (max-width: 600px) {
+    padding-right: 8px;
+  }
 }
 
 .map-arrow-btn {
-  height: $view-height;
   width: 18vw;
 }
 
 .map-arrow-img {
-  width: 15vw;
   height: auto;
-  max-width: 100px;
-  max-height: 100px;
+  height: 60px;
+  width: 60px;
 }

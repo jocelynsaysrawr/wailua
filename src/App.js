@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Map from "./components/map";
-import MapQuickNav from "./components/mapQuickNav";
 import { loadingAction } from "./actions/index";
 import { connect } from "react-redux";
 import LoadingScreen from "react-loading-screen";
@@ -35,7 +34,7 @@ class App extends Component {
       <div className="App">
 
           <Map />
-          <MapQuickNav />
+          
           <ModalParent />
         
       </div>
