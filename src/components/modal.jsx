@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Backdrop, Button, StyledModal } from '../style/modal-style';
+import { Button, StyledModal } from '../style/modal-style';
 
 
 class Modal extends React.Component {

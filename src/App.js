@@ -29,7 +29,7 @@ class App extends Component {
   //   });
   // }
   render() {
-    const { loading } = this.state;
+
     return (
       <div className="App">
 
@@ -52,13 +52,3 @@ export default connect(
   mapStateToProps,
   { loadingAction }
 )(App);
-
-{/* <LoadingScreen
-loading={loading}
-bgColor="#373A46"
-spinnerColor="#9ee5f8"
-textColor="#ffffff"
-logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
-text={this.state.currentQuote}
->
-</LoadingScreen> */}

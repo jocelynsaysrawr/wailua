@@ -48,11 +48,11 @@ export function findUser(coords) {
   };
 }
 
-export function photoAction() {
+export function photoAction(location) {
   return dispatch => {
     return axios
       .get(
-        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${locationName}`
+        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/photos/Kauai/${location}`
       )
       .then(res => {
         dispatch(getPhotosAsync(res.data));

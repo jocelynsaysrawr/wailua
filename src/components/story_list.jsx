@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { storyAction, loadingAction } from "../actions/index";
 import { connect } from "react-redux";
-import LoadingScreen from "react-loading-screen";
+// import LoadingScreen from "react-loading-screen";
 import "../style/story_list.scss";
 
 class StoryList extends Component {
@@ -23,29 +23,28 @@ class StoryList extends Component {
   }
 
   componentWillMount() {
-    setTimeout(() => {
-      this.setState({ loading: false });
-    }, 1000);
+    // setTimeout(() => {
+    //   this.setState({ loading: false });
+    // }, 1000);
 
     this.props.storyAction();
 
-    this.setState({
-      currentQuote: this.randomQuote()
-    });
+    // this.setState({
+    //   currentQuote: this.randomQuote()
+    // });
   }
 
   render() {
-    const { loading } = this.state;
     return (
       <div className="story-container">
-        <LoadingScreen
+        {/* <LoadingScreen
           loading={loading}
           bgColor="#373A46"
           spinnerColor="#9ee5f8"
           textColor="#ffffff"
           logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
           text={this.state.currentQuote}
-        />
+        /> */}
         {this.showStory()}
       </div>
     );

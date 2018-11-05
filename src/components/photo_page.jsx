@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { photoAction, loadingAction } from "../actions/index";
 import { connect } from "react-redux";
-import LoadingScreen from "react-loading-screen";
+//import LoadingScreen from "react-loading-screen";
 import "../style/photo_page.scss";
 
 class Photos extends Component {
@@ -39,15 +39,21 @@ class Photos extends Component {
     //   this.setState({ loading: false });
     // }, 2000);
 
-    this.props.photoAction();
+    this.props.photoAction(this.props.activeLocation);
 
     // this.setState({
     //   currentQuote: this.randomQuote()
     // });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.activeLocation !== this.props.activeLocation){
+      this.props.photoAction(this.props.activeLocation);
+    }
+
+  }
+
   render() {
-    const { loading } = this.state;
     return (
       <div className="photo-container">
         {/* <LoadingScreen
@@ -67,7 +73,8 @@ class Photos extends Component {
 function mapStateToProps(state) {
   return {
     photos: state.photos,
-    loading: state.loading
+    loading: state.loading,
+    activeLocation: state.activeLocation
   };
 }
 

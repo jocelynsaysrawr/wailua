@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { stack as Menu } from "react-burger-menu";
-import NavList from "./nav_list";
+// import { stack as Menu } from "react-burger-menu";
+// import NavList from "./nav_list";
 import {DropdownContainer} from '../style/hamburger-style';
 import '../style/hamburger.scss';
 
@@ -45,7 +45,6 @@ class HamburgerMenu extends Component {
 
   render() {
     let toggleShow = 'hidden';
-    let top = 'top';
     if (!this.state.checked) {
       console.log("toggleShow: ", this.state.checked)
       toggleShow = 'hidden';

@@ -247,6 +247,7 @@ class Map extends React.Component {
 
   //renders whole component as one div
   render() {
+    console.log("location: ", this.props.activeLocation)
     return <div ref={el => (this.mapContainer = el)} style={styles} />;
   }
 }
