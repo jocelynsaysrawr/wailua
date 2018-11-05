@@ -11,13 +11,17 @@
   font-family: "Julius Sans One", sans-serif;
   letter-spacing: 8px;
   position: fixed;
-  z-index: 6;
+  z-index: -6;
   top: 0px;
 
   h1 {
     margin: 0;
     font-size: 30px;
     white-space: nowrap;
+
+    @media (max-width: 600px) {
+      left: 10px;
+    }
   }
 }
 a {
@@ -34,11 +38,17 @@ a:hover {
   grid-row-start: 3;
   grid-row-end: 5;
   font-size: 100%;
+
+  @media (max-width: 600px) {
+    grid-column-start: 1;
+    padding-left: 10px;
+  }
 }
 
 .hamburger {
   grid-column: 11 / 13;
   grid-row: 3 / 4;
+  z-index: 10;
 }
 
 .bm-burger-button {

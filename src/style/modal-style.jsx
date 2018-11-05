@@ -55,6 +55,10 @@ export const StyledModal = styled.div`
   opacity: 0.85;
   z-index: 50;
 
+  button {
+      width: auto;
+  }
+
   @media (max-width: 600px) {
       right: 10%;
       left: 10%;
