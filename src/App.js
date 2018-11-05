@@ -3,7 +3,7 @@ import "./App.css";
 import Map from "./components/map";
 import { loadingAction } from "./actions/index";
 import { connect } from "react-redux";
-import LoadingScreen from "react-loading-screen";
+// import LoadingScreen from "react-loading-screen";
 import ModalParent from "./components/modal_parent";
 
 class App extends Component {
@@ -19,15 +19,15 @@ class App extends Component {
     return quote;
   }
 
-  componentWillMount() {
-    setTimeout(() => {
-      this.setState({ loading: false });
-    }, 3000);
+  // componentWillMount() {
+  //   setTimeout(() => {
+  //     this.setState({ loading: false });
+  //   }, 3000);
 
-    this.setState({
-      currentQuote: this.randomQuote()
-    });
-  }
+  //   this.setState({
+  //     currentQuote: this.randomQuote()
+  //   });
+  // }
   render() {
     const { loading } = this.state;
     return (

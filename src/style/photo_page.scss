@@ -1,27 +1,32 @@
 .photo-container {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  
 }
 
 .pic {
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 2.2em;
-  padding-bottom: 0.8em;
-  border-bottom: 2px dotted white;
+ 
+  padding-bottom: 2.2em;
   background-color: black;
+
+  width: 100%;
+  height: auto;
+  text-align: center;
 
   img {
     margin-bottom: 10px;
+    width: 550px;
   }
 }
 
 .picText {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding-top: 1em;
   padding-bottom: 1em;
   color: white;
-  display: inline-block;
+  display: block;
 
   p {
     margin-bottom: 7px;
