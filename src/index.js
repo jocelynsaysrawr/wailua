@@ -14,6 +14,8 @@ import StoryList from "./components/story_list";
 import HamburgerMenu from "./components/hamburger_menu";
 import Login from "./components/login";
 import Game from "./components/game";
+import About from "./components/about";
+import Preservation from "./components/preservation";
 import SignUp from "./components/sign_up";
 import registerServiceWorker from "./registerServiceWorker";
 import "normalize.css";
@@ -48,6 +50,8 @@ ReactDOM.render(
           <Route path="/game" component={Game} />
           <Route path="/story" component={StoryList} />
           <Route path="/photos" component={Photos} />
+          <Route path="/about" component={About} />
+          <Route path="/preservation" component={Preservation} />
           <Route path="/" exact component={App} />
         </Switch>
 

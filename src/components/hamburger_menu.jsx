@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { stack as Menu } from "react-burger-menu";
 // import NavList from "./nav_list";
+import { Link } from "react-router-dom";
 import {DropdownContainer} from '../style/hamburger-style';
 import '../style/hamburger.scss';
 
@@ -52,7 +53,6 @@ class HamburgerMenu extends Component {
       console.log("toggleShow: ", this.state.checked)
       toggleShow = 'show';
     }
-    console.log('this.state: ', this.state)
     return (
       <div className='hamburger'>
         <div id="menu-toggle">
@@ -63,7 +63,7 @@ class HamburgerMenu extends Component {
         </div>
         <div className={toggleShow}>
         <button><a href="#">Mission and Purpose</a></button>
-        <button><a href="#">Preservation and Practice</a></button>
+        <button><Link to={"/preservation"}>Preservation and Practice</Link></button>
         <button onClick={() => {this.setBoxName("mokupuni"); this.showNav("mokupuni")}}>Mokupuni (Island)</button>
           <DropdownContainer id="mokupuni">
             <button onClick={() => {this.setBoxName("niihau"); this.showNav("niihau")}}>Niʻihau</button>
@@ -86,7 +86,7 @@ class HamburgerMenu extends Component {
                     <button>Hanamāʻulu</button>
                     <button onClick={() => {this.setBoxName("wailua"); this.showNav("wailua")}}>Wailua</button>
                       <DropdownContainer id="wailua" className="info">
-                        <a href="#">About</a>
+                        <Link to={"/about"}>About</Link>
                         <button onClick={() => {this.setBoxName("wailua-sites"); this.showNav("wailua-sites")}}>Sites</button>
                           <DropdownContainer id="wailua-sites" className="sites">
                           <ul>
