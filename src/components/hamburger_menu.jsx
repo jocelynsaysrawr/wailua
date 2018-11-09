@@ -19,6 +19,11 @@ class HamburgerMenu extends Component {
 
   checkbox() {
     this.setState({checked: document.getElementById('test').checked})
+    console.log("fired")
+  }
+
+  uncheck() {
+    document.getElementById('test').checked = false;
   }
 
   showNav(box) {
@@ -44,6 +49,26 @@ class HamburgerMenu extends Component {
     }
   }
 
+  componentDidUpdate() {
+    console.log("prevProps", this.state)
+    if (!this.state.checked && this.state.openBoxes.length > 0) {
+
+      this.state.openBoxes.forEach(box => {
+        let x = document.getElementById(box)
+        console.log("x updated: ", x);
+        if (x.style.display === "block") {
+          x.style.display = "none";
+      } else {
+          x.style.display = "block";
+      }
+      })
+
+      this.setState({openBoxes: []})
+    
+    }
+ 
+  }
+
   render() {
     let toggleShow = 'hidden';
     if (!this.state.checked) {
@@ -53,6 +78,7 @@ class HamburgerMenu extends Component {
       console.log("toggleShow: ", this.state.checked)
       toggleShow = 'show';
     }
+    console.log("props: ", this.state)
     return (
       <div className='hamburger'>
         <div id="menu-toggle">
@@ -63,7 +89,10 @@ class HamburgerMenu extends Component {
         </div>
         <div className={toggleShow}>
         <button><a href="#">Mission and Purpose</a></button>
-        <button><Link to={"/preservation"}>Preservation and Practice</Link></button>
+        <button onClick={() => {
+          this.uncheck();
+          this.setState({checked: false})
+        }}><Link to={"/preservation"}>Preservation and Practice</Link></button>
         <button onClick={() => {this.setBoxName("mokupuni"); this.showNav("mokupuni")}}>Mokupuni (Island)</button>
           <DropdownContainer id="mokupuni">
             <button onClick={() => {this.setBoxName("niihau"); this.showNav("niihau")}}>Niʻihau</button>
@@ -86,7 +115,10 @@ class HamburgerMenu extends Component {
                     <button>Hanamāʻulu</button>
                     <button onClick={() => {this.setBoxName("wailua"); this.showNav("wailua")}}>Wailua</button>
                       <DropdownContainer id="wailua" className="info">
-                        <Link to={"/about"}>About</Link>
+                        <Link to={"/about"} onClick={() => {
+          this.uncheck();
+          this.setState({checked: false})
+        }}>About</Link>
                         <button onClick={() => {this.setBoxName("wailua-sites"); this.showNav("wailua-sites")}}>Sites</button>
                           <DropdownContainer id="wailua-sites" className="sites">
                           <ul>

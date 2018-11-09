@@ -42,7 +42,7 @@
     "lodash": "^4.17.10",
     "mapbox-gl": "^0.45.0",
     "normalize.css": "^8.0.0",
-    "npm": "^6.1.0",
+    "npm": "^6.4.1",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -130,7 +130,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.10.0",
     "sass-loader": "^7.0.1"
   }
 }
