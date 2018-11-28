@@ -1,0 +1,145 @@
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus {
+  outline: none;
+}
+
+body,
+input {
+  font-family: "Open sans", sans-serif;
+  font-size: 18px;
+  color: #4c4c4c;
+}
+
+form {
+  margin: 10px 35px;
+  display: block;
+  padding-bottom: 20px;
+}
+input {
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: #b8b7ad;
+}
+
+.signup {
+  padding-top: 5px;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
+  width: 200px;
+  height: 42px;
+  border: 1px solid #cbc9c9;
+  padding-left: 5px;
+  margin-top: 3px;
+  border-radius: 0px 3px 3px 0px;
+  -webkit-border-radius: 0px 3px 3px 0px;
+  -moz-border-radius: 0px 3px 3px 0px;
+}
+button[type="submit"] {
+  width: 237px;
+  height: 40px;
+  margin-left: 17px;
+  border-radius: 3px;
+  background-color: #4e66c4;
+  color: #f8f8f8;
+  border-radius: 2px 2px 12px 12px;
+  -webkit-border-radius: 2px 2px 12px 12px;
+  -moz-border-radius: 2px 2px 12px 12px;
+}
+button[type="submit"]:hover {
+  background-color: #607d8b;
+  color: #cec6c0;
+  cursor: pointer;
+}
+#icon {
+  background-color: #f4f4f4;
+  color: #625864;
+  display: inline-block;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 7px;
+  width: 40px;
+  margin-left: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-top: solid 1px #cbc9c9;
+  border-bottom: solid 1px #cbc9c9;
+  border-left: solid 1px #cbc9c9;
+  border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+}
+.wrapper {
+  margin: 30% auto;
+  width: 343px;
+  height: 420px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding-top: 5px;
+
+  background-color: #292931;
+  background: url(https://images.unsplash.com/photo-1528719717685-10294d256cac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9ad4b2317bfae36f233612cfece6c40d&auto=format&fit=crop&w=1498&q=80)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.wrapper h1 {
+  font-style: 700;
+  font-family: "Ubuntu", sans-serif;
+  color: #cec6c0;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 5px;
+}
+.wrapper-confirmation {
+  margin: 30% auto;
+  width: 343px;
+  height: 220px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding-top: 5px;
+
+  background-color: #292931;
+  background: url(https://images.unsplash.com/photo-1528719717685-10294d256cac?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9ad4b2317bfae36f233612cfece6c40d&auto=format&fit=crop&w=1498&q=80)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.wrapper-confirmation h2 {
+  font-style: 700;
+  font-family: "Ubuntu", sans-serif;
+  color: #cec6c0;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 5px;
+}
+.wrapper hr {
+  opacity: 0.8;
+}
+.crtacc {
+  margin-left: 50px;
+}

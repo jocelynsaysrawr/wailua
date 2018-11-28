@@ -1,0 +1,19 @@
+/*.button {
+  display: inline-block;
+  margin-left: 2px;
+}*/
+
+.btn-nav {
+  //border: 1px solid red;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  align-self: center;
+}
+
+.btn-nav:focus {
+  font-weight: bold;
+}

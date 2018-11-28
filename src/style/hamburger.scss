@@ -1,0 +1,229 @@
+
+#menu-toggle
+{
+  display: block;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  float: right;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 11;
+
+  @media (max-width: 600px) {
+    right: 15px;
+  }
+  
+}
+#menu-toggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 12; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+#menu-toggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: white;
+  border-radius: 3px;
+  
+  z-index: 11;
+
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+#menu-toggle input:checked ~ span:nth-last-child(1)
+{
+    opacity: 1;
+    transform: rotate(-45deg) translate(0px, -2px);
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(3)
+{
+  transform: rotate(45deg) translate(0px, -1px);
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin-right: 0px;
+    padding: 100px 50px;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 10;
+    overflow: scroll;
+    color: white;
+
+    @media screen and (min-width: 1000px) {
+        width: 60vw;
+    }
+
+    @media (max-width: 600px) {
+        padding: 100px 15px;
+      }
+}
+
+.showNav {
+    display: show;
+}
+
+button {
+    width: 100vw;
+}
+
+.moku {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+        padding: 8px 10px;
+      }
+}
+
+.ahupuaa {
+    background-color: #363636;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+        padding: 8px 10px;
+      }
+}
+
+.sites {
+    a {
+        width: 100vw;
+    }
+}
+
+#mokupuni {
+    display: none;
+    background-color: #242323;
+    padding: 8px 30px;
+    border-radius: 4px;
+    button {
+        background-color: transparent;
+    }
+
+    @media (max-width: 600px) {
+        padding: 8px 10px;
+      }
+}
+
+// moku
+#niihau {
+    display: none;
+}
+
+#kauai {
+    display: none;
+}
+
+#oahu {
+    display: none;
+}
+
+#molokai {
+    display: none;
+}
+
+#lanai {
+    display: none;
+}
+
+#kahoolawe {
+    display: none;
+}
+
+#maui {
+    display: none;
+}
+
+#hawaii {
+    display: none;
+}
+
+// ahupuaa
+#puna {
+    display: none;
+}
+
+#wailua {
+    display: none;
+    background-color: #414141;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 4px;
+
+    a {
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        padding: 8px 10px;
+      }
+}
+
+#wailua-sites {
+    display: none;
+    background-color: #4b4b4b;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 4px;
+
+    a {
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        padding: 8px 10px;
+      }
+}
+
+#koolau {
+    display: none;
+}
+
+#halelea {
+    display: none;
+}
+
+#pali {
+    display: none;
+}
+
+#kona {
+    display: none;
+}

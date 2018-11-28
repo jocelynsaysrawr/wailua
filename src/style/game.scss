@@ -1,0 +1,70 @@
+.game-container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.camera {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 50px);
+  bottom: 0;
+  height: 100vh;
+
+  video {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.photo {
+  grid-column: 1 / 13;
+  grid-row: 1 / 8;
+  width: 100vw;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-camera {
+  align-self: center;
+  text-align: center;
+  grid-column: 6 / 8;
+  grid-row: 5 / 6;
+  z-index: 5;
+  font-size: 2em;
+  margin-top: 35px;
+}
+
+.btn-camera-new {
+  text-align: center;
+  z-index: 5;
+  font-size: 2em;
+  grid-column: 11 / 12;
+  grid-row: 7 / 9;
+  color: #cec6c0;
+}
+
+.btn-signout {
+  text-align: center;
+  grid-column: 11 / 12;
+  grid-row: 8 / 10;
+  color: #cec6c0;
+}
+
+.translate {
+  grid-column: 2 / 13;
+  grid-row: 6 / 9;
+  background-color: black;
+  color: #cec6c0;
+  margin-top: 30px;
+}
+
+.message {
+  color: #cec6c0;
+  grid-column: 2 / 8;
+  grid-row: 7 / 10;
+}

@@ -1,0 +1,33 @@
+.photo-container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  
+}
+
+.pic {
+  padding-left: 5%;
+  padding-right: 5%; 
+  padding-bottom: 2.2em;
+  background-color: black;
+
+  width: 100%;
+  height: auto;
+  text-align: center;
+
+  img {
+    margin-bottom: 10px;
+    width: 550px;
+  }
+}
+
+.picText {
+  font-family: 'Arial', Helvetica, sans-serif;
+  padding: 1em 10px;
+  color: white;
+  display: block;
+
+  p {
+    margin-bottom: 7px;
+    color: #4c4c4c;
+  }
+}

@@ -1,0 +1,146 @@
+.App-header {
+  background-color: black;
+  height: 130px;
+  width: 100%;
+  text-align: center;
+  color: #b8b7ad;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  //padding-top: 12px;
+  font-family: "Julius Sans One", sans-serif;
+  letter-spacing: 8px;
+  position: fixed;
+  z-index: 6;
+  top: 0px;
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    white-space: nowrap;
+
+    @media (max-width: 600px) {
+      left: 10px;
+    }
+  }
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.header {
+  grid-column-start: 4;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  font-size: 100%;
+
+  @media (max-width: 600px) {
+    grid-column-start: 1;
+    padding-left: 10px;
+  }
+
+  img {
+    height: 120px;
+    width: auto;
+
+    @media screen and (max-width: 800px) {
+      height: 100px;
+      padding-top: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      height: 90px;
+      width: auto;
+      padding-top: 35px;
+    }
+  }
+}
+
+.hamburger {
+  grid-column: 11 / 13;
+  grid-row: 3 / 4;
+  z-index: 10;
+}
+
+.bm-burger-button {
+  position: fixed;
+  margin-top: -3px;
+  width: 30px;
+  height: 28px;
+  // right: 36px;
+  // top: 50px;
+}
+
+/* Color/shape of burger icon bars */
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+
+.bm-cross-button {
+  height: 20px;
+  width: 20px;
+}
+
+/* Color/shape of close button cross */
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+
+.bm-menu {
+  background: #000;
+  margin-top: 52px;
+  padding-top: 20px;
+  height: 100%;
+}
+
+/* Wrapper for item list */
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+
+.bm-item {
+  display: inline-block;
+}
+
+.bm-overlay {
+  background-color: transparent;
+}
+
+.nav-list-item {
+  font-family: "Raleway", sans-serif;
+  line-height: 4;
+  border-bottom: 1px solid #b8b7ad;
+
+  p {
+    margin-top: -25px;
+  }
+}
+
+.hamburger-location {
+  text-align: left;
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.hamburger-dist {
+  text-align: right;
+  margin-right: 20px;
+  font-weight: 500i;
+  font-size: 14px;
+}
