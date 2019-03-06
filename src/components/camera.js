@@ -6,14 +6,9 @@ let height = 0;
 
 let streaming = false;
 
-let canvas = null;
-let photo = null;
-
 class Camera extends Component {
   componentDidMount() {
     const { video, audio } = this.props;
-    canvas = document.getElementById("canvas");
-    photo = document.getElementById("photo");
     if (navigator.mediaDevices) {
       navigator.mediaDevices
         .getUserMedia({
@@ -33,8 +28,6 @@ class Camera extends Component {
 
           this.video.setAttribute("width", width);
           this.video.setAttribute("height", height);
-          canvas.setAttribute("width", width);
-          canvas.setAttribute("height", height);
         }
       });
     }
@@ -68,8 +61,6 @@ class Camera extends Component {
             this.video = video;
           }}
         />
-        <canvas id="canvas" />
-        <img id="photo" alt="The screen capture will appear in this box." />
       </div>
     );
   }
