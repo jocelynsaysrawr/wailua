@@ -11,10 +11,9 @@ import { Auth } from "aws-amplify";
 import requireAuth from "../components/require_auth";
 import Camera from "../components/camera";
 import config from "../config";
-
 import "../style/game.scss";
-
 import AWS from "aws-sdk";
+
 const rekognition = new AWS.Rekognition({
   region: "us-west-2",
   accessKeyId: config.credentials.accessKeyId,
@@ -36,7 +35,9 @@ class Game extends Component {
   }
 
   takePicture() {
+    console.log("camera: ", this.camera);
     this.camera.capture().then(blob => {
+      console.log("blog: ", blob);
       const reader = new FileReader();
       reader.readAsDataURL(blob);
       const self = this;

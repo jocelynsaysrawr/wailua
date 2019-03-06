@@ -11,13 +11,13 @@
   grid-template-rows: repeat(12, 50px);
   bottom: 0;
   height: 100vh;
+}
 
-  video {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin: 0;
-  }
+video {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
 .photo {
@@ -67,4 +67,13 @@
   color: #cec6c0;
   grid-column: 2 / 8;
   grid-row: 7 / 10;
+}
+
+@media only screen and (min-width: 768px) {
+  .photo {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+  }
 }

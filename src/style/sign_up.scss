@@ -143,3 +143,48 @@ button[type="submit"]:hover {
 .crtacc {
   margin-left: 50px;
 }
+
+@media only screen and (min-width: 320px) {
+  .wrapper {
+    margin: 40% auto;
+    width: 300px;
+    height: 375px;
+    form {
+      margin: 15px;
+      padding-bottom: 0;
+    }
+    #icon {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .wrapper {
+    margin: 33.5% auto;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .wrapper {
+    margin: 30% auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    margin: 16.5% auto;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    margin: 12.5% auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    margin: 9% auto;
+  }
+}
