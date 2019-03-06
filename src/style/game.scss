@@ -1,8 +1,12 @@
+@import "colors";
+
 .game-container {
-  margin-top: 100px;
-  margin-bottom: 100px;
   height: 100vh;
   overflow: hidden;
+}
+
+.english {
+  color: $mid-green-color;
 }
 
 .camera {
@@ -10,7 +14,8 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 50px);
   bottom: 0;
-  height: 100vh;
+  margin-top: 180px;
+  margin-bottom: 100px;
 }
 
 video {
@@ -71,9 +76,31 @@ video {
 
 @media only screen and (min-width: 768px) {
   .photo {
+    video {
+      width: auto;
+      height: 50vh;
+    }
+  }
+  .camera {
     display: flex;
     justify-content: center;
-    width: 500px;
-    height: 500px;
+    height: 100vh;
+
+    .translate {
+      width: 1000px;
+      height: 50vh;
+      overflow: scroll;
+      margin-top: 0;
+      margin-left: 2%;
+    }
+
+    img.photo {
+      width: auto;
+      height: 50vh;
+    }
+
+    .message {
+      margin-top: 20%;
+    }
   }
 }

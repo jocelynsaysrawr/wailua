@@ -162,10 +162,10 @@ class Game extends Component {
   translate() {
     if (this.state.labels) {
       this.state.labels.map(obj => {
-        console.log(
-          "translate: ",
-          this.props.getTranslation(obj.Name.toLowerCase())
-        );
+        // console.log(
+        //   "translate: ",
+        //   this.props.getTranslation(obj.Name.toLowerCase())
+        // );
         return this.props.getTranslation(obj.Name.toLowerCase());
       });
     }
@@ -187,7 +187,7 @@ class Game extends Component {
             <ul className="translate">
               {this.state.labels.map(obj => (
                 <li key={obj.english}>
-                  {obj.english}: {obj.hawaiian}
+                  <em className="english">{obj.english}:</em> {obj.hawaiian}
                 </li>
               ))}
               {/*{this.state.labels.map(word => <li key={word}>{word}</li>)}*/}
