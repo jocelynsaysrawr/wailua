@@ -3,35 +3,37 @@ import { storyAction, loadingAction } from "../actions/index";
 import { connect } from "react-redux";
 // import LoadingScreen from "react-loading-screen";
 import "../style/story_list.scss";
+import { FG_Moolelo } from "../story_fragments/FG_Moolelo";
+import { FG_Historical } from "../story_fragments/FG_Historical";
+import { FG_Current } from "../story_fragments/FG_Current";
 
 class StoryList extends Component {
   state = {
-    loading: true,
-    currentQuote: null
+    story_display: ""
   };
 
-  showStory() {
-    const story = this.props.story;
-    return <div className="story">{story}</div>;
+  toggleShow(fragment) {
+    this.setState({
+      story_display: fragment
+    });
   }
 
-  randomQuote() {
-    const quote = this.props.loading[
-      Math.floor(Math.random() * this.props.loading.length)
-    ];
-    return quote;
-  }
-
-  componentWillMount() {
+  componentDidMount() {
     // setTimeout(() => {
     //   this.setState({ loading: false });
     // }, 1000);
 
-    this.props.storyAction();
+    this.props.storyAction(this.props.activeLocation);
 
     // this.setState({
     //   currentQuote: this.randomQuote()
     // });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.activeLocation !== this.props.activeLocation) {
+      this.props.storyAction(this.props.activeLocation);
+    }
   }
 
   render() {
@@ -44,8 +46,34 @@ class StoryList extends Component {
           textColor="#ffffff"
           logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
           text={this.state.currentQuote}
-        /> */}
-        {this.showStory()}
+        /> 
+      */}
+        <div className="widget">
+          <button
+            className="widget"
+            onClick={() => this.toggleShow(FG_Moolelo)}
+          >
+            <h2>Moolelo</h2>
+          </button>
+          <button
+            className="widget"
+            onClick={() => this.toggleShow(FG_Historical)}
+          >
+            <h2>Historical Accounts</h2>
+          </button>
+          <button
+            className="widget"
+            onClick={() => this.toggleShow(FG_Current)}
+          >
+            <h2>Current Narrative</h2>
+          </button>
+        </div>
+
+        <div id="story-container">
+          {this.state.story_display !== ""
+            ? this.state.story_display()
+            : this.state.story_display}
+        </div>
       </div>
     );
   }
@@ -54,7 +82,8 @@ class StoryList extends Component {
 function mapStateToProps(state) {
   return {
     story: state.story,
-    loading: state.loading
+    loading: state.loading,
+    activeLocation: state.activeLocation
   };
 }
 
@@ -62,3 +91,18 @@ export default connect(
   mapStateToProps,
   { storyAction, loadingAction }
 )(StoryList);
+
+// {this.props.story.moolelo ? this.showMoolelo() : <p />}
+
+// {this.props.story.moolelo ? (
+//   this.showMoolelo().map((p, index) => (
+//     <React.Fragment>
+//       <p key={index} className={p.className.S}>
+//         {p.content.S}
+//       </p>
+//       <br />
+//     </React.Fragment>
+//   ))
+// ) : (
+//   <p />
+// )}

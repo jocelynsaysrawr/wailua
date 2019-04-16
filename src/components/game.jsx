@@ -7,8 +7,8 @@ import {
   getTranslation,
   signout
 } from "../actions/index";
-import { Auth } from "aws-amplify";
-import requireAuth from "../components/require_auth";
+// import { Auth } from "aws-amplify";
+// import requireAuth from "../components/require_auth";
 import Camera from "../components/camera";
 import config from "../config";
 import "../style/game.scss";
@@ -129,13 +129,6 @@ class Game extends Component {
           ) : (
             <p />
           )}
-          {!this.props.image ? (
-            <button className="btn-signout" onClick={this.props.signout}>
-              Sign Out
-            </button>
-          ) : (
-            <p />
-          )}
         </div>
       );
     }
@@ -147,17 +140,17 @@ class Game extends Component {
     this.setState({ labels: [] });
   }
 
-  async componentDidMount() {
-    try {
-      if (await Auth.currentSession()) {
-        this.props.authenticate(true);
-      }
-    } catch (e) {
-      if (e !== "No current user") {
-        alert(e);
-      }
-    }
-  }
+  // async componentDidMount() {
+  //   try {
+  //     if (await Auth.currentSession()) {
+  //       this.props.authenticate(true);
+  //     }
+  //   } catch (e) {
+  //     if (e !== "No current user") {
+  //       alert(e);
+  //     }
+  //   }
+  // }
 
   translate() {
     if (this.state.labels) {
@@ -203,14 +196,6 @@ class Game extends Component {
           ) : (
             <p />
           )}
-
-          {this.props.image ? (
-            <button className="btn-signout" onClick={this.props.signout}>
-              Sign Out
-            </button>
-          ) : (
-            <p />
-          )}
         </div>
       </div>
     );
@@ -229,4 +214,20 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { loadGame, authenticate, setImage, getTranslation, signout }
-)(requireAuth(Game));
+)(Game);
+
+// {!this.props.image ? (
+//   <button className="btn-signout" onClick={this.props.signout}>
+//     Sign Out
+//   </button>
+// ) : (
+//   <p />
+// )}
+
+// {this.props.image ? (
+//   <button className="btn-signout" onClick={this.props.signout}>
+//     Sign Out
+//   </button>
+// ) : (
+//   <p />
+// )}
