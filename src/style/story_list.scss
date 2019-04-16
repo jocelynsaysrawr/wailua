@@ -1,7 +1,41 @@
+@import "colors";
+
 .story-container {
   padding-top: 150px;
   padding-bottom: 150px;
-  height: 100vh;
+  height: 98vh;
+  overflow: scroll;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: white;
+
+  div.widget {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  button.widget {
+    color: $mid-green-color;
+    border: 0.75px solid $mid-green-color;
+    text-align: center;
+    padding: 30px 30px;
+    margin: 2px;
+  }
+
+  button.widget:focus {
+    border: 0.75px solid white;
+    color: white;
+  }
+
+  button.widget h2 {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  #moolelo-container {
+    display: none;
+  }
 }
 
 .story {
@@ -11,7 +45,7 @@
   word-spacing: 3px;
   letter-spacing: 1px;
   line-height: 20px;
-  font-family: 'Arial', Helvetica, sans-serif;
+  font-family: "Arial", Helvetica, sans-serif;
   color: white;
   padding-top: 20px;
   padding-left: 30px;

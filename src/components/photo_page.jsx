@@ -12,18 +12,36 @@ class Photos extends Component {
 
   showPics() {
     const photos = this.props.photos;
-    const showPhoto = photos.map(({photo_id, photo_url, location, description, obtained_from}) => {
-      return (
-        <div key={photo_id.S} className={"pic"}>
-          <img key={photo_id.S} src={photo_url.S} alt={"Kauai Pics"} />
-          <div className={"picText"}>
-            <p className="photo-p">Location: {location.S}</p>
-            <p className="photo-p">Description: {description.S}</p>
-            <p className="photo-p">Obtained From: {obtained_from.S}</p>
+    const showPhoto = photos.map(
+      ({
+        photo_id,
+        photo_url,
+        current_photo_url,
+        location,
+        description,
+        obtained_from
+      }) => {
+        return (
+          <div key={photo_id.S} className={"pic"}>
+            <img key={photo_id.S} src={photo_url.S} alt={"Kauai Pics"} />
+            {current_photo_url ? (
+              <img
+                key={photo_id.S + "_current"}
+                src={current_photo_url.S}
+                alt={"Current Kauai"}
+              />
+            ) : (
+              <p />
+            )}
+            <div className={"picText"}>
+              <p className="photo-p">Location: {location.S}</p>
+              <p className="photo-p">Description: {description.S}</p>
+              <p className="photo-p">Obtained From: {obtained_from.S}</p>
+            </div>
           </div>
-        </div>
-      );
-    });
+        );
+      }
+    );
     return showPhoto;
   }
 
@@ -47,10 +65,9 @@ class Photos extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.activeLocation !== this.props.activeLocation){
+    if (prevProps.activeLocation !== this.props.activeLocation) {
       this.props.photoAction(this.props.activeLocation);
     }
-
   }
 
   render() {

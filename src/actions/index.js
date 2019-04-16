@@ -16,8 +16,6 @@ import {
 import axios from "axios";
 import { Auth } from "aws-amplify";
 
-let locationName = "Wailua-River";
-
 export function selectNav(nav) {
   return {
     type: NAV_SELECTED,
@@ -26,7 +24,6 @@ export function selectNav(nav) {
 }
 
 export function selectLocation(location) {
-  locationName = location;
   return {
     type: LOCATION_SELECTED,
     payload: location
@@ -89,13 +86,14 @@ export function signout() {
   };
 }
 
-export function storyAction() {
+export function storyAction(location) {
   return dispatch => {
     return axios
       .get(
-        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/stories/Kauai/${locationName}`
+        `https://du9n190sya.execute-api.us-west-2.amazonaws.com/dev/api/stories/Kauai/${location}`
       )
       .then(res => {
+        console.log("story action data: ", res.data);
         dispatch(getStoryAsync(res.data));
       });
   };
