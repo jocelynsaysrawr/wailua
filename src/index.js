@@ -17,6 +17,7 @@ import Game from "./components/game";
 import About from "./components/about";
 import Preservation from "./components/preservation";
 import SignUp from "./components/sign_up";
+import Resources from "./components/resources";
 import registerServiceWorker from "./registerServiceWorker";
 import "normalize.css";
 import "./style/styles.scss";
@@ -47,6 +48,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
+          <Route path="/references" component={Resources} />
           <Route path="/game" component={Game} />
           <Route path="/story" component={StoryList} />
           <Route path="/photos" component={Photos} />

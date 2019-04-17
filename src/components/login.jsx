@@ -33,7 +33,7 @@ class Login extends Component {
     try {
       await Auth.signIn(this.state.email, this.state.password);
       this.props.authenticate(true);
-      this.props.history.push("/game");
+      this.props.history.push("/references");
     } catch (e) {
       alert(e.message);
     }

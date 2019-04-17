@@ -184,7 +184,7 @@ class HamburgerMenu extends Component {
                       </li>
                     </ul>
                   </DropdownContainer>
-                  <a href="#ref">References</a>
+                  <Link to={"/references"}>References</Link>
                 </DropdownContainer>
                 <button>ʻOlohena</button>
                 <button>Waipouli</button>

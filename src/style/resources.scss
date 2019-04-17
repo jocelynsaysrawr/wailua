@@ -1,0 +1,36 @@
+@import "colors";
+
+.resources-container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: white;
+
+  .btn-signout {
+    color: $mid-green-color;
+    border: 0.75px solid $mid-green-color;
+    border-radius: 3px;
+    position: fixed;
+    width: 100px;
+    padding: 10px;
+    top: 5.75%;
+    left: 5%;
+    z-index: 1000;
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+  a:link {
+    color: $mid-green-color;
+  }
+
+  a:hover {
+    color: $link-hover;
+  }
+
+  a:visited {
+    color: $background-color-light;
+  }
+}
