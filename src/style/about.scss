@@ -1,16 +1,47 @@
+@import "colors";
+
 .about-container {
-    padding-top: 150px;
-    padding-bottom: 150px;
-    height: 100%;
-    font-family: 'Arial', Helvetica, sans-serif;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  height: 100%;
+  //   font-family: "Arial", Helvetica, sans-serif;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: white;
 
-    h1 {
-        font-size: 40px;
-        text-align: center;
-        color: white;
-    }
+  .italic {
+    font-style: italic;
+  }
 
-    p {
-        padding: 20px 30px;
-    }
+  .underlined {
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style-type: circle;
+    padding-left: 10%;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: $link-hover;
+  }
 }
