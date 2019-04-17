@@ -3,9 +3,9 @@ import { storyAction, loadingAction } from "../actions/index";
 import { connect } from "react-redux";
 // import LoadingScreen from "react-loading-screen";
 import "../style/story_list.scss";
-import { FG_Moolelo } from "../story_fragments/FG_Moolelo";
-import { FG_Historical } from "../story_fragments/FG_Historical";
-import { FG_Current } from "../story_fragments/FG_Current";
+import { FG_Moolelo } from "../story_fragments/fern-grotto/FG_Moolelo";
+import { FG_Historical } from "../story_fragments/fern-grotto/FG_Historical";
+import { FG_Current } from "../story_fragments/fern-grotto/FG_Current";
 
 class StoryList extends Component {
   state = {
@@ -53,7 +53,7 @@ class StoryList extends Component {
             className="widget"
             onClick={() => this.toggleShow(FG_Moolelo)}
           >
-            <h2>Moolelo</h2>
+            <h2>Traditional Accounts</h2>
           </button>
           <button
             className="widget"

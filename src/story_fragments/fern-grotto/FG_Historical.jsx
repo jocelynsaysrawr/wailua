@@ -13,20 +13,47 @@ export const FG_Historical = () => {
       <p>
         The term Hamoa could means fowl trough (Parker Dictionary). Hāmoa could
         also perhaps be a shortening of Haʻamoa, an old name for Samoa{" "}
-        <a>(Place names of Hawaiʻi).</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://wehewehe.org/gsdl2.85/cgi-bin/hdict?a=q&r=1&hs=1&m=-1&o=-1&e=p-11000-00---off-0hdict--00-1----0-10-0---0---0direct-10-ED--4-------0-1lpm--11-haw-Zz-1---Zz-1-home---00-3-1-00-0--4----0-0-11-00-0utfZz-8-00&q=hamoa&j=pp&af=1&fqf=ED"
+        >
+          (Place names of Hawaiʻi).
+        </a>
       </p>
       <br />
       <p>
-        The term Kamoa means the fowl <a>(Parker Dictionary)</a> or the chicken
-        or plant names <a>(Place Names of Hawaiʻi)</a>. Kāmoa could mean a
-        seashell, same as moa, or Samoa; Samoan (old name was Haʻamoa){" "}
-        <a>(Pukui and Elbert)</a>
+        The term Kamoa means the fowl{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://wehewehe.org/gsdl2.85/cgi-bin/hdict?a=q&r=1&hs=1&m=-1&o=-1&e=d-11000-00---off-0hdict--00-1----0-10-0---0---0direct-10-ED--4-------0-1lpp--11-haw-Zz-1---Zz-1-home-hamoa--00-3-1-00-0--4----0-0-11-00-0utfZz-8-00&q=hamoa&j=p1&af=1&fqf=ED"
+        >
+          (Parker Dictionary)
+        </a>{" "}
+        or the chicken or plant names <a>(Place Names of Hawaiʻi)</a>. Kāmoa
+        could mean a seashell, same as moa, or Samoa; Samoan (old name was
+        Haʻamoa){" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://wehewehe.org/gsdl2.85/cgi-bin/hdict?a=q&r=1&hs=1&m=-1&o=-1&e=q-11000-00---off-0hdict--00-1----0-10-0---0---0direct-10-ED--4-------0-1lpk--11-haw-Zz-1---Zz-1-home-hamoa--00-3-1-00-0--4----0-0-11-00-0utfZz-8-00&q=kamoa&j=pk&af=1&fqf=ED"
+        >
+          (Pukui and Elbert)
+        </a>
       </p>
       <br />
       <p>
-        Piror to the Māhele the lands of Hamoa/Kamoa were leased. The lease of
-        these crown lands were made before the Land Commission. Thomas Brown was
-        granted a 99 year lease from Keoni Ana. <a>(CITE)</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://www.hawaiihistory.org/index.cfm?fuseaction=ig.page&PageID=288"
+        >
+          Prior to the Māhele
+        </a>{" "}
+        the lands of Hamoa/Kamoa were leased. The lease of these crown lands
+        were made before the Land Commission. Thomas Brown was granted a 99 year
+        lease from Keoni Ana. <a>(CITE)</a>
       </p>
       <br />
       <p>
@@ -136,7 +163,7 @@ export const FG_Historical = () => {
         cavern. <a>(Soboleski 2006)</a>
       </p>
       <br />
-      <p>
+      <p className="indented">
         Note- Unterwater caves exsist on the Wailua River; One such is
         Kaluamōkila (“Mōkila cave”), a cave that extends north to south through
         Puʻukī near Holoholokū Heiau.The south entrance was located underwater
