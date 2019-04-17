@@ -6,10 +6,25 @@ import "../style/story_list.scss";
 import { FG_Moolelo } from "../story_fragments/fern-grotto/FG_Moolelo";
 import { FG_Historical } from "../story_fragments/fern-grotto/FG_Historical";
 import { FG_Current } from "../story_fragments/fern-grotto/FG_Current";
+import { L_Moolelo } from "../story_fragments/lydgate/L_Moolelo";
+import { L_Historical } from "../story_fragments/lydgate/L_Historical";
+import { L_Current } from "../story_fragments/lydgate/L_Current";
+import { O_Moolelo } from "../story_fragments/opaekaa/O_Moolelo";
+import { O_Historical } from "../story_fragments/opaekaa/O_Historical";
+import { O_Current } from "../story_fragments/opaekaa/O_Current";
+import { WB_Moolelo } from "../story_fragments/wailua-beach/WB_Moolelo";
+import { WB_Historical } from "../story_fragments/wailua-beach/WB_Historical";
+import { WB_Current } from "../story_fragments/wailua-beach/WB_Current";
+import { WR_Moolelo } from "../story_fragments/wailua-river/WR_Moolelo";
+import { WR_Historical } from "../story_fragments/wailua-river/WR_Historical";
+import { WR_Current } from "../story_fragments/wailua-river/WR_Current";
 
 class StoryList extends Component {
   state = {
-    story_display: ""
+    story_display: "",
+    moolelo: "",
+    historical: "",
+    current: ""
   };
 
   toggleShow(fragment) {
@@ -18,12 +33,54 @@ class StoryList extends Component {
     });
   }
 
+  setStories(location) {
+    switch (this.props.activeLocation) {
+      case "Wailua-River":
+        this.setState({
+          moolelo: WR_Moolelo,
+          historical: WR_Historical,
+          current: WR_Current
+        });
+        break;
+      case "Lydgate":
+        this.setState({
+          moolelo: L_Moolelo,
+          historical: L_Historical,
+          current: L_Current
+        });
+        break;
+      case "Wailua-Beach":
+        this.setState({
+          moolelo: WB_Moolelo,
+          historical: WB_Historical,
+          current: WB_Current
+        });
+        break;
+      case "Opaekaa":
+        this.setState({
+          moolelo: O_Moolelo,
+          historical: O_Historical,
+          current: O_Current
+        });
+        break;
+      case "Fern-Grotto":
+        this.setState({
+          moolelo: FG_Moolelo,
+          historical: FG_Historical,
+          current: FG_Current
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   componentDidMount() {
     // setTimeout(() => {
     //   this.setState({ loading: false });
     // }, 1000);
 
-    this.props.storyAction(this.props.activeLocation);
+    this.setStories(this.props.activeLocation);
 
     // this.setState({
     //   currentQuote: this.randomQuote()
@@ -32,38 +89,32 @@ class StoryList extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.activeLocation !== this.props.activeLocation) {
-      this.props.storyAction(this.props.activeLocation);
+      this.setStories(this.props.activeLocation);
+      this.setState({
+        story_display: ""
+      });
     }
   }
 
   render() {
     return (
       <div className="story-container">
-        {/* <LoadingScreen
-          loading={loading}
-          bgColor="#373A46"
-          spinnerColor="#9ee5f8"
-          textColor="#ffffff"
-          logoSrc="http://res.freestockphotos.biz/pictures/15/15939-illustration-of-a-small-cartoon-mountain-pv.png"
-          text={this.state.currentQuote}
-        /> 
-      */}
         <div className="widget">
           <button
             className="widget"
-            onClick={() => this.toggleShow(FG_Moolelo)}
+            onClick={() => this.toggleShow(this.state.moolelo)}
           >
             <h2>Traditional Accounts</h2>
           </button>
           <button
             className="widget"
-            onClick={() => this.toggleShow(FG_Historical)}
+            onClick={() => this.toggleShow(this.state.historical)}
           >
             <h2>Historical Accounts</h2>
           </button>
           <button
             className="widget"
-            onClick={() => this.toggleShow(FG_Current)}
+            onClick={() => this.toggleShow(this.state.current)}
           >
             <h2>Current Narrative</h2>
           </button>
@@ -91,18 +142,3 @@ export default connect(
   mapStateToProps,
   { storyAction, loadingAction }
 )(StoryList);
-
-// {this.props.story.moolelo ? this.showMoolelo() : <p />}
-
-// {this.props.story.moolelo ? (
-//   this.showMoolelo().map((p, index) => (
-//     <React.Fragment>
-//       <p key={index} className={p.className.S}>
-//         {p.content.S}
-//       </p>
-//       <br />
-//     </React.Fragment>
-//   ))
-// ) : (
-//   <p />
-// )}
