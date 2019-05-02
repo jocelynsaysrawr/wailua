@@ -34,7 +34,7 @@ export const O_Historical = () => {
         <em className="italic">
           Map of Lihue Plantation (Northern Portion) Lihue, Kauai
         </em>{" "}
-        done by Surveyor M.D. Monsarrat it is uncertain if the spelling “Opaikaa
+        done by Surveyor M.D. Monserrat it is uncertain if the spelling “Opaikaa
         Falls” instead of ʻŌpaekaʻa was deliberate or accidental through
         replacing vowels e to i because of the way they sound.
       </p>
@@ -42,11 +42,18 @@ export const O_Historical = () => {
       <p>
         ʻŌpae means shrimp, Kaʻa means to roll, the literal translation for
         ʻŌpaekaʻa is rolling shrimp and gets its name for the shrimp that once
-        gathered at the pools formed at the base of the falls. (Dickey, Kaiʻu,
-        Pukui, Elbert, Moʻokini) There is no definition for “Opai” or “Opaikaa”.
-        Interestingly however, while Pai has multiple meanings, one of them is a
-        funnel shaped wicker basket used for catching shrimps and small fish, so
-        called because it was lifted (pai) from the water.
+        gathered at the pools formed at the base of the falls. (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://www.kauaihistoricalsociety.org/product/legends-of-wailua/"
+        >
+          Dickey
+        </a>
+        , Kaiʻu, Pukui, Elbert, Moʻokini) There is no definition for “Opai” or
+        “Opaikaa”. Interestingly however, while Pai has multiple meanings, one
+        of them is a funnel shaped wicker basket used for catching shrimps and
+        small fish, so called because it was lifted (pai) from the water.
       </p>
       <br />
       <p>
@@ -61,18 +68,55 @@ export const O_Historical = () => {
         When looking at certain Land Commission Awards , Ka-wai-iki is called
         both a muliwai and stream. These claiments include Nahinu, Poka, and
         Kaumualiʻi. Specifically these LCA’s states that Ka-wai-iki was bounded
-        on the south side of LCA claim number 3909:1 by Nahinu (TMK 4101:6) and
-        of LCA claim number 3405:1 by Poka (not awarded, TMK 4101:por.7). On the
-        north and east sides Ka-wai-iki was bounded by LCA claim number 3561:2
-        by Kaumualiʻi (not awarded, perhaps TMK 4101:1). Foreign testimony also
-        state “This stream, is now known as ʻŌpaekaʻa” (Land Commission, Foreign
-        Testimony 13:75,86,87).
+        on the south side of LCA claim number 3909:1 by{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://ulukau.org/cgi-bin/vicki?e=d0vicki--00-1-0Date--010---4----text---0-1l--1en-Zz-1---20-about---010-131-0010escapewin00&a=d&c=vicki&cl=CL1.1.5.33&d=C03909"
+        >
+          Nahinu
+        </a>{" "}
+        (TMK 4101:6) and of LCA claim number 3405:1 by{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href=" http://ulukau.org/cgi-bin/vicki?e=d0vicki--00-1-0Date--010---4----text---0-1l--1en-Zz-1---20-about---010-131-0010escapewin00&a=d&c=vicki&cl=CL1.1.5.33&d=C03405"
+        >
+          Poka
+        </a>{" "}
+        (not awarded, TMK 4101:por.7). On the north and east sides Ka-wai-iki
+        was bounded by LCA claim number 3561:2 by{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://ulukau.org/cgi-bin/vicki?e=d0vicki--00-1-0Date--010---4----text---0-1l--1en-Zz-1---20-about---010-131-0010escapewin00&a=d&c=vicki&cl=CL1.1.5.33&d=C03561"
+        >
+          Kaumualiʻi
+        </a>{" "}
+        (not awarded, perhaps TMK 4101:1). Foreign testimony also state “This
+        stream, is now known as ʻŌpaekaʻa” (Land Commission, Foreign Testimony
+        13:75,86,87).
       </p>
       <br />
       <p>
-        Land Commission Awards to a Kelani (LCA 3568) to and Deborah Kapule (LCA
-        3111/3559:3), confirm that that Ka-wai-iki is not only an ʻili but also
-        an ʻauwai.
+        Land Commission Awards to a{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://ulukau.org/cgi-bin/vicki?e=d0vicki--00-1-0Date--010---4----text---0-1l--1en-Zz-1---20-about---010-131-0010escapewin00&a=d&c=vicki&cl=CL1.1.5.33&d=C03568"
+        >
+          Kelani
+        </a>{" "}
+        (LCA 3568) to and{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://ulukau.org/cgi-bin/vicki?e=d0vicki--00-1-0Date--010---4----text---0-1l--1en-Zz-1---20-about---010-131-0010escapewin00&a=d&c=vicki&cl=CL1.1.5.33&d=C03561"
+        >
+          Deborah Kapule
+        </a>{" "}
+        (LCA 3111/3559:3), confirm that that Ka-wai-iki is not only an ʻili but
+        also an ʻauwai.
       </p>
       <br />
       <p className="double-indented">
@@ -96,18 +140,33 @@ export const O_Historical = () => {
       <p>
         Ka-wai-iki is also written as "Kaiwaiiki" in Indices and Award Book, as
         "Kaiwiki" in FT 13:72,73; "Kaiwiiki" in FT 13:85,86; "Kawiiki" in AB
-        8:516. Source: Indices of Awards, Land Commission 547; Land Commission,
-        Awards Book 6:759,8:516. (Sohren) Cat. No.: 439.07.006{" "}
+        8:516. (Source: Indices of Awards, Land Commission 547; Land Commission,
+        Awards Book 6:759,8:516,{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://www.useapencil.org/soehren/pr
+        ocess.php?terms1=kawaiiki&boolean1=1"
+        >
+          Lloyd J. Soehren's
+        </a>{" "}
+        Cat. No.: 439.07.006).
       </p>
       <br />
       <p>
         Based on a detailed study in 1935, Handy (1940:67-68) described Wailua
         as a very productive settlement area with extensive agricultural fields
-        (Carson, 2005:64):
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.academia.edu/22361315/Na_Mea_Kahiko_o_Kaua_i_Archaeological_Studies_in_Kaua_i"
+        >
+          (Carson, 2005:64):
+        </a>
       </p>
       <br />
       <p className="indented">
-        Along the lower 2 miles of Wailua River, above the sandy costal plain,
+        Along the lower 2 miles of Wailua River, above the sandy coastal plain,
         are many broad, open, level areas, formerly in terraces, now mostly in
         sugar. ʻŌpaekaa Stream, which flowers into tidewater Wailua River,
         watered many terraces both above and below that falls. The large area of

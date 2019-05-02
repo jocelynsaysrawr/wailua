@@ -13,16 +13,24 @@ export const L_Moolelo = () => {
       <br />
       <p>
         At the mouth of the river was a complex of important religious,
-        political, and cultural sites. One of these sites was Puʻuhonua o
-        Hauola, located on the heiau on the south side of the river mouth.
+        political, and cultural sites. One of these sites was{" "}
+        <strong>Puʻuhonua o Hauola</strong>, located on the heiau on the south
+        side of the river mouth.
       </p>
       <br />
       <p>
         <strong>Hau-ola</strong> literally means dew of life, and this heiau was
         known as a place of refuge for those fleeing from war or kapu breakers
         to be absolved of their infractions. After performing certain rituals,
-        refuge-seekers were allowed to leave after several days (Joesting,1984,
-        p.10). Dickey writes:
+        refuge-seekers were allowed to leave after several days (Joesting).{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://www.kauaihistoricalsociety.org/product/legends-of-wailua/"
+        >
+          Dickey
+        </a>{" "}
+        writes:
       </p>
       <br />
       <p className="indented">
@@ -30,11 +38,11 @@ export const L_Moolelo = () => {
         flee from the pursuer and be safe. The gates were always open for the
         fugitives who rush in, hasten to the principle idol to think it for
         safety and after remaining within the walls a few days would be immune
-        and might leave. Inside the walls were houses for the priests and for
-        the refugees. There is also a pōhaku piko here. In the south eastern
-        part is the heiau, Hikina-akala, a long, narrow, heiau, containing
-        graves of a family that desecrated it by cultivating within its walls.
-        It is reported that on the nights of Kāne. The sound of the drum ʻūkēkē,
+        and might leave. Inside the walls, were houses for the priests and for
+        the refugees. There is also a pōhaku piko here. In the southeastern part
+        is the heiau, Hikina-akala, a long, narrow, heiau, containing graves of
+        a family that desecrated it by cultivating within its walls. It is
+        reported that on the nights of Kāne. The sound of the drum ʻūkēkē,
         played by the spirits, may still be heard at Hauola.
       </p>
       <br />
@@ -43,7 +51,7 @@ export const L_Moolelo = () => {
       <p className="indented">
         This was a place of refuge. Warriors defeated in war and their families,
         as well as anyone who had broken a taboo, might flee from pursuers and,
-        once reaching this place, were safe. The gates were always open but no
+        once reaching this place, were safe. The gates were always open, but no
         pursuer could enter after his intended victim. The refugee would give
         offerings to the gods, remain within the walls for a number of days, and
         then be free to leave and resume his/her life. No one dared resume
@@ -63,10 +71,18 @@ export const L_Moolelo = () => {
       </p>
       <br />
       <p>
-        Hikina-a-ka-la means the rising of the sun and is located beside Hauola
+        Hikina-a-ka-lā means the rising of the sun and is located beside Hauola
         on the south side of the Wailua river mouth. According to Lahainaluna
         Student papers, this heiau was built by Wailuanui-a-hoʻāno soon after
-        the Puna family came to Kaua'i from the Marquesas (Lahainaluna).
+        the Puna family came to Kaua'i from the Marquesas{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href=": http://www.kauaihistoricalsociety.org/wpcontent/uploads/2014/12/ms_64_lahinaluna_student_pape"
+        >
+          (Lahainaluna)
+        </a>
+        .
       </p>
       <br />
       <p>Additoinally she writes:</p>
@@ -83,9 +99,9 @@ export const L_Moolelo = () => {
       <p>
         The location of the heiau and puʻuhonua being on the East side of the
         island,where the Wailua river flows down and meets the ocean was
-        experienced as a protal or opening for the life-giving fertility forces
+        experienced as a portal or opening for the life-giving fertility forces
         of the rising sun. The east-west orientation of the site and the
-        astronomical alignemnt of the sacred structures to scontelalltion and
+        astronomical alignment of the sacred structures to constellation and
         star such as Hōkūpaʻa, the north star, confirm this is a place of great
         mana.
       </p>
