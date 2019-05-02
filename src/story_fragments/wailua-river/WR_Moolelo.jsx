@@ -29,7 +29,7 @@ export const WR_Moolelo = () => {
         place names, oli, mele, and ʻōlelo no‘eau are more strict and the words
         and are usually unchanged. Therefore, rather than focusing on mo‘olelo
         of Wailua River, I instead focus on the famed places of Wailua River
-        then closely at the oli, mele within the moʻolelo as well as the ʻolelo
+        then closely at the oli, mele within the moʻolelo as well as the ʻōlelo
         noʻeau.
       </p>
       <p className="centered">
@@ -37,7 +37,14 @@ export const WR_Moolelo = () => {
       </p>
       <p className="centered italic">The expansive waters of Wailua.</p>
       <p className="centered">
-        Wailua, Kauaʻi is the land of large streams. (Pukui 1648)
+        Wailua, Kauaʻi is the land of large streams.{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://georgehbalazs.com/wpcontent/uploads/2019/03/Pitzer_1983_HonoluluMagazine_Sharing-from-the-Source.pdf"
+        >
+          (Pukui 1648)
+        </a>
       </p>
       <br />
       <p>
@@ -57,19 +64,27 @@ export const WR_Moolelo = () => {
       <p>
         <strong>Ka-lua-hole</strong> the beginning portion of the north fork of
         the Wailua river, just before it joins the south fork. The name
-        literally means the pond where there are ahole fish. The water come from
-        Wai‘ale‘ale, through Pihanakalani and Ka-ehu gulch and is fed by
+        literally means the pond where there are āhole fish. The water comes
+        from Wai‘ale‘ale, through Pihanakalani and Ka-ehu gulch and is fed by
         Hahau-‘iole, Wailua-iki, and Waiahole. Ka-lua-hole is also the name of
         the smallest taro patch in the valley which, however, was famed for
         producing the finest taro. (Dickey, Ka‘iu, DAGS Map 146) Hahauʻiole is a
-        stream and waterfal whose headwaters drain the slopes of Maheo on the
-        Hanalei boarder and flows into the Wailua river just above the uction of
-        Wailua and Ke-ahua stream. The name means ratsmiting and may have a
-        connotation of the game pana ʻiole (Malo). The name would also bring to
-        mind the exploits of the famous archer Pikoi and Puapua-lenalena, the
-        dog that taught him many of his hunting skills. This is also the site of
-        an ancient village, where villagers would go to the sea at Wailua, catch
-        fish, dry them, and return to the mountins (Kaʻiu).
+        stream and waterfall whose headwaters drain the slopes of Maheo on the
+        Hanalei border and flows into the Wailua river just above the junction
+        of Wailua and Ke-ahua stream. The name means rat-smiting and may have a
+        connotation of the game{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://hilo.hawaii.edu/wehe/?q=pana+%CA%BBiole&l"
+        >
+          pana ʻiole (Malo)
+        </a>
+        . The name would also bring to mind the exploits of the famous archer
+        Pikoi and Puapua-lenalena, the dog that taught him many of his hunting
+        skills. This is also the site of an ancient village, where villagers
+        would go to the sea at Wailua, catch fish, dry them, and return to the
+        mountains (Kaʻiu).
       </p>
       <br />
       <p>
@@ -92,15 +107,15 @@ export const WR_Moolelo = () => {
       </p>
       <br />
       <p>
-        <strong>Kawī</strong> is a stream that flows from the Makaleha mountins
-        into the north branch of the Wailua river (Sorehen). The wafterfall of
+        <strong>Kawī</strong> is a stream that flows from the Makaleha mountains
+        into the north branch of the Wailua river (Sorehen). The waterfall of
         Kawī stream is named Moalepe or Cock’s comb. Along Kawī stream is an
         ancient hau grove (papu hau or ulu hau) called <strong>Kaʻehu</strong>{" "}
-        (the spray) that was said to have been about 50 acres fed by the Kaukua
-        stream (Kaʻiu). Kuakua is the name of the stream that flows into Kawī
-        stream and is the waters the feeds the hau grove of Kaʻehu (Kaʻiu).{" "}
-        <strong>Kuakua</strong>
-        is literally anvil for beating kapa.{" "}
+        (the spray) that was said to have been about 50 acres fed by the{" "}
+        <strong>Kaukua</strong> stream (Kaʻiu). Kuakua is the name of the stream
+        that flows into Kawī stream and is the waters that feeds the hau grove
+        of Kaʻehu (Kaʻiu). <strong>Kuakua</strong> is literally anvil for
+        beating kapa.{" "}
       </p>
       <br />
       <p>
@@ -118,17 +133,17 @@ export const WR_Moolelo = () => {
       <p>Along the lower half of the Wailua River are also famed places.</p>
       <br />
       <p>
-        <strong>Makena</strong> is a punawai (spring) at the bottom of the
+        <strong>Makena</strong> is a pūnāwai (spring) at the bottom of the
         river. According to LCA 1915, it was “above the poi factory.” Makena
-        means remembrance.{" "}
+        means remembrance.
       </p>
       <br />
       <p>
-        <strong>Malu-aka</strong> is the land area up the south fork a little
+        <strong>Malu-aka</strong> a is the land area up the south fork a little
         ways. Malu means stillness and awe of kapu, aka is the essence of an
-        offering. This is where the hau of Malu-ala first grew and spead along
-        the banks. Ka‘iu says, however that this place is at Wai-olo-io. These
-        hau flowers in particular do not ordinarily float away but eddy around
+        offering. This is where the hau of Malu-ala first grew and spread along
+        the banks. Ka‘iu says, however, that this place is at Wai-olo-io. These
+        hau flowers, in particular, do not ordinarily float away but eddy around
         and around until the wind of Wai-opua comes when they are gathered in
         the middle of the river and then travel in a long procession down to
         Hauola. (Dickey, Ka‘iu)
@@ -154,30 +169,31 @@ export const WR_Moolelo = () => {
         Kama‘alau. This grove stood just above the junction of the two branches
         of the Wailua river. Kama‘a-lau the leaf sandal, was a kupua brother of
         his kupua sister Pohāku, now also a stone in the water next to
-        Waiolo-io, a pond in the river itself. Pohaku is a variegated reddish
-        stone in the stream by the hau trees. The other of these gaurdians of
+        Waiolo-io, a pond in the river itself. Pōhaku is a variegated reddish
+        stone in the stream by the hau trees. The other of these guardians of
         the river is from 30 to 50 feet away. Another mo‘olelo in relation to
-        this place name is about a brother and sister who stole bananes from the
+        this place name is about a brother and sister who stole bananas from the
         patch of Palila on the top of Makaleha. Palila chased and nearly caught
         them, but the sister jumped into the water and became a stone and the
         brother jumped to one side of the stream and also became a stone.
-        Lastly, about halfway up the river there is a sharp pointed rock
-        formation, almost like a needle-like. It is realted to a rock that
+        Lastly, about halfway up the river, there is a sharp pointed rock
+        formation, almost like a needle-like. It is related to a rock that
         apparently floats in the bottom of the river. A chief fell in love with
         a commoner woman, but they were not permitted to marry. The gods took
         pity and they changed him into the rock on the side of the ridge and the
-        woman into the rock that floats in the river.{" "}
+        woman into the rock that floats in the river.
       </p>
       <br />
       <p>
         <strong>Papa-ʻalae</strong> was a fishpond for ali‘i on the North Bank
-        of the Wailua River between the river mouth and Holoholoku. Papa‘alae
+        of the Wailua River between the river mouth and Holoholokū. Papa‘alae
         means a great many ‘alae birds. This is where Maui forced the ‘alae bird
         to give him the secret of obtaining fire from sticks. The stone
         fireplace where the ‘alae bird made their fire was pointed out, and the
         hill behind where the suspicious and crafty old bird ascended to make
         sure that no curious eavesdroppers were in sight, and the sweet potato
-        patch in with Maui hid, half submerged in hole to watch the performance.
+        patch in with Maui hid, half submerged in a hole to watch the
+        performance.
       </p>
       <br />
       <p>
@@ -185,12 +201,12 @@ export const WR_Moolelo = () => {
         from Holoholokū. Mokila, a mo‘o, gathered all the precious stones of
         Kaua‘i into this cave where he lived. When two men tried to steal one of
         the gems, the mo‘o killed many people in his anger. Then he decided it
-        was better to leave Kaua‘i with all his gems, and that is why here are
+        was better to leave Kaua‘i with all his gems, and that is why there are
         no precious stones on Kaua‘i. Another mo‘olelo stated in times of war,
         the women and children belonging to the ruling family were hidden in
         this cave. One end of the cave was inside the temple of Ka-lei-o-manu
         and the other opens directly onto the river. Now much of the cave has
-        fallen in and it is very dangerous to go in it.{" "}
+        fallen in and it is very dangerous to go in it.
       </p>
       <br />
       <p>
@@ -200,15 +216,15 @@ export const WR_Moolelo = () => {
       </p>
       <br />
       <p>
-        Kū-hai-moana is a shark god who could also takethe form of a man, and
-        was oftern seen working in his lo‘i kalo up the river. According to
+        Kū-hai-moana is a shark god who could also take the form of a man, and
+        was often seen working in his lo‘i kalo up the river. According to
         Dickey, whenever a group of people passed him on their way to the sea to
         fish, Kū-hai-moana would ask them where they were going. If they were
         going visiting, he never replied, but if they were going fishing, he
         would say “Good luck!” After they passed, he would change into a shark
         form, swim down river and go out to sea to catch an unsuspecting victim
-        for his meal. The people could not kill Ku-hai-moana, since he was a
-        god, but they learned to never tell anyone they were going fishing.{" "}
+        for his meal.The people could not kill Kū-hai-moana, since he was a god,
+        but they learned to never tell anyone they were going fishing.
       </p>
       <br />
       <p>
